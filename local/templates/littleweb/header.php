@@ -19,4 +19,9 @@
 
 <body>
   <div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
-  <main class="workarea">
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <header class="header">
+        HEADER
+      </header>
+      <main class="workarea">

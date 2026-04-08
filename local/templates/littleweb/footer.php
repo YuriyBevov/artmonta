@@ -3,9 +3,13 @@
 
 <footer class="footer">
   <div class="container">
+    footer
   </div>
 </footer>
-
+<!-- <div id="smooth-wrapper"> -->
+</div>
+<!-- <div id="smooth-content"> -->
+</div>
 </body>
 
 </html>

@@ -3,7 +3,8 @@
 
 <footer class="footer">
   <div class="container">
-    footer
+    <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/site-blocks/logo.php");  ?>
+    <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/site-blocks/social.php");  ?>
   </div>
 </footer>
 <!-- <div id="smooth-wrapper"> -->

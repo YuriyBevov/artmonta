@@ -1,4 +1,40 @@
 {
+  "local/templates/littleweb/_src/fonts/Roboto-Bold.woff2": {
+    "file": "fonts/Roboto-Bold.Dt7zMN7z.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Roboto-Bold.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Roboto-Light.woff2": {
+    "file": "fonts/Roboto-Light.1x3amVl9.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Roboto-Light.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Roboto-Medium.woff2": {
+    "file": "fonts/Roboto-Medium.BCcnOS6E.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Roboto-Medium.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Roboto-Regular.woff2": {
+    "file": "fonts/Roboto-Regular.BqAJAbgd.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Roboto-Regular.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Roboto-SemiBold.woff2": {
+    "file": "fonts/Roboto-SemiBold.DEeJADsj.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Roboto-SemiBold.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Unbounded-Bold.woff2": {
+    "file": "fonts/Unbounded-Bold.D5uDhuja.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Unbounded-Bold.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Unbounded-Medium.woff2": {
+    "file": "fonts/Unbounded-Medium.CuI-tGOL.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Unbounded-Medium.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Unbounded-Regular.woff2": {
+    "file": "fonts/Unbounded-Regular.CLuhn8ed.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Unbounded-Regular.woff2"
+  },
+  "local/templates/littleweb/_src/fonts/Unbounded-SemiBold.woff2": {
+    "file": "fonts/Unbounded-SemiBold.DQJzkOpr.woff2",
+    "src": "local/templates/littleweb/_src/fonts/Unbounded-SemiBold.woff2"
+  },
   "local/templates/littleweb/_src/js/index.js": {
     "file": "template_scripts.CL9REy2T.js",
     "name": "script",
@@ -6,12 +42,21 @@
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.BGAZRWTt.css",
+    "file": "template_styles.BTfVHaxB.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",
     "names": [
       "template.css"
+    ]
+  },
+  "local/templates/littleweb/components/bitrix/news.list/social/_src/scss/index.scss": {
+    "file": "components/bitrix/news.list/social/style.C8D2qYdc.css",
+    "src": "local/templates/littleweb/components/bitrix/news.list/social/_src/scss/index.scss",
+    "isEntry": true,
+    "name": "bitrix_news_list_social_scss",
+    "names": [
+      "bitrix_news_list_social_scss.css"
     ]
   }
 }

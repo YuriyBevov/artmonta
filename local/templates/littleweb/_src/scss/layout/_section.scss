@@ -1,1 +1,9 @@
-.section {}
+.section {
+	padding: clamp(20px, 6vw, 60px) 0;
+
+	&-header {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+}

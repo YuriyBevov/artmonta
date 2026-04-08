@@ -1,8 +1,8 @@
 :root {
-	--primary-font: ;
-	--secondary-font: ;
+	--primary-font: "Roboto";
+	--secondary-font: "Unbounded";
 
-	--content-width: 1680px;
+	--content-width: 1300px;
 	--container-offset: clamp(10px, 2vw, 60px);
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 	--content-fluid-width: 1920px;
@@ -34,8 +34,8 @@
 	--site-base-font-size: 16px;
 	--site-base-line-height: 1.2;
 	--site-base-letter-spacing: 0.015em;
-	--site-base-text-color: var(--dark);
-	--site-bg-color: var(--white);
+	--site-base-text-color: var(--white);
+	--site-bg-color: var(--dark);
 
 	--main-transition: 0.25s ease;
 }

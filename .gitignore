@@ -13,6 +13,8 @@ lerna-debug.log*
 /cache/
 /node_modules/
 .access.php
+create-project.js
+*.config.mjs
 
 /workup.php
 

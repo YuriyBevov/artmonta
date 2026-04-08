@@ -1,0 +1,39 @@
+.arrow-btn {
+	display: grid;
+	grid-template-columns: auto auto;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+
+	&__text {
+		border-radius: 30px;
+		padding: 10px 20px;
+		color: white;
+
+		background-color: #007bff;
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+
+		justify-content: center;
+		background-color: var(--white);
+		color: var(--white);
+		border-radius: 50%;
+
+		aspect-ratio: 1 / 1;
+		width: auto;
+		height: 100%;
+		max-width: fit-content;
+
+		padding: 6px;
+
+		svg {
+			width: 16px;
+			height: auto;
+			fill: var(--dark);
+		}
+	}
+}

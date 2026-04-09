@@ -1,6 +1,86 @@
 @use "@scss/base/container-queries" as *;
 
 .footer {
-	min-height: 240px;
-	background-color: var(--primary);
+	padding-bottom: 20px;
+	background-color: #22202b;
+
+	container: footer / inline-size;
+
+	&__section {
+		&--main {
+			padding: clamp(30px, 3vw, 50px) 0;
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				gap: 30px 24px;
+
+				@include container-up("footer", 768px) {
+					display: grid;
+					grid-template-columns: 1fr 2fr 1fr;
+					gap: 16px clamp(24px, 4vw, 50px);
+				}
+			}
+
+			@include container-up("footer", 768px) {
+				div:has(.bottom-menu) {
+					grid-row: 1/4;
+					grid-column: 2/3;
+				}
+
+				.logo {
+					margin-top: -12px;
+				}
+			}
+
+			.bottom-menu {
+				@include container-up("footer", 440px) {
+					ul {
+						display: block;
+						columns: 2;
+						column-gap: 24px;
+					}
+				}
+
+				@include container-up("footer", 768px) {
+					margin-top: -12px;
+
+					grid-row: 1/4;
+					grid-column: 2/3;
+				}
+			}
+
+			.contact-block {
+				gap: clamp(12px, 3vw, 24px);
+
+				@include container-up("footer", 768px) {
+					grid-row: 1/4;
+					grid-column: 3/4;
+				}
+			}
+		}
+
+		&--info {
+			padding: 12px 0;
+			border-top: 1px solid var(--light);
+
+			.container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				gap: 12px 24px;
+			}
+
+			* {
+				font-size: 16px;
+				font-weight: 300;
+				color: var(--white);
+			}
+
+			a {
+				text-decoration: underline;
+				text-underline-offset: 3px;
+			}
+		}
+	}
 }

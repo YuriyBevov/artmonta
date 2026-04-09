@@ -1,0 +1,1 @@
+.bottom-menu ul{list-style:none;margin:0;padding:0}.bottom-menu ul a{display:flex;align-items:center;padding:12px 0;color:var(--white)}.bottom-menu ul a.selected{pointer-events:none;opacity:.6}

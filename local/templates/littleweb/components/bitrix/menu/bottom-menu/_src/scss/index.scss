@@ -1,0 +1,19 @@
+.bottom-menu {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		a {
+			display: flex;
+			align-items: center;
+			padding: 12px 0;
+			color: var(--white);
+
+			&.selected {
+				pointer-events: none;
+				opacity: 0.6;
+			}
+		}
+	}
+}

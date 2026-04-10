@@ -1,0 +1,31 @@
+@use "@scss/base/container-queries" as *;
+
+.about-front-section {
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: clamp(30px, 3.6vw, 50px) clamp(40px, 4vw, 95px);
+
+		@include container-up("section", 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__header-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		img {
+			width: 100%;
+			max-width: 600px;
+			height: auto;
+			object-fit: contain;
+			border-radius: 20px;
+		}
+	}
+
+	.content *:first-child {
+		margin-top: 0;
+	}
+}

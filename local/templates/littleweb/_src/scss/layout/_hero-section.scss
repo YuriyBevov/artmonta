@@ -1,0 +1,139 @@
+@use "@scss/base/container-queries" as *;
+
+.hero-section {
+	container: hero / inline-size;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		position: relative;
+		max-width: 1036px;
+
+		h1 {
+			display: flex;
+			flex-direction: column;
+			font-size: clamp(30px, 11vw, 120px);
+			line-height: 0.9;
+			font-weight: 600;
+			font-family: var(--secondary-font);
+			text-align: center;
+			margin: 20px 0;
+
+			@include container-up("hero", 768px) {
+				text-align: revert;
+			}
+
+			span {
+				text-align: center;
+
+				@include container-up("hero", 768px) {
+					padding-left: clamp(20px, 25.5vw, 280px);
+					text-align: right;
+				}
+			}
+
+			small {
+				font-family: var(--primary-font);
+				font-size: clamp(20px, 4vw, 28px);
+				font-weight: 300;
+				padding: 12px 0;
+				text-align: center;
+
+				@include container-up("hero", 768px) {
+					font-size: 0.382em;
+					text-align: revert;
+					padding: 2px;
+					padding-left: clamp(20px, 26vw, 280px);
+				}
+
+				@include container-up("hero", 960px) {
+					padding-left: revert;
+					padding: 24px;
+				}
+			}
+		}
+
+		a {
+			position: absolute;
+			top: 60%;
+			transform: translateY(-50%);
+			left: clamp(20px, 9vw, 80px);
+
+			display: none;
+			flex-direction: column;
+			gap: 8px;
+			align-items: center;
+			justify-content: center;
+
+			width: clamp(130px, 16cqw, 147px);
+			height: auto;
+			aspect-ratio: 1/1;
+
+			font-size: clamp(16px, 2.2cqw, 20px);
+			font-weight: 400;
+			text-align: center;
+			border-radius: 50%;
+			background-color: var(--primary);
+			color: var(--white);
+
+			svg {
+				width: 24px;
+				height: auto;
+				fill: var(--white);
+				transition: transform var(--main-transition);
+			}
+
+			@media (hover: hover) {
+				&:hover,
+				&:focus {
+					svg {
+						transform: rotate(45deg);
+					}
+				}
+			}
+
+			@include container-up("hero", 768px) {
+				display: flex;
+			}
+
+			@include container-up("hero", 960px) {
+				top: 50%;
+				left: clamp(20px, 11vw, 120px);
+			}
+		}
+	}
+
+	&__btn {
+		margin: 0 auto;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 95px 50px;
+		padding: clamp(50px, 4.4vw, 100px) 0;
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			* {
+				margin: 0;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			border-radius: 20px;
+		}
+
+		@include container-up("hero", 960px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

@@ -8,7 +8,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Портфолио Портфолио Портфолио Портфолио", 
+		"Портфолио", 
 		"/portfolio/", 
 		Array(), 
 		Array(), 

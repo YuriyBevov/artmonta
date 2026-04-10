@@ -1,0 +1,79 @@
+@use "@scss/base/container-queries" as *;
+
+.workflow {
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		gap: 0 clamp(30px, 4vw, 50px);
+
+		@include container-up(section, 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.section__header {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		@include container-up(section, 534px) {
+			padding: 0 0 35px 35px;
+			margin-left: 14px;
+
+			border-left: 1px solid var(--lightdark);
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			.outlined-icon {
+				display: flex;
+				align-items: center;
+				gap: 2px;
+
+				svg {
+					width: auto;
+					height: 60px;
+				}
+			}
+
+			@include container-up(section, 534px) {
+				position: relative;
+				&::before {
+					position: absolute;
+					top: 75px;
+					left: -50px;
+					content: "";
+					display: block;
+					width: 29px;
+					height: 29px;
+					border-radius: 50%;
+
+					/* Красный бордер */
+					border: 2px solid var(--primary);
+
+					/* Синий фон с красным кругом в центре через радиальный градиент */
+					background: radial-gradient(
+						circle at center,
+						var(--primary) 1px,
+						var(--dark) 9px,
+						var(--dark) 100%
+					);
+				}
+			}
+		}
+	}
+}

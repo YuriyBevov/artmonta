@@ -4,7 +4,7 @@
 <footer class="footer">
   <div class="footer__section footer__section--main">
     <div class="container">
-      <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/site-blocks/logo.php");  ?>
+      <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/logo.php");  ?>
 
 
       <? $APPLICATION->IncludeComponent(
@@ -33,7 +33,7 @@
         <a href="#">+7 499 900 09 90</a>
       </div>
 
-      <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/site-blocks/social.php");  ?>
+      <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/social.php");  ?>
     </div>
   </div>
   <div class="footer__section footer__section--info">

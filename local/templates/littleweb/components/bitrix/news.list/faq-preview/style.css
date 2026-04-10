@@ -1,0 +1,21 @@
+.faq-preview {
+	position: relative;
+	z-index: 2;
+	container: faq-preview/inline-size;
+}
+@container faq-preview (min-width: 534px ) {
+	.faq-preview > .container {
+		position: relative;
+	}
+}
+@container faq-preview (min-width: 960px ) {
+	.section.faq-preview > .container {
+		display: grid;
+		grid-template-columns: 4fr 5fr;
+		gap: 30px clamp(40px, 3vw, 80px);
+	}
+
+	.faq-preview .section__header {
+		gap: clamp(24px, 3.2vw, 32px);
+	}
+}

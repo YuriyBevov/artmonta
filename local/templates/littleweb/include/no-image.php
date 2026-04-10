@@ -1,0 +1,1 @@
+<img style="object-fit: contain;" src="<?= SITE_TEMPLATE_PATH . '/public/no_image.png' ?>" alt="<?= $arResult["NAME"] ? $arResult["NAME"] : 'Изображение-заглушка' ?>" width="80" height="60">

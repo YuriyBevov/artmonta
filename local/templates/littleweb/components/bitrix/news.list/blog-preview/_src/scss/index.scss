@@ -1,0 +1,11 @@
+.blog-preview {
+	&-card {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		a {
+			color: var(--white);
+		}
+	}
+}

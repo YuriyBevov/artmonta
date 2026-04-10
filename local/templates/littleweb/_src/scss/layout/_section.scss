@@ -1,9 +1,43 @@
+@use "@scss/base/container-queries" as *;
+
 .section {
+	container: section / inline-size;
 	padding: clamp(20px, 6vw, 60px) 0;
 
-	&-header {
+	&__header {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		gap: 24px;
+		margin-bottom: clamp(30px, 3.2vw, 50px);
+
+		& > .grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 28px;
+
+			@include container-up("section", 768px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			&-item {
+				*:first-child {
+					margin-top: 0;
+				}
+
+				*:last-child {
+					margin-bottom: 0;
+				}
+
+				&:last-child {
+					p {
+						max-width: 490px;
+					}
+				}
+			}
+		}
+
+		* {
+			margin: 0;
+		}
 	}
 }

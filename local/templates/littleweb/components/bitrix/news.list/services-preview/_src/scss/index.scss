@@ -1,0 +1,88 @@
+@use "@scss/base/container-queries" as *;
+
+.services-preview {
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		@include container-up("section", 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&-card {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		padding: 24px;
+		border: 2px solid var(--light);
+		border-radius: 20px;
+		color: var(--white);
+		background-color: var(--dark);
+
+		padding-right: 104px;
+		transition: border-color var(--main-transition);
+
+		* {
+			margin: 0;
+		}
+
+		&-container {
+			display: flex;
+			container: services-preview-card / inline-size;
+		}
+
+		&__icon {
+			position: absolute;
+			right: 24px;
+			bottom: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 50px;
+			height: 50px;
+			aspect-ratio: 1/1;
+
+			padding: 6px;
+			border: 1px solid var(--white);
+			border-radius: 50%;
+
+			background-color: transparent;
+
+			transition:
+				background-color var(--main-transition),
+				border-color var(--main-transition);
+
+			svg {
+				width: 16px;
+				height: 16px;
+				fill: var(--white);
+
+				transition:
+					transform var(--main-transition),
+					fill var(--main-transition);
+			}
+		}
+
+		@media (hover: hover) {
+			&:hover,
+			&:focus {
+				border-color: var(--primary);
+
+				.services-preview-card__icon {
+					border-color: var(--dark);
+					background-color: var(--white);
+
+					svg {
+						transform: rotate(45deg);
+						fill: var(--dark);
+					}
+				}
+			}
+		}
+	}
+}

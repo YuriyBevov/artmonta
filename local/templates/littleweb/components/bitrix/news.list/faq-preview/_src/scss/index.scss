@@ -1,0 +1,17 @@
+@use "@scss/base/container-queries" as *;
+
+.faq-preview {
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 24px;
+
+		@include container-up("section", 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.section__header {
+		margin-bottom: 0;
+	}
+}

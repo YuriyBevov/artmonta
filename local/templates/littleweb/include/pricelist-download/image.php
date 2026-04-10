@@ -1,0 +1,1 @@
+<img width="400" alt="Пример выставочного стенда" src="/upload/medialibrary/3bc/hszjt3u2g9qaw0kz7fdt4c8yib333y9x.png" height="297" title="Пример выставочного стенда">

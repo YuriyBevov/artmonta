@@ -1,0 +1,125 @@
+:root {
+	--accordeon-inner-padding: 24px;
+	--accordeon-border-radius: 20px;
+	--accordeon-bg: transparent;
+	--accordeon-box-shadow: none;
+	--accordeon-icon-bg: var(--primary);
+	--accordeon-icon-fill-color: var(--white);
+	--accordeon-item-border-color: var(--lightdark);
+}
+
+.accordeon {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&-item {
+		display: flex;
+		flex-direction: column;
+
+		border-radius: var(--accordeon-border-radius);
+		background-color: var(--accordeon-bg);
+		box-shadow: var(--accordeon-box-shadow);
+		border: 1px solid var(--accordeon-item-border-color);
+
+		transition: background-color var(--main-transition);
+
+		svg {
+			fill: var(--accordeon-icon-fill-color);
+		}
+
+		&.expanded {
+			background-color: var(--primary);
+
+			.accordeon-body {
+				position: relative;
+				grid-template-rows: 1fr;
+				opacity: 1;
+				margin-bottom: 20px;
+				padding: 20px var(--accordeon-inner-padding) 0;
+
+				&::before {
+					position: absolute;
+					top: -4px;
+					left: 24px;
+					background-color: var(--white);
+					content: "";
+					width: calc(100% - 48px);
+					height: 1px;
+				}
+			}
+
+			.accordeon-opener {
+				transform: rotate(135deg);
+
+				background-color: var(--white);
+
+				svg {
+					fill: var(--dark);
+				}
+			}
+		}
+	}
+
+	&-header {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding: var(--accordeon-inner-padding);
+		padding-right: 88px;
+		cursor: pointer;
+
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	&-opener {
+		position: absolute;
+		top: 24px;
+		right: 24px;
+
+		width: 40px;
+		min-width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: var(--accordeon-icon-bg);
+		will-change: auto;
+		transition: transform var(--main-transition);
+
+		svg {
+			width: 16px;
+			height: 16px;
+			fill: var(--white);
+		}
+	}
+
+	&-body {
+		display: grid;
+		grid-template-rows: 0fr;
+		opacity: 0;
+		padding: 0;
+		will-change: auto;
+		transition:
+			grid-template-rows var(--main-transition),
+			opacity 0.1s var(--main-transition);
+
+		& > .content {
+			margin: 0;
+			overflow: hidden;
+			transition: padding var(--main-transition);
+
+			& > * {
+				margin-top: 0;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

@@ -20,6 +20,7 @@
 	// --success: #42c486;
 	// --info: #fff8db;
 	--dark: #03010e;
+	--lightdark: #373443;
 
 	--light: #73707f;
 
@@ -38,5 +39,5 @@
 	--site-base-text-color: var(--white);
 	--site-bg-color: var(--dark);
 
-	--main-transition: 0.25s ease;
+	--main-transition: 0.35s 0.1s ease-out;
 }

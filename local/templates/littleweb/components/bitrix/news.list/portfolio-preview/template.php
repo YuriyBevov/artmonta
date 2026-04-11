@@ -65,7 +65,7 @@ $this->setFrameMode(true);
 				</div>
 
 				<? if ($arParams["NOTE"]): ?>
-					<span class="portfolio-preview__note"><?= $arParams["NOTE"] ?></span>
+					<span class="portfolio-preview__note"><?= $arParams["~NOTE"] ?></span>
 				<? endif; ?>
 
 				<?

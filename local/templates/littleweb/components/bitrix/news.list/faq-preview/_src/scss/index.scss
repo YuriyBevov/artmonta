@@ -11,7 +11,33 @@
 		}
 	}
 
+	@include container-up("section", 768px) {
+		.container-wide {
+			position: relative;
+
+			&::before {
+				position: absolute;
+
+				top: 40px;
+				left: -100px;
+				content: "";
+				width: 600px;
+				height: 600px;
+				background-image: url("@img/faq-bg.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: left;
+				z-index: -1;
+			}
+
+			width: 100%;
+			max-width: 1680px;
+			margin: 0 auto;
+		}
+	}
+
 	.section__header {
+		position: relative;
 		margin-bottom: 0;
 	}
 }

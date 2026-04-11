@@ -9,8 +9,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Портфолио -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"portfolio-preview",
+	"bitrix:news.list", 
+	"portfolio-preview", 
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -69,12 +69,82 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "portfolio",
-		"NOTE" => "Мы реализовали более 800 проектов"
+		"COMPONENT_TEMPLATE" => "portfolio-preview",
+		"NOTE" => "Мы реализовали более <strong>800 проектов</strong>"
 	),
 	false
 ); ?>
 <!-- Портфолио -->
+
+<!-- Преимущества -->
+<? $APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"features", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "DETAIL_PICTURE",
+			1 => "",
+		),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "13",
+		"IBLOCK_TYPE" => "site_content",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"INCLUDE_SUBSECTIONS" => "N",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "4",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "TITLE",
+			1 => "DESCRIPTION",
+			2 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N",
+		"COMPONENT_TEMPLATE" => "features",
+		"NOTE" => "Мы реализовали более 800 проектов"
+	),
+	false
+); ?>
+<!-- Преимущества -->
 
 <!-- Скачать прайс-лист -->
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/pricelist-download/template.php");  ?>
@@ -222,10 +292,10 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Блог -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"blog-preview", 
+	"bitrix:news.list",
+	"blog-preview",
 	array(
-		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",

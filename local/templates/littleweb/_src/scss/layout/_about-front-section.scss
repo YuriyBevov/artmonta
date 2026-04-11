@@ -16,6 +16,10 @@
 		flex-direction: column;
 		gap: 16px;
 
+		.section__header {
+			margin-bottom: 0;
+		}
+
 		img {
 			width: 100%;
 			max-width: 600px;

@@ -1,9 +1,10 @@
 @use "@scss/base/container-queries" as *;
 
 .footer {
+	position: relative;
 	padding-bottom: 20px;
 	background-color: #22202b;
-
+	z-index: 3;
 	container: footer / inline-size;
 
 	&__section {

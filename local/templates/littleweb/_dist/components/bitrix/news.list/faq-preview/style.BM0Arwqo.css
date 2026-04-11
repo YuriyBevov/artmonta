@@ -1,1 +1,0 @@
-.faq-preview .container{display:grid;grid-template-columns:1fr;gap:24px}@container section (min-width: 768px){.faq-preview .container{grid-template-columns:repeat(2,1fr)}}.faq-preview .section__header{margin-bottom:0}

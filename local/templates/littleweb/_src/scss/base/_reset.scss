@@ -20,6 +20,10 @@ body {
 	scrollbar-gutter: stable;
 }
 
+[class^="bx-"] {
+	overscroll-behavior: contain;
+}
+
 * {
 	&::-webkit-scrollbar {
 		background-color: transparent;

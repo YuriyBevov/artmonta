@@ -18,7 +18,7 @@ $this->setFrameMode(true);
         ?>
           <? if ($index < 4 && $arItem["PROPERTIES"]["TITLE"]["VALUE"] && $arItem["PROPERTIES"]["DESCRIPTION"]["VALUE"]): ?>
             <div class="features__grid-item" data-lag="<?= 1.1 + $index * .25 ?>">
-              <strong><?= $arItem["PROPERTIES"]["TITLE"]["VALUE"] ?>+</strong>
+              <strong data-counter-to="<?= $arItem["PROPERTIES"]["TITLE"]["VALUE"] ?>" data-counter-suffix="+"><?= $arItem["PROPERTIES"]["TITLE"]["VALUE"] ?></strong>
               <span><?= $arItem["PROPERTIES"]["DESCRIPTION"]["VALUE"] ?></span>
             </div>
           <? endif; ?>

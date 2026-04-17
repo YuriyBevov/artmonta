@@ -11,6 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	ScrollSmoother.create({
 		smooth: 2,
 		effects: true,
-		normalizeScroll: true,
+		normalizeScroll: false,
 	});
 });

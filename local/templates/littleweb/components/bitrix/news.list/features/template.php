@@ -4,6 +4,9 @@ $this->setFrameMode(true);
 
 <? if ($arResult["ITEMS"]): ?>
   <section class="section features">
+    <noindex>
+      <img class="sticky-img sticky-img--right" data-speed="1.4" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
+    </noindex>
     <div class="container">
       <h2 class="visually-hidden"><?= $arResult["NAME"] ?></h2>
 
@@ -14,7 +17,7 @@ $this->setFrameMode(true);
           $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
         ?>
           <? if ($index < 4 && $arItem["PROPERTIES"]["TITLE"]["VALUE"] && $arItem["PROPERTIES"]["DESCRIPTION"]["VALUE"]): ?>
-            <div class="features__grid-item">
+            <div class="features__grid-item" data-lag="<?= 1.1 + $index * .25 ?>">
               <strong><?= $arItem["PROPERTIES"]["TITLE"]["VALUE"] ?>+</strong>
               <span><?= $arItem["PROPERTIES"]["DESCRIPTION"]["VALUE"] ?></span>
             </div>

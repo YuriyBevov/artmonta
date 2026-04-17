@@ -3,6 +3,9 @@
 
 <footer class="footer">
   <div class="footer__section footer__section--main">
+
+
+
     <div class="container">
       <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/logo.php");  ?>
 

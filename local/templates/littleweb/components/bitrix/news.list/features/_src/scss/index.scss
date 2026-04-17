@@ -1,6 +1,7 @@
 @use "@scss/base/container-queries" as *;
 
 .features {
+	position: relative;
 	&__grid {
 		position: relative;
 		display: grid;
@@ -56,17 +57,17 @@
 			}
 		}
 
-		&::after {
-			position: absolute;
-			top: -30%;
-			right: -30%;
-			content: "";
-			width: 760px;
-			height: 430px;
-			background-image: url(@img/features-bg.png);
-			background-position: center;
-			background-repeat: no-repeat;
-			z-index: -1;
-		}
+		// &::after {
+		// 	position: absolute;
+		// 	top: -30%;
+		// 	right: -30%;
+		// 	content: "";
+		// 	width: 760px;
+		// 	height: 430px;
+		// 	background-image: url(@img/features-bg.png);
+		// 	background-position: center;
+		// 	background-repeat: no-repeat;
+		// 	z-index: -1;
+		// }
 	}
 }

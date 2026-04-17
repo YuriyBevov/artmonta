@@ -4,6 +4,8 @@ $this->setFrameMode(true);
 
 <? if ($arResult["ITEMS"]): ?>
 	<section class="section faq-preview" itemscope itemtype="https://schema.org/FAQPage">
+
+
 		<div class="container-wide">
 			<div class="container">
 				<?

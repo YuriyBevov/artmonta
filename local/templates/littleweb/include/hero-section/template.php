@@ -31,7 +31,7 @@
     ?>
 
     <div class="hero-section__content">
-      <div class="hero-section__content-item">
+      <div class="hero-section__content-item hero-section__content-item--text">
         <?
         $APPLICATION->IncludeFile(
           SITE_TEMPLATE_PATH . '/include/hero-section/description.php',

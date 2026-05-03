@@ -1,0 +1,57 @@
+@use "@scss/base/container-queries" as *;
+
+.production {
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		gap: 0 clamp(30px, 4vw, 50px);
+
+		@include container-up(section, 768px) {
+			grid-template-columns: minmax(360px, 1fr) 2fr;
+		}
+	}
+
+	.section__header {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__list {
+		&-wrapper {
+			container: production-list / inline-size;
+		}
+
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 24px;
+
+		@include container-up(production-list, 768px) {
+			grid-column: 2/4;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.iconed-link {
+			background-color: var(--lightdark);
+
+			&::after {
+				background-color: var(--light);
+				border-color: var(--white);
+			}
+
+			&:hover,
+			&:focus {
+				background-color: var(--primary);
+
+				&::after {
+					background-color: var(--white);
+				}
+			}
+		}
+	}
+}

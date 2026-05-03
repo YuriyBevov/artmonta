@@ -1,0 +1,40 @@
+@use "@scss/base/container-queries" as *;
+.callback-form {
+	container: callback-form / inline-size;
+
+	background-color: var(--primary);
+	padding: clamp(24px, 4.6vw, 60px);
+	border-radius: 20px;
+
+	form {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 24px clamp(24px, 7vw, 120px);
+
+		@include container-up(section, 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__note {
+		grid-column: -1/1;
+	}
+
+	&__section {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		container: callback-form-section / inline-size;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 12px 24px;
+
+		@include container-up(callback-form-section, 440px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

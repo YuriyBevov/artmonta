@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
 ?>
-<?/*
+
 <!-- Главный блок -->
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
 <!-- Главный блок -->
@@ -148,8 +148,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Какие стенды мы производим -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"production", 
+	"bitrix:news.list",
+	"production",
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -495,12 +495,12 @@ $APPLICATION->SetTitle("Мебельная компания");
 	false
 ); ?>
 <!-- Вопросы и ответы -->
-*/ ?>
+
 
 <!-- Наши клиенты -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"image-creeper-line", 
+	"bitrix:news.list",
+	"image-creeper-line",
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",

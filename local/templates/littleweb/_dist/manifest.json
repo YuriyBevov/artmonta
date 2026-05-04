@@ -40,13 +40,13 @@
     "src": "local/templates/littleweb/_src/images/faq-bg.png"
   },
   "local/templates/littleweb/_src/js/index.js": {
-    "file": "template_scripts.N_P85v9c.js",
+    "file": "template_scripts.q9EpcqM1.js",
     "name": "script",
     "src": "local/templates/littleweb/_src/js/index.js",
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.ZZwN8v0W.css",
+    "file": "template_styles.BqV5MyDd.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",
@@ -70,6 +70,15 @@
     "name": "bitrix_menu_bottom-menu_scss",
     "names": [
       "bitrix_menu_bottom-menu_scss.css"
+    ]
+  },
+  "local/templates/littleweb/components/bitrix/menu/top-menu/_src/scss/index.scss": {
+    "file": "components/bitrix/menu/top-menu/style.BwO_ywvM.css",
+    "src": "local/templates/littleweb/components/bitrix/menu/top-menu/_src/scss/index.scss",
+    "isEntry": true,
+    "name": "bitrix_menu_top-menu_scss",
+    "names": [
+      "bitrix_menu_top-menu_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/news.list/blog-preview/_src/js/index.js": {

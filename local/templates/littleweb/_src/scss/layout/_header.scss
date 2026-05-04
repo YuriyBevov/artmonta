@@ -1,11 +1,55 @@
+@use "@scss/base/container-queries" as *;
+
 .header {
 	padding: 30px 0;
 	background-color: var(--dark);
+	container: header / inline-size;
 
 	.container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
+
+		& > .social-block {
+			display: none;
+			@include container-up("header", 1240px) {
+				display: flex;
+			}
+		}
+
+		& > .contacts-block {
+			display: none;
+			align-items: center;
+			gap: 31px;
+
+			a {
+				display: flex;
+				font-size: 14px;
+				position: relative;
+				color: var(--white);
+
+				&:not(:last-child)::after {
+					content: "";
+					position: absolute;
+					right: -16px;
+					width: 1px;
+					height: 100%;
+					background-color: rgba(245, 245, 245, 0.5);
+				}
+			}
+
+			@include container-up("header", 1240px) {
+				display: flex;
+			}
+		}
+	}
+
+	.burger-btn {
+		&--opener {
+			@include container-up("header", 1240px) {
+				display: none;
+			}
+		}
 	}
 }

@@ -1,7 +1,12 @@
 @use "@scss/base/container-queries" as *;
 
 .header {
-	padding: 30px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	padding: 12px 0;
 	background-color: var(--dark);
 	container: header / inline-size;
 

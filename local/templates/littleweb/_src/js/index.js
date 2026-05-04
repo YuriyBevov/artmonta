@@ -1,3 +1,4 @@
+import "./modules/setHeaderHeight";
 import "./gsap/scrollSmoother";
 import "./gsap/featuresCounter";
 import "./gsap/menu";

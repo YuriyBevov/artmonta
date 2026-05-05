@@ -4,19 +4,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 document.addEventListener("DOMContentLoaded", () => {
 	const counters = document.querySelectorAll("[data-counter-to]");
 
-	if (!counters.length) {
-		return;
-	}
+	if (!counters.length) return;
 
 	gsap.registerPlugin(ScrollTrigger);
+
+	const items = [];
 
 	counters.forEach((counter) => {
 		const rawValue = String(counter.dataset.counterTo || "");
 		const endValue = Number(rawValue.replace(/\s+/g, "").replace(",", "."));
 
-		if (!Number.isFinite(endValue)) {
-			return;
-		}
+		if (!Number.isFinite(endValue)) return;
 
 		const suffix = counter.dataset.counterSuffix || "";
 		const startValue = Math.round(endValue * 0.9);
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		const card =
 			counter.closest(".features__grid-item") || counter.parentElement;
 
-		// Reserve the final card footprint before animation to avoid layout shifts.
 		const initialText = counter.textContent;
 		counter.textContent = finalText;
 		const rect = card ? card.getBoundingClientRect() : null;
@@ -36,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		counter.textContent = startText || initialText;
+
+		items.push({ counter, card, finalText });
 
 		const state = { value: startValue };
 
@@ -53,5 +52,26 @@ document.addEventListener("DOMContentLoaded", () => {
 				counter.textContent = `${Math.round(state.value)}${suffix}`;
 			},
 		});
+	});
+
+	const refreshCardSizes = () => {
+		items.forEach(({ counter, card, finalText }) => {
+			if (!card) return;
+			const currentText = counter.textContent;
+			card.style.width = "";
+			card.style.height = "";
+			counter.textContent = finalText;
+			const rect = card.getBoundingClientRect();
+			card.style.width = `${Math.ceil(rect.width)}px`;
+			card.style.height = `${Math.ceil(rect.height)}px`;
+			counter.textContent = currentText;
+		});
+		ScrollTrigger.refresh();
+	};
+
+	let resizeTimer;
+	window.addEventListener("resize", () => {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(refreshCardSizes, 150);
 	});
 });

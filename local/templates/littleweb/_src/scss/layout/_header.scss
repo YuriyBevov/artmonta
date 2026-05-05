@@ -18,7 +18,7 @@
 
 		& > .social-block {
 			display: none;
-			@include container-up("header", 1240px) {
+			@media (min-width: 1240px) {
 				display: flex;
 			}
 		}
@@ -44,7 +44,7 @@
 				}
 			}
 
-			@include container-up("header", 1240px) {
+			@media (min-width: 1240px) {
 				display: flex;
 			}
 		}
@@ -52,7 +52,7 @@
 
 	.burger-btn {
 		&--opener {
-			@include container-up("header", 1240px) {
+			@media (min-width: 1240px) {
 				display: none;
 			}
 		}

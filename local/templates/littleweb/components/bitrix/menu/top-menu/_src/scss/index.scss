@@ -7,7 +7,7 @@
 	width: 100dvw;
 	height: 100dvh;
 
-	@include container-up("header", 1240px) {
+	@media (min-width: 1240px) {
 		position: revert;
 		top: revert;
 		left: revert;
@@ -30,7 +30,7 @@
 		background-color: var(--primary);
 		z-index: 1001;
 
-		@include container-up("header", 1240px) {
+		@media (min-width: 1240px) {
 			position: revert;
 			top: revert;
 			right: revert;
@@ -50,7 +50,7 @@
 		justify-content: space-between;
 		gap: 32px;
 
-		@include container-up("header", 1240px) {
+		@media (min-width: 1240px) {
 			display: none;
 		}
 	}
@@ -64,7 +64,7 @@
 		margin: 0;
 		padding: 30px 0;
 
-		@include container-up("header", 1240px) {
+		@media (min-width: 1240px) {
 			flex-direction: row;
 			padding: 12px 0;
 		}
@@ -90,14 +90,14 @@
 			color: var(--white);
 		}
 
-		@include container-up("header", 1240px) {
+		@media (min-width: 1240px) {
 			display: none;
 		}
 	}
 
 	.social-block {
 		margin-top: auto;
-		@include container-up("header", 1240px) {
+		@media (min-width: 1240px) {
 			display: none;
 		}
 	}

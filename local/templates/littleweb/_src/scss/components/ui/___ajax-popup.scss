@@ -1,0 +1,63 @@
+@use "@scss/base/container-queries" as *;
+
+.ajax-popup-form {
+	width: 100%;
+	display: flex;
+	border-radius: 30px 0 30px 30px;
+
+	padding: clamp(24px, 3vw, 32px);
+	background: transparent;
+	container: ajax-popup / inline-size;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+
+		&-title {
+			font-size: clamp(24px, 3vw, 32px);
+			font-weight: 600;
+			color: var(--white);
+			margin-bottom: 12px;
+		}
+
+		&-text {
+			display: block;
+			font-size: 16px;
+			color: var(--white);
+			margin-bottom: 28px;
+		}
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+		margin-bottom: 12px;
+
+		.main-textarea-wrapper {
+			grid-column: -1/1;
+		}
+
+		@include container-up("ajax-popup", 360px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.main-textarea-wrapper,
+	.main-input-wrapper {
+		border-radius: 12px;
+	}
+
+	input[type="submit"] {
+		font-size: 16px;
+		max-width: 100%;
+		background-color: var(--black);
+	}
+}

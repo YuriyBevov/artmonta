@@ -24,7 +24,8 @@
       SITE_TEMPLATE_PATH . '/include/arrow-btn.php',
       array(
         'TEXT' => 'Оставить заявку',
-        'CLASS' => 'hero-section__btn'
+        'CLASS' => 'hero-section__btn',
+        'FORM_ID' => 1
       ),
       array('MODE' => 'html', 'NAME' => 'кнопку', 'SHOW_BORDER' => false)
     );

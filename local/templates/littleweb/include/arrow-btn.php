@@ -1,7 +1,8 @@
 <? if ($arParams["LINK"] && $arParams["LINK"] !== ''): ?>
   <a href="<?= $arParams["LINK"] ?>" class="arrow-btn <?= $arParams["CLASS"] ?? '' ?>">
   <? else: ?>
-    <button type="button" class="arrow-btn <?= $arParams["CLASS"] ?? '' ?>">
+    <button type="button" class="arrow-btn <?= $arParams["CLASS"] ?? '' ?>"
+      data-form-id="<?= $arParams["FORM_ID"] ?>">
     <? endif; ?>
     <span class="arrow-btn__text"><?= $arParams["TEXT"] ?: 'Подробнее' ?></span>
     <span class="arrow-btn__icon">

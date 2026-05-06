@@ -10,15 +10,11 @@
 	width: 100%;
 	border-radius: 25px;
 	padding: 36px 24px;
-
 	padding-right: 98px;
 	border: none;
-
 	background-color: var(--primary);
 	color: var(--white);
-
 	text-wrap: balance;
-
 	transition:
 		opacity var(--main-transition),
 		background-color var(--main-transition);

@@ -26,7 +26,7 @@ $this->setFrameMode(true);
 						<div class="swiper-slide">
 							<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="blog-preview-card" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 								<div class="blog-preview-card__header">
-									<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ? $arItem["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . '/_dist/images/no-image.png' ?>" alt="<?= $arItem["NAME"] ?>" width="400" height="260">
+									<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ? $arItem["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . '/_dist/images/no-image.png' ?>" alt="<?= $arItem["NAME"] ?>" width="400" height="260" class="<?= ($arItem["PREVIEW_PICTURE"]["SRC"] ?: 'no-image') ?>">
 									<span class="label"><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span>
 								</div>
 

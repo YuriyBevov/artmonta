@@ -42,6 +42,10 @@
 				height: 100%;
 				object-fit: contain;
 				aspect-ratio: 4/2.6;
+
+				&.no-image {
+					padding: 60px;
+				}
 			}
 
 			.label {

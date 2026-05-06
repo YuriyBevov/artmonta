@@ -1,0 +1,11 @@
+@forward "./ctrl-common";
+
+textarea {
+	@extend %ctrl-common;
+	resize: none;
+	min-height: 100px;
+
+	&.invalid-fld {
+		border-color: var(--danger);
+	}
+}

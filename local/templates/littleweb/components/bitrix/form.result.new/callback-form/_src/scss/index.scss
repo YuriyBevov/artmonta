@@ -3,7 +3,7 @@
 	container: callback-form / inline-size;
 
 	background-color: var(--primary);
-	padding: clamp(24px, 4.6vw, 60px);
+	padding: clamp(12px, 4.6vw, 60px);
 	border-radius: 20px;
 
 	form {
@@ -35,6 +35,17 @@
 
 		@include container-up(callback-form-section, 440px) {
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.ctrl-wrapper:has(textarea) {
+			grid-column: -1/1;
+		}
+	}
+
+	.arrow-btn {
+		width: 100%;
+		.arrow-btn__text {
+			background-color: var(--dark);
 		}
 	}
 }

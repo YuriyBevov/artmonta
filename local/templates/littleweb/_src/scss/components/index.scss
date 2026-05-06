@@ -7,3 +7,10 @@
 @use "./partials/burger-btn";
 @use "./partials/contact-block";
 @use "./partials/sticky-img";
+
+@use "./ui/form-controls/ctrl-common";
+@use "./ui/form-controls/ctrl-wrapper";
+@use "./ui/form-controls/input";
+@use "./ui/form-controls/textarea";
+@use "./ui/form-controls/checkbox";
+@use "./ui/form-controls/captcha-block";

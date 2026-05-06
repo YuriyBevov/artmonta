@@ -1,0 +1,11 @@
+@forward "./ctrl-common";
+
+input[type="text"],
+input[type="tel"],
+input[type="mail"] {
+	@extend %ctrl-common;
+
+	&.invalid-fld {
+		border-color: var(--danger);
+	}
+}

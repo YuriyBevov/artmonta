@@ -23,14 +23,15 @@
 					<div class="callback-form__content">
 						<? foreach ($arResult["QUESTIONS"] as $FIELD_SID => $arQuestion): ?>
 							<? if ($arQuestion["STRUCTURE"][0]["FIELD_TYPE"] == "text"): ?>
-								<div class="main-input-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
+								<div class="ctrl-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
 									<label>
 										<?= $arQuestion["HTML_CODE"] ?>
 									</label>
 								</div>
 							<? endif; ?>
+
 							<? if ($arQuestion["STRUCTURE"][0]["FIELD_TYPE"] == "checkbox"): ?>
-								<div class="main-checkbox-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
+								<div class="ctrl-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
 									<input type="checkbox" id="<?= $arQuestion["STRUCTURE"][0]["ID"] . ($arParams["IS_MODAL"] ? '_modal' : null) ?>" name="form_checkbox_<?= $FIELD_SID ?>[]" value="<?= $arQuestion["STRUCTURE"][0]["ID"] ?>">
 									<label class="main-checkbox" for="<?= $arQuestion["STRUCTURE"][0]["ID"] . ($arParams["IS_MODAL"] ? '_modal' : null) ?>">
 										<span><?= $arQuestion["CAPTION"] ?><?= ($arQuestion["REQUIRED"] == "Y" ? '*' : '') ?></span>
@@ -39,7 +40,7 @@
 							<? endif; ?>
 
 							<? if ($arQuestion["STRUCTURE"][0]["FIELD_TYPE"] == "textarea"): ?>
-								<div class="main-textarea-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
+								<div class="ctrl-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
 									<label>
 										<?= $arQuestion["HTML_CODE"] ?>
 									</label>
@@ -62,10 +63,23 @@
 						</div>
 					<? endif; ?>
 
-					<input class="main-btn"
-						<?= (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : ""); ?>
-						type="submit" name="web_form_submit"
-						value="<?= htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? 'Отправить' : $arResult["arForm"]["BUTTON"]); ?>" />
+					<label class="arrow-btn" <?= (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : ""); ?>>
+						<span class="arrow-btn__text">
+							<?= htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"] ?? 'Отправить')) ?>
+						</span>
+						<span class="arrow-btn__icon">
+							<svg width="24" height="24" role="img" aria-hidden="true" focusable="false">
+								<use xlink:href="/local/templates/littleweb/_dist/sprite.svg#arrow"></use>
+							</svg>
+						</span>
+
+						<input
+							style="display:none;"
+							<?= (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : ""); ?>
+							type="submit" name="web_form_submit"
+							value="<?= htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? 'Отправить' : $arResult["arForm"]["BUTTON"]); ?>" />
+					</label>
+
 				</div>
 			<? endif; ?>
 			<?= $arResult["FORM_FOOTER"] ?>

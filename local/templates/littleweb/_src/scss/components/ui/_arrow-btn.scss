@@ -1,6 +1,6 @@
 .arrow-btn {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 1fr auto;
 	border: none;
 	padding: 0;
 	background-color: transparent;
@@ -12,13 +12,14 @@
 	&__text {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		text-align: center;
 
 		font-family: var(--primary-font);
 		font-size: clamp(18px, 3vw, 20px);
 		font-weight: 500;
 		border-radius: 30px;
-		padding: 12px clamp(24px, 3.2vw, 32px);
+		padding: 12px clamp(16px, 3.2vw, 32px);
 		color: var(--white);
 
 		background-color: var(--primary);

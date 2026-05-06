@@ -1,0 +1,14 @@
+.ctrl-wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+	label {
+		display: flex;
+	}
+
+	&.invalid-fld input,
+	&.invalid-fld textarea {
+		border-color: var(--danger);
+	}
+}

@@ -1,0 +1,16 @@
+%ctrl-common {
+	width: 100%;
+	padding: 14px clamp(12px, 2.4vw, 24px) 12px;
+	font-size: 16px;
+	color: var(--dark);
+	border-radius: 10px;
+	border: 1px solid var(--white);
+	background-color: var(--white);
+	outline: none;
+
+	&::placeholder {
+		font-size: 16px;
+		line-height: 1;
+		color: var(--light);
+	}
+}

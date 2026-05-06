@@ -19,7 +19,9 @@
 
 	text-wrap: balance;
 
-	transition: background-color var(--main-transition);
+	transition:
+		opacity var(--main-transition),
+		background-color var(--main-transition);
 
 	&::after {
 		position: absolute;

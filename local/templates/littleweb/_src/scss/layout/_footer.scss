@@ -52,7 +52,7 @@
 			}
 
 			.contact-block {
-				gap: clamp(12px, 3vw, 24px);
+				gap: 6px;
 
 				@include container-up("footer", 768px) {
 					grid-row: 1/4;

@@ -1,7 +1,7 @@
 <section class="hero-section">
   <div class="container">
 
-    <video loop="" autoplay="" playsinline="" preload="auto" poster="<?= SITE_TEMPLATE_PATH . '/_dist/images/poster-desktop-2.jpg' ?>">
+    <video loop autoplay muted playsinline preload="auto" poster="<?= SITE_TEMPLATE_PATH . '/_dist/images/poster-desktop-2.jpg' ?>">
       <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/desktop-1.mp4' ?>" type="video/mp4">
     </video>
 
@@ -28,29 +28,7 @@
       );
       ?>
     </div>
-    <?/*
-    <div class="hero-section__content">
-      <div class="hero-section__content-item hero-section__content-item--text">
-        <?
-        $APPLICATION->IncludeFile(
-          SITE_TEMPLATE_PATH . '/include/hero-section/description.php',
-          array(),
-          array('MODE' => 'html', 'NAME' => 'текст главного блока', 'SHOW_BORDER' => true)
-        );
-        ?>
-      </div>
 
-      <div class="hero-section__content-item">
-        <?
-        $APPLICATION->IncludeFile(
-          SITE_TEMPLATE_PATH . '/include/hero-section/image.php',
-          array(),
-          array('MODE' => 'html', 'NAME' => 'контентное изображение главного блока', 'SHOW_BORDER' => true)
-        );
-        ?>
-      </div>
-
-      */ ?>
   </div>
   </div>
 </section>

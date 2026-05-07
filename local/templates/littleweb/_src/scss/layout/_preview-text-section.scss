@@ -1,0 +1,30 @@
+@use "@scss/base/container-queries" as *;
+
+.preview-text-section {
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 95px 50px;
+		padding: clamp(50px, 4.4vw, 100px) 0;
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			* {
+				margin: 0;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			border-radius: 20px;
+		}
+
+		@include container-up("section", 960px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

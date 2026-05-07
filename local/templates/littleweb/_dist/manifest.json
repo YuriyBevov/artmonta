@@ -40,13 +40,13 @@
     "src": "local/templates/littleweb/_src/images/faq-bg.png"
   },
   "local/templates/littleweb/_src/js/index.js": {
-    "file": "template_scripts.DB2thoDX.js",
+    "file": "template_scripts.fvN9Bjk5.js",
     "name": "script",
     "src": "local/templates/littleweb/_src/js/index.js",
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.D9e5Q11w.css",
+    "file": "template_styles.DEzTkJFT.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",

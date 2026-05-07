@@ -1,9 +1,21 @@
+// .section > noindex {
+// 	position: absolute;
+// 	inset: 0;
+// 	z-index: -1;
+// 	pointer-events: none;
+// }
+
+.container {
+	position: relative;
+	z-index: 3;
+}
+
 .sticky-img {
 	object-fit: contain;
 	width: 100%;
 	height: auto;
 	will-change: auto;
-	z-index: -1;
+	// z-index: -1;
 
 	&--left {
 		position: absolute;

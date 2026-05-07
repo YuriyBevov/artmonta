@@ -29,6 +29,7 @@ if ($arResult["ITEMS"]): ?>
             <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
               <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
             </div>
+
           <? endforeach; ?>
         </div>
       </div>

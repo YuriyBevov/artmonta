@@ -72,8 +72,13 @@
 		li {
 			a {
 				display: flex;
-				font-size: 14px;
-				font-weight: 400;
+				font-size: 16px;
+				font-weight: 600;
+
+				@media (min-width: 1240px) {
+					font-weight: 500;
+				}
+
 				width: fit-content;
 				color: var(--white);
 			}

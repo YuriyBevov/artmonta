@@ -3,9 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
 ?>
 
-<!-- Главный блок -->
-<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
-<!-- Главный блок -->
+
 
 <!-- Портфолио -->
 <? $APPLICATION->IncludeComponent(

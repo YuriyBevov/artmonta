@@ -1,8 +1,18 @@
 @use "@scss/base/container-queries" as *;
 
+// main .section:first-child {
+// 	margin-top: 100dvh;
+// }
+
 .section {
 	container: section / inline-size;
+	position: relative;
 	padding: clamp(20px, 6vw, 60px) 0;
+	// z-index: 3;
+
+	// &:not(main .section:first-child) {
+	// 	margin-top: -10px;
+	// }
 
 	&__header {
 		display: flex;

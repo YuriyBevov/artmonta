@@ -25,5 +25,8 @@ $this->setFrameMode(true);
         <? endforeach; ?>
       </div>
     </div>
+    <!-- <noindex>
+      <img class="sticky-img sticky-img--left" data-speed="1.2" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
+    </noindex> -->
   </section>
 <? endif; ?>

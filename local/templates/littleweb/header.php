@@ -107,6 +107,13 @@
 		</div>
 	</header>
 
+	<!-- Главный блок -->
+	<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
+	<!-- Главный блок -->
+
+	<div class="hero-overlay"></div>
+
 	<div id="smooth-wrapper">
 		<div id="smooth-content">
+			<div class="hero-spacer"></div>
 			<main class="workarea">

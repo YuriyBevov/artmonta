@@ -1,5 +1,5 @@
 export const setHeaderHeight = () => {
-	const header = document.querySelector(".header");
+	const header = document.querySelector(".hero-section");
 	if (!header) return;
 
 	const observer = new ResizeObserver(([entry]) => {

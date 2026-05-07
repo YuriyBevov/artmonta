@@ -127,9 +127,38 @@ ol {
 	clear: both;
 }
 
+main {
+	background-color: var(--dark);
+}
+
+#smooth-wrapper {
+	z-index: 2;
+	pointer-events: none;
+}
+
+#smooth-content {
+	pointer-events: none;
+}
+
 #smooth-content {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	padding-top: var(--header-height, 0px);
+
+	> *:not(.hero-spacer) {
+		pointer-events: auto;
+	}
+}
+
+.hero-spacer {
+	height: 100dvh;
+}
+
+.hero-overlay {
+	position: fixed;
+	inset: 0;
+	background-color: var(--dark);
+	z-index: 1;
+	pointer-events: none;
+	opacity: 0;
 }

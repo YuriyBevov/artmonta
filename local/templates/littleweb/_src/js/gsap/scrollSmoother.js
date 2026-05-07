@@ -13,4 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		effects: true,
 		normalizeScroll: false,
 	});
+
+	gsap.to(".hero-overlay", {
+		opacity: 1,
+		ease: "none",
+		scrollTrigger: {
+			trigger: ".hero-spacer",
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+		},
+	});
 });

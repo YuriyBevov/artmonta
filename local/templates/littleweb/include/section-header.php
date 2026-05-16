@@ -1,4 +1,4 @@
-<div class="section__header">
+<div class="section-header">
   <? if ($arParams["DESCRIPTION"] && $arParams["DESCRIPTION"] !== ""): ?>
     <div class="grid">
       <div class="grid-item">

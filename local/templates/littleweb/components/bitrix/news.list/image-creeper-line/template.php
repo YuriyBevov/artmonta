@@ -18,7 +18,7 @@ if ($arResult["ITEMS"]): ?>
       ?>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="swiper crawl-line-slider">
         <div class="swiper-wrapper">
           <? foreach ($arResult["ITEMS"] as $arItem):
@@ -26,6 +26,30 @@ if ($arResult["ITEMS"]): ?>
             $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
           ?>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
+            <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
+            </div>
             <div class="swiper-slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
               <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
             </div>

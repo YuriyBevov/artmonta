@@ -14,6 +14,8 @@
 	<?
 	includeGlobalAssets();
 	initBitrixCore('popup');
+
+	$curPage = $APPLICATION->GetCurPage();
 	?>
 </head>
 
@@ -106,14 +108,32 @@
 			</button>
 		</div>
 	</header>
+	<? if ($curPage === '/'): ?>
+		<!-- Главный блок -->
+		<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
+		<!-- Главный блок -->
 
-	<!-- Главный блок -->
-	<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
-	<!-- Главный блок -->
+		<div class="hero-overlay"></div>
+	<? endif; ?>
 
-	<div class="hero-overlay"></div>
+
 
 	<div id="smooth-wrapper">
 		<div id="smooth-content">
-			<div class="hero-spacer"></div>
+			<? if ($curPage === '/'): ?>
+				<div class="hero-spacer"></div>
+			<? endif; ?>
 			<main class="workarea">
+				<? if ($curPage != '/' && !defined("ERROR_404")):
+					$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"lw-breadcrumb", 
+	[
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0",
+		"COMPONENT_TEMPLATE" => "lw-breadcrumb"
+	],
+	false
+);
+				endif; ?>

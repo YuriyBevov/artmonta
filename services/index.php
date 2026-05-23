@@ -28,8 +28,9 @@ $APPLICATION->SetTitle("Услуги");
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => [
-			0 => "",
-			1 => "",
+			0 => "LINKED_FAQ",
+			1 => "DETAIL_DESCRIPTION",
+			2 => "",
 		],
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",

@@ -17,6 +17,12 @@ $strReturn .= '
 	<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
 		<div class="container">
 		<ul class="breadcrumbs__list">
+		<li class="breadcrumbs__list-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="/" title="Главная" itemprop="item">
+					<span itemprop="name">Главная&nbsp;&mdash;&nbsp;</span>
+				</a>
+				<meta itemprop="position" content="0" />
+			</li>
 	';
 
 $itemSize = count($arResult);

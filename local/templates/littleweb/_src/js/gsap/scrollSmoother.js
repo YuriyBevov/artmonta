@@ -14,14 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
 		normalizeScroll: false,
 	});
 
-	gsap.to(".hero-overlay", {
-		opacity: 1,
-		ease: "none",
-		scrollTrigger: {
-			trigger: ".hero-spacer",
-			start: "top top",
-			end: "bottom top",
-			scrub: true,
-		},
-	});
+	const heroOverlay = document.querySelector(".hero-overlay");
+
+	if (heroOverlay) {
+		gsap.to(".hero-overlay", {
+			opacity: 1,
+			ease: "none",
+			scrollTrigger: {
+				trigger: ".hero-spacer",
+				start: "top top",
+				end: "bottom top",
+				scrub: true,
+			},
+		});
+	}
 });

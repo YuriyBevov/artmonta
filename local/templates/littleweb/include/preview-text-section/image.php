@@ -1,2 +1,1 @@
-
-	<img width="605" alt="Выставочный стенд" src="/upload/medialibrary/f72/6rfe8idqjt5g31e2mc0r2o8e1vvbkl0q.png" height="306" title="Выставочный стенд">
+<img width="1024" alt="gen1.jpg" src="/upload/medialibrary/14b/pqpto8lubkzi6pb2okd27hlmvw3lmxib.jpg" height="571" title="gen1.jpg">

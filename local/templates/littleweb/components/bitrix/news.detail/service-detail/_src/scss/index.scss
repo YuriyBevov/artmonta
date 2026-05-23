@@ -1,0 +1,48 @@
+.service-detail {
+	&__content-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: clamp(24px, 6vw, 100px);
+
+		h3,
+		.h3 {
+			font-family: var(--secondary-font);
+			font-size: clamp(28px, 4.4vw, 40px);
+			line-height: 1.1;
+			margin-top: 0;
+		}
+
+		strong {
+			font-size: 24px;
+		}
+	}
+
+	.content {
+		position: relative;
+
+		h3,
+		.h3 {
+			font-family: var(--secondary-font);
+			font-size: clamp(28px, 4.4vw, 40px);
+			line-height: 1.1;
+			margin-top: 0;
+		}
+
+		strong {
+			font-size: 24px;
+		}
+
+		img {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 80%;
+			height: auto;
+			max-width: 960px;
+			z-index: -1;
+		}
+		background:
+			linear-gradient(180deg, #03010e 8.78%, rgba(3, 1, 14, 0) 62.41%),
+			linear-gradient(360deg, #03010e 0%, rgba(3, 1, 14, 0) 66.51%);
+	}
+}

@@ -1,16 +1,16 @@
 @use "@scss/base/container-queries" as *;
 
-main {
-	margin-top: var(--header-height);
-}
+// main {
+// 	margin-top: var(--header-height);
+// }
 .section {
 	container: section / inline-size;
 	position: relative;
 	padding: clamp(20px, 6vw, 60px) 0;
 
-	&:has(.section-inner-header) {
-		padding-top: 0;
-	}
+	// &:has(.section-inner-header) {
+	// 	padding-top: 0;
+	// }
 
 	&-header {
 		display: flex;
@@ -54,30 +54,55 @@ main {
 	}
 
 	&-inner-header {
+		padding-top: var(--header-height);
 		margin-bottom: clamp(24px, 3.6vw, 60px);
 		background-image: url(@img/inner-section-bg.png);
+		background:
+			linear-gradient(180deg, #03010e 8.78%, rgba(3, 1, 14, 0) 62.41%),
+			linear-gradient(360deg, #03010e 0%, rgba(3, 1, 14, 0) 66.51%),
+			url(@img/inner-section-bg.png), #d9d9d9;
 
 		.grid {
 			display: flex;
 			flex-direction: column;
-
+			justify-content: center;
 			gap: 30px;
 
-			outline: 1px solid red;
 			min-height: 420px;
 
 			* {
 				margin: 0;
 				line-height: 1.1;
 			}
+
+			&-item {
+				display: flex;
+				flex-direction: column;
+				gap: 44px;
+
+				img {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					object-position: left;
+				}
+			}
+
+			&:has(.grid-item:nth-child(2)) {
+				display: grid;
+				grid-template-columns: 4fr 3fr;
+				gap: 32px;
+				padding-top: 72px;
+				align-items: center;
+			}
 		}
 
 		&.--align-center {
-			.grid {
+			.grid-item {
 				align-items: center;
-				justify-content: center;
 			}
 
+			.section-inner-header__title,
 			.section-inner-header__description {
 				text-align: center;
 			}
@@ -85,7 +110,7 @@ main {
 
 		&__title {
 			font-family: var(--secondary-font);
-			font-size: clamp(24px, 4vw, 60px);
+			font-size: clamp(24px, 7vw, 72px);
 			font-weight: 700;
 			line-height: 1.15;
 			text-transform: uppercase;

@@ -32,7 +32,7 @@
 
 		&-container {
 			display: flex;
-			container: services-preview-card / inline-size;
+			container: services-list-card / inline-size;
 		}
 
 		&__icon {
@@ -73,7 +73,7 @@
 			&:focus {
 				border-color: var(--primary);
 
-				.services-preview-card__icon {
+				.services-list-card__icon {
 					border-color: var(--dark);
 					background-color: var(--white);
 

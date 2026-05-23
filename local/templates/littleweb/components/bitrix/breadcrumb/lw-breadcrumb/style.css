@@ -12,15 +12,13 @@
 }
 
 .breadcrumbs {
+	position: absolute;
+	top: var(--header-height);
 	width: 100%;
 	padding: 20px 0;
+	z-index: 11;
 }
 
-@container main (min-width: 960px ) {
-	.breadcrumbs {
-		margin: 50px 0 0;
-	}
-}
 .breadcrumbs__list-item {
 	font-size: 14px;
 	text-transform: uppercase;

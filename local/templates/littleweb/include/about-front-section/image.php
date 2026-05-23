@@ -1,1 +1,1 @@
-<img width="605" alt="ArtMonta — компания застройки стендов" src="/upload/medialibrary/de5/6h5d87bn5dt0fvcv7gcg3ll6d4a0qxu5.png" height="332" title="ArtMonta — компания застройки стендов">
+<img width="1024" alt="gen3.jpg" src="/upload/medialibrary/59f/cgn3kemjbk3h8hys08gmgl2xhk5i34fl.jpg" height="571" title="gen3.jpg">

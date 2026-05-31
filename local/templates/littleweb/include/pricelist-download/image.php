@@ -1,1 +1,1 @@
-<img width="400" alt="Пример выставочного стенда" src="/upload/medialibrary/3bc/hszjt3u2g9qaw0kz7fdt4c8yib333y9x.png" height="297" title="Пример выставочного стенда">
+<img width="1024" alt="gen2.jpg" src="/upload/medialibrary/919/eb2yaaue0p3eth7cyen0npo8w3v1l8vj.jpg" height="571" title="gen2.jpg">

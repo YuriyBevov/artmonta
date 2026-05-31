@@ -17,7 +17,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
-		margin-bottom: clamp(30px, 3.2vw, 50px);
+		margin-bottom: clamp(30px, 6vw, 160px);
 
 		& > .grid {
 			display: grid;

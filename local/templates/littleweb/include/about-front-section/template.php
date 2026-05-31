@@ -1,6 +1,15 @@
 <section class="section about-front-section">
-  <div class="container">
+  <div class="about-front-section-img">
+    <?
+    $APPLICATION->IncludeFile(
+      SITE_TEMPLATE_PATH . '/include/about-front-section/image.php',
+      array(),
+      array('MODE' => 'html', 'NAME' => 'контентное изображение блока', 'SHOW_BORDER' => true)
+    );
+    ?>
+  </div>
 
+  <div class="container">
     <div class="about-front-section__header-wrapper">
       <?
       $APPLICATION->IncludeFile(
@@ -12,16 +21,8 @@
         array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
       );
       ?>
-
-      <?
-      $APPLICATION->IncludeFile(
-        SITE_TEMPLATE_PATH . '/include/about-front-section/image.php',
-        array(),
-        array('MODE' => 'html', 'NAME' => 'контентное изображение блока', 'SHOW_BORDER' => true)
-      );
-      ?>
     </div>
-    <div class="content">
+    <div class="about-front-section__content-wrapper content">
       <?
       $APPLICATION->IncludeFile(
         SITE_TEMPLATE_PATH . '/include/about-front-section/content.php',
@@ -30,6 +31,8 @@
       );
       ?>
     </div>
+
+
 
   </div>
 </section>

@@ -1,20 +1,73 @@
 @use "@scss/base/container-queries" as *;
 
 .about-front-section {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	&-img {
+		width: 100%;
+		height: fit-content;
+
+		order: 2;
+
+		@include container-up("section", 534px) {
+			position: absolute;
+
+			bottom: 0;
+			right: -10%;
+			width: 80svw;
+		}
+
+		@include container-up("section", 1240px) {
+			bottom: revert;
+			right: revert;
+			width: 50svw;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		@include container-up("section", 534px) {
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				content: "";
+
+				background:
+					linear-gradient(180deg, #03010e 6.78%, rgba(3, 1, 14, 0) 62.41%),
+					linear-gradient(360deg, #03010e 0%, rgba(3, 1, 14, 0) 54.51%);
+				z-index: 6;
+			}
+		}
+
+		img {
+			display: flex;
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+		}
+	}
+
 	.container {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: clamp(30px, 3.6vw, 50px) clamp(40px, 4vw, 95px);
 
-		@include container-up("section", 768px) {
+		@include container-up("section", 1240px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
+		z-index: 11;
 	}
 
 	&__header-wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+		z-index: 11;
 
 		.section-header {
 			margin-bottom: 0;
@@ -27,6 +80,10 @@
 			object-fit: contain;
 			border-radius: 20px;
 		}
+	}
+
+	&__content-wrapper {
+		z-index: 11;
 	}
 
 	.content *:first-child {

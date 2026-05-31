@@ -3,7 +3,7 @@
 .portfolio-preview {
 	display: flex;
 	flex-direction: column;
-	gap: clamp(30px, 3.2vw, 50px);
+	gap: clamp(30px, 6vw, 160px);
 
 	.section-header {
 		margin-bottom: 0;
@@ -14,7 +14,7 @@
 			position: relative;
 
 			width: 80vw;
-			max-width: 540px;
+			max-width: 760px;
 			height: auto;
 
 			img {
@@ -56,6 +56,12 @@
 					transform: translateY(0);
 				}
 			}
+		}
+	}
+
+	&--content-view {
+		.swiper-slide {
+			max-width: 760px;
 		}
 	}
 

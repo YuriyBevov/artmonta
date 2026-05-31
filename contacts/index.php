@@ -2,7 +2,7 @@
 $APPLICATION->SetTitle("Контакты");
 ?>
 
-<section class="section service-detail">
+<section class="section">
 	<div class="container-fluid">
 		<?
 		$APPLICATION->IncludeFile(

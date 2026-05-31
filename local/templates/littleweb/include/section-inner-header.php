@@ -1,4 +1,8 @@
 <div class="section-inner-header <?= $arParams["CLASS"] ?? '' ?>">
+
+  <video loop autoplay muted playsinline preload="auto">
+    <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/inner.mp4' ?>" type="video/mp4">
+  </video>
   <div class="container">
     <div class="grid">
       <div class="grid-item">

@@ -54,13 +54,23 @@
 	}
 
 	&-inner-header {
+		position: relative;
 		padding-top: var(--header-height);
 		margin-bottom: clamp(24px, 3.6vw, 60px);
-		background-image: url(@img/inner-section-bg.png);
+		// background-image: url(@img/inner-section-bg.png);
 		background:
 			linear-gradient(180deg, #03010e 8.78%, rgba(3, 1, 14, 0) 62.41%),
 			linear-gradient(360deg, #03010e 0%, rgba(3, 1, 14, 0) 66.51%),
 			url(@img/inner-section-bg.png), #d9d9d9;
+
+		video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			// z-index: -1;
+		}
 
 		.grid {
 			display: flex;

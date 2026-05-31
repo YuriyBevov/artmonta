@@ -1,8 +1,8 @@
 <section class="hero-section">
   <div class="container">
 
-    <video loop autoplay muted playsinline preload="auto" poster="<?= SITE_TEMPLATE_PATH . '/_dist/images/poster-desktop-2.jpg' ?>">
-      <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/desktop-1.mp4' ?>" type="video/mp4">
+    <video loop autoplay muted playsinline preload="auto">
+      <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/hero-video.mp4' ?>" type="video/mp4">
     </video>
 
     <div class="hero-section-fh-wrapper">

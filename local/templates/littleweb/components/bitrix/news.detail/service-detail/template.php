@@ -26,19 +26,19 @@ $this->setFrameMode(true);
 	<div class="container">
 		<div class="content">
 			<?= $arResult["DETAIL_TEXT"] ?>
-			<?/*<img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="" width="600" height="450"> */ ?>
+			<img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="" width="600" height="450">
 		</div>
-		<?/* 
-					<div class="service-detail__content-grid">
-			<div class="service-detail__content-grid-item">
 
+		<div class="service-detail__content-grid">
+			<div class="service-detail__content-grid-item">
+				<?= $arResult["DETAIL_TEXT"] ?>
 			</div>
-			if ($arResult["PROPERTIES"]["DETAIL_DESCRIPTION"]["~VALUE"]): ?>
+			<? if ($arResult["PROPERTIES"]["DETAIL_DESCRIPTION"]["~VALUE"]): ?>
 				<div class="service-detail__content-grid-item">
 					<?= $arResult["PROPERTIES"]["DETAIL_DESCRIPTION"]["~VALUE"]["TEXT"] ?>
 				</div>
-			<? endif; */ ?>
-		<!-- </div> -->
+			<? endif; ?>
+		</div>
 	</div>
 </section>
 

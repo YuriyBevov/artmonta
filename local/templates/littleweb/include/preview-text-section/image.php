@@ -1,1 +1,1 @@
-<img width="1024" alt="gen1.jpg" src="/upload/medialibrary/14b/pqpto8lubkzi6pb2okd27hlmvw3lmxib.jpg" height="571" title="gen1.jpg">
+<img width="800" alt="gen7.png" src="/upload/medialibrary/4ab/zgvvxw8avkc1ppl159br3akovx8h8g3c.png" height="446" title="gen7.png">

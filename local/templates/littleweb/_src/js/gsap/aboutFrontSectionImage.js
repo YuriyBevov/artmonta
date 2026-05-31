@@ -2,8 +2,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 document.addEventListener("DOMContentLoaded", () => {
-	const section = document.querySelector(".pricelist-download");
-	const image = section?.querySelector(".pricelist-download-img");
+	const section = document.querySelector(".about-front-section");
+	const image = section?.querySelector(".about-front-section-img");
 
 	if (!section || !image) {
 		return;
@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	gsap.from(image, {
 		autoAlpha: 0,
-		xPercent: -5,
-		duration: 2,
+		yPercent: 10,
+		duration: 4,
 		ease: "power3.out",
 		scrollTrigger: {
 			trigger: section,

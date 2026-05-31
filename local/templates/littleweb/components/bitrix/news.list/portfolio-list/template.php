@@ -21,10 +21,13 @@ $this->setFrameMode(true);
 				array('MODE' => 'html', 'NAME' => 'шапку страницы', 'SHOW_BORDER' => false)
 			);
 			?>
-
-
 			<div class="container">
-				<div class="masonry" style="--item-width:300px">
+				<div class="sort-row">
+					<span> Тип стенда</span>
+					<span> Все категории</span>
+					<span> Все года</span>
+				</div>
+				<div class="portfolio-list__gallery">
 					<? foreach ($arResult["ITEMS"] as $arItem):
 						$this->AddEditAction(
 							$arItem['ID'],
@@ -38,19 +41,19 @@ $this->setFrameMode(true);
 							["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]
 						);
 					?>
-						<a class="box" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
 						</a>
-						<a class="box" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
 						</a>
-						<a class="box" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
 						</a>
-						<a class="box" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
 						</a>
-						<a class="box" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
 						</a>
 					<? endforeach; ?>

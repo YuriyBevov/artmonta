@@ -6,7 +6,7 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
 
 	<? if (!$arParams["CONTENT_VIEW"] || $arParams["CONTENT_VIEW"] != 1): ?>
-		<section class="section portfolio-preview">
+		<section class="section portfolio-preview 2">
 			<div class="container">
 				<?
 				$APPLICATION->IncludeFile(
@@ -48,6 +48,23 @@ $this->setFrameMode(true);
 								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
 								<span><?= $arItem["NAME"] ?></span>
 							</div>
+							<div class="swiper-slide"
+								href="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
+								data-fancybox="portfolio"
+								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
+								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
+								<span><?= $arItem["NAME"] ?></span>
+							</div>
+							<div class="swiper-slide"
+								href="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
+								data-fancybox="portfolio"
+								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
+								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
+								<span><?= $arItem["NAME"] ?></span>
+							</div>
+
 						<? endforeach; ?>
 					</div>
 				</div>

@@ -139,6 +139,15 @@
       "bitrix_news_list_faq-preview_scss.css"
     ]
   },
+  "local/templates/littleweb/components/bitrix/news.list/features-list/_src/scss/index.scss": {
+    "file": "components/bitrix/news.list/features/style.1LLTWhFq.css",
+    "src": "local/templates/littleweb/components/bitrix/news.list/features-list/_src/scss/index.scss",
+    "isEntry": true,
+    "name": "bitrix_news_list_features-list_scss",
+    "names": [
+      "bitrix_news_list_features-list_scss.css"
+    ]
+  },
   "local/templates/littleweb/components/bitrix/news.list/features/_src/scss/index.scss": {
     "file": "components/bitrix/news.list/features/style.t7FQ75DM.css",
     "src": "local/templates/littleweb/components/bitrix/news.list/features/_src/scss/index.scss",

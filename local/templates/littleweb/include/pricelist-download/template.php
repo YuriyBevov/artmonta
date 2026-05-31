@@ -1,7 +1,5 @@
 <section class="section pricelist-download">
-
   <div class="container">
-
     <?
     $APPLICATION->IncludeFile(
       SITE_TEMPLATE_PATH . '/include/section-header.php',
@@ -12,7 +10,6 @@
     );
     ?>
   </div>
-
   <div class="container-fluid">
     <div class="grid">
       <div class="pricelist-download-img">
@@ -25,10 +22,6 @@
         ?>
       </div>
       <div class="container">
-        <!-- <div class="pricelist-download__grid">
-        <div class="pricelist-download__grid-item" aria-hidden="true"></div>
-
-        <div class="pricelist-download__grid-item content"> -->
         <?
         $APPLICATION->IncludeFile(
           SITE_TEMPLATE_PATH . '/include/pricelist-download/content.php',
@@ -36,8 +29,6 @@
           array('MODE' => 'html', 'NAME' => 'контент блока', 'SHOW_BORDER' => true)
         );
         ?>
-        <!-- </div> -->
-
       </div>
     </div>
     <div class="container">
@@ -51,7 +42,4 @@
     </div>
   </div>
 
-
-
-  </div>
 </section>

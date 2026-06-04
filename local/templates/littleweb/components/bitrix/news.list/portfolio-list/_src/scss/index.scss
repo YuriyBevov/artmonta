@@ -3,10 +3,21 @@
 .portfolio-list {
 	.sort-row {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 24px;
 		padding: 12px 0;
 		margin-bottom: 30px;
+	}
+
+	// &__filter {
+	// 	.custom-select-container {
+	// 		min-width: 180px;
+	// 	}
+	// }
+
+	&__empty {
+		padding: 32px 0;
 	}
 
 	&__gallery {
@@ -26,6 +37,7 @@
 			@include container-up("section", 768px) {
 				margin-bottom: 24px;
 				transition:
+					opacity var(--main-transition),
 					left 0.25s ease,
 					top 0.25s ease;
 			}

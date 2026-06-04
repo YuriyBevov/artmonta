@@ -49,20 +49,6 @@ const setItemWidth = (gallery, items) => {
 	return columnWidth;
 };
 
-const getShortestColumnIndex = (columnHeights) => {
-	let shortestIndex = 0;
-	let shortestHeight = columnHeights[0] || 0;
-
-	for (let index = 1; index < columnHeights.length; index += 1) {
-		if (columnHeights[index] < shortestHeight) {
-			shortestIndex = index;
-			shortestHeight = columnHeights[index];
-		}
-	}
-
-	return shortestIndex;
-};
-
 const layoutGallery = (gallery) => {
 	const items = Array.from(
 		gallery.querySelectorAll(".portfolio-list__gallery-item"),
@@ -82,12 +68,12 @@ const layoutGallery = (gallery) => {
 	const columnWidth = setItemWidth(gallery, items);
 	const columnHeights = Array(columnCount).fill(0);
 
-	items.forEach((item) => {
+	items.forEach((item, index) => {
 		const image = item.querySelector("img");
 		const { width, height } = getImageSize(image);
 		const imageRatio = width && height ? width / height : 4 / 3;
 		const itemHeight = columnWidth / imageRatio;
-		const columnIndex = getShortestColumnIndex(columnHeights);
+		const columnIndex = index % columnCount;
 		const left = columnIndex * (columnWidth + GAP);
 		const top = columnHeights[columnIndex];
 

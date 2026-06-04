@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	const textElements = Array.from(wrapper.children).filter((element) => {
+	let textElements = Array.from(wrapper.children).filter((element) => {
 		const tagName = element.tagName;
 
 		return (
@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			element.textContent.trim().length
 		);
 	});
+
+	if (!textElements.length && wrapper.textContent.trim().length) {
+		textElements = [wrapper];
+	}
 
 	if (!textElements.length) {
 		return;

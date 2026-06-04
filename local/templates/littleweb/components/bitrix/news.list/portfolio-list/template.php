@@ -21,6 +21,7 @@ $this->setFrameMode(true);
 				array('MODE' => 'html', 'NAME' => 'шапку страницы', 'SHOW_BORDER' => false)
 			);
 			?>
+
 			<div class="container">
 				<div class="sort-row">
 					<span> Тип стенда</span>
@@ -42,24 +43,13 @@ $this->setFrameMode(true);
 						);
 					?>
 						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
-						</a>
-						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
-						</a>
-						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
-						</a>
-						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
-						</a>
-						<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-							<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="">
+							<div class="portfolio-list__gallery-item-wrapper">
+								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"]) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"]) ?>" alt="<?= htmlspecialchars($arItem["NAME"]) ?>" loading="lazy">
+							</div>
 						</a>
 					<? endforeach; ?>
 				</div>
 			</div>
-
 		</div>
 	</section>
 <? endif; ?>

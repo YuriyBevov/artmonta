@@ -8,25 +8,40 @@
 		padding: 12px 0;
 		margin-bottom: 30px;
 	}
+
 	&__gallery {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: clamp(16px, 2vw, 32px);
+		gap: clamp(18px, 2.5vw, 40px);
 
 		@include container-up("section", 768px) {
-			grid-template-columns: repeat(2, 1fr);
+			display: block;
+			position: relative;
+			min-height: 60vh;
 		}
 
 		&-item {
 			display: block;
 
-			img {
+			@include container-up("section", 768px) {
+				margin-bottom: 24px;
+				transition:
+					left 0.25s ease,
+					top 0.25s ease;
+			}
+
+			&-wrapper {
 				display: block;
-				width: 100%;
-				max-width: 100%;
-				height: 100%;
-				object-fit: cover;
-				will-change: opacity;
+				overflow: hidden;
+				will-change: transform, opacity, clip-path;
+
+				img {
+					display: block;
+					width: 100%;
+					max-width: 100%;
+					height: auto;
+					will-change: transform;
+				}
 			}
 		}
 	}

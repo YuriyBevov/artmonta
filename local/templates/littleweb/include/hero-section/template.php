@@ -2,6 +2,7 @@
   <div class="container">
 
     <video loop autoplay muted playsinline preload="auto">
+      <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/hero-video.webm' ?>" type="video/webm">
       <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/hero-video.mp4' ?>" type="video/mp4">
     </video>
 

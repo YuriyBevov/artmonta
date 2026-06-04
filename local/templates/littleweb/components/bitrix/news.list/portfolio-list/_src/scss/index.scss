@@ -3,18 +3,18 @@
 .portfolio-list {
 	.sort-row {
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 24px;
+		flex-direction: column;
+
+		gap: 6px 24px;
 		padding: 12px 0;
 		margin-bottom: 30px;
-	}
 
-	// &__filter {
-	// 	.custom-select-container {
-	// 		min-width: 180px;
-	// 	}
-	// }
+		@include container-up("section", 534px) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+	}
 
 	&__empty {
 		padding: 32px 0;

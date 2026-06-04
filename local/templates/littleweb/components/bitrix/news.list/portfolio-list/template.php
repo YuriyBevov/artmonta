@@ -4,7 +4,7 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult["PORTFOLIO_FILTER"]["SOURCE_ITEMS_COUNT"] || $arResult["ITEMS"]): ?>
-	<section class="section portfolio-list" <?= $USER->isAdmin() ? 'style="margin-top:200px;"' : '' ?>>
+	<section class="section portfolio-list" <?/*= $USER->isAdmin() ? 'style="margin-top:200px;"' : '' */ ?>>
 		<div class="container<?= ($arParams["IS_INNER"] ? '-fluid' : '') ?>">
 			<?
 			$APPLICATION->IncludeFile(

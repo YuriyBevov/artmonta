@@ -26,7 +26,7 @@ $this->setFrameMode(true);
 				<div class="swiper">
 					<div class="swiper-wrapper">
 						<? foreach ($arResult["ITEMS"] as $arItem):
-							$previewPicResized = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"] ?? $arItem["DETAIL_PICTURE"]["ID"], array('width' => 420, 'height' => 260), BX_RESIZE_IMAGE_EXACT, true);
+							// $previewPicResized = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"] ?? $arItem["DETAIL_PICTURE"]["ID"], array('width' => 420, 'height' => 260), BX_RESIZE_IMAGE_EXACT, true);
 
 							$this->AddEditAction(
 								$arItem['ID'],
@@ -40,31 +40,21 @@ $this->setFrameMode(true);
 								["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]
 							);
 						?>
+							<?/*
 							<div class="swiper-slide"
-								href="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
+								href="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
 								data-fancybox="portfolio"
 								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
 								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
+								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
 								<span><?= $arItem["NAME"] ?></span>
-							</div>
-							<div class="swiper-slide"
-								href="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
-								data-fancybox="portfolio"
-								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
-								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
-								<span><?= $arItem["NAME"] ?></span>
-							</div>
-							<div class="swiper-slide"
-								href="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
-								data-fancybox="portfolio"
-								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
-								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<img src="<?= $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="420" height="260">
-								<span><?= $arItem["NAME"] ?></span>
-							</div>
+							</div>*/ ?>
+							<a class="swiper-slide"
+								href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
 
+								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
+							</a>
 						<? endforeach; ?>
 					</div>
 				</div>

@@ -17,7 +17,7 @@ $this->setFrameMode(true);
 
 $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:news.detail",
-	"",
+	"portfolio-detail",
 	[
 		"IS_INNER" => true,
 		// "SECTION_HEADER_CLS" => '--align-center',

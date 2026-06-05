@@ -80,9 +80,9 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Портфолио -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"portfolio-preview",
-	array(
+	"bitrix:news.list", 
+	"portfolio-preview", 
+	[
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -95,17 +95,17 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
+		"DETAIL_URL" => "/portfolio/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "N",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
+		"FIELD_CODE" => [
 			0 => "DETAIL_PICTURE",
 			1 => "",
-		),
+		],
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "6",
@@ -124,10 +124,10 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
+		"PROPERTY_CODE" => [
 			0 => "",
 			1 => "",
-		),
+		],
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -142,7 +142,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"STRICT_SECTION_CHECK" => "N",
 		"COMPONENT_TEMPLATE" => "portfolio-preview",
 		"NOTE" => "Мы реализовали более <strong>800 проектов</strong>"
-	),
+	],
 	false
 ); ?>
 <!-- Портфолио -->

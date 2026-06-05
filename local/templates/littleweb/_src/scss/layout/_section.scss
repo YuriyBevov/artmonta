@@ -71,7 +71,7 @@
 			flex-direction: column;
 			justify-content: center;
 			gap: 30px;
-			min-height: 420px;
+			min-height: clamp(60px, 12vw, 240px);
 
 			&:has(.circle-badge) {
 				.circle-badge {

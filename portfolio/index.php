@@ -1,10 +1,10 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Портфолио");
-?><? $APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	"portfolio", 
-	[
-		"ADD_ELEMENT_CHAIN" => "N",
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:news",
+	"portfolio",
+	Array(
+		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -20,17 +20,11 @@ $APPLICATION->SetTitle("Портфолио");
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
-		"DETAIL_FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
+		"DETAIL_FIELD_CODE" => array("",""),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => [
-			0 => "",
-			1 => "",
-		],
+		"DETAIL_PROPERTY_CODE" => array("CAT","AREA","TYPE",""),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -42,17 +36,9 @@ $APPLICATION->SetTitle("Портфолио");
 		"IBLOCK_ID" => "6",
 		"IBLOCK_TYPE" => "site_content",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-		"LIST_ACTIVE_DATE_FORMAT" => "date(\"Y\")",
-		"LIST_FIELD_CODE" => [
-			0 => "",
-			1 => "",
-		],
-		"LIST_PROPERTY_CODE" => [
-			0 => "CAT",
-			1 => "AREA",
-			2 => "TYPE",
-			3 => "",
-		],
+		"LIST_ACTIVE_DATE_FORMAT" => "",
+		"LIST_FIELD_CODE" => array("",""),
+		"LIST_PROPERTY_CODE" => array("CAT","AREA","TYPE",""),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
@@ -67,6 +53,7 @@ $APPLICATION->SetTitle("Портфолио");
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"SEF_FOLDER" => "/portfolio/",
 		"SEF_MODE" => "Y",
+		"SEF_URL_TEMPLATES" => Array("detail"=>"#ELEMENT_CODE#/","news"=>"","section"=>"#SECTION_CODE#/"),
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -83,13 +70,6 @@ $APPLICATION->SetTitle("Портфолио");
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
-		"USE_SHARE" => "N",
-		"COMPONENT_TEMPLATE" => "portfolio",
-		"SEF_URL_TEMPLATES" => [
-			"news" => "",
-			"section" => "#SECTION_CODE#/",
-			"detail" => "#SECTION_CODE#/#ELEMENT_CODE#/",
-		]
-	],
-	false
-); ?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php") ?>
+		"USE_SHARE" => "N"
+	)
+);?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php") ?>

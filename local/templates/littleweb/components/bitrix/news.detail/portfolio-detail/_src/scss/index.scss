@@ -1,0 +1,103 @@
+@use "@scss/base/container-queries" as *;
+
+.portfolio-detail {
+	.section-inner-header {
+		padding-bottom: 120px;
+		margin-bottom: 0;
+	}
+
+		.detail-picture {
+			position: relative;
+			margin-top: -100px;
+			z-index: 11;
+			overflow: hidden;
+			will-change: transform, opacity;
+
+			margin-bottom: clamp(48px, 7vw, 120px);
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+				will-change: transform;
+			}
+		}
+
+	.content {
+		margin-bottom: clamp(44px, 4.4vw, 80px);
+	}
+
+	&-offer-btn {
+		margin-bottom: clamp(44px, 8vw, 180px);
+	}
+
+	&-back-btn {
+		margin: 0 auto;
+	}
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: clamp(18px, 2.5vw, 40px);
+	margin-bottom: clamp(44px, 8vw, 180px);
+
+	@include container-up("section", 768px) {
+		display: block;
+		position: relative;
+		min-height: 60vh;
+	}
+
+	&__item {
+		display: block;
+
+		@include container-up("section", 768px) {
+			margin-bottom: 24px;
+			transition:
+				opacity var(--main-transition),
+				left 0.25s ease,
+				top 0.25s ease;
+		}
+
+		&-wrapper {
+			display: block;
+			overflow: hidden;
+			will-change: transform, opacity, clip-path;
+
+			img {
+				display: block;
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				will-change: transform;
+			}
+		}
+	}
+}
+
+.prop-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 24px clamp(44px, 6.4vw, 80px);
+	margin-bottom: 44px;
+
+	&-item {
+		display: flex;
+		flex-direction: column;
+
+		gap: 12px;
+
+		strong {
+			font-size: clamp(20px, 4vw, 28px);
+		}
+
+		span {
+			font-size: 18px;
+		}
+
+		ul {
+			margin: 0;
+		}
+	}
+}

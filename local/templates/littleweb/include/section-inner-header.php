@@ -7,10 +7,8 @@
     <div class="section-inner-header__wrapper">
       <h1 class="section-inner-header__title"><?= $arParams["TITLE"] ?></h1>
 
-      <? if ($arParams["DESCRIPTION"]): ?>
-        <p class="section-inner-header__description">
-          <?= $arParams["DESCRIPTION"] ?>
-        </p>
+      <? if ($arParams["DESCRIPTION"] && !empty($arParams["DESCRIPTION"])): ?>
+        <?= $arParams["DESCRIPTION"] ?>
       <? endif; ?>
 
       <? if ($arParams["BTN"]) {

@@ -76,7 +76,7 @@ $this->setFrameMode(true);
 				</form>
 
 				<? if ($arResult["ITEMS"]): ?>
-					<div class="portfolio-list__gallery">
+					<div class="gallery">
 						<? foreach ($arResult["ITEMS"] as $arItem):
 							$this->AddEditAction(
 								$arItem['ID'],
@@ -90,8 +90,8 @@ $this->setFrameMode(true);
 								["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]
 							);
 						?>
-							<a class="portfolio-list__gallery-item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<div class="portfolio-list__gallery-item-wrapper">
+							<a class="gallery__item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+								<div class="gallery__item-wrapper">
 									<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"]) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"]) ?>" alt="<?= htmlspecialcharsbx($arItem["NAME"]) ?>" loading="lazy">
 								</div>
 							</a>

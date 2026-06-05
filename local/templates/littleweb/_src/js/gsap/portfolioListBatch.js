@@ -50,9 +50,7 @@ const setItemWidth = (gallery, items) => {
 };
 
 const layoutGallery = (gallery) => {
-	const items = Array.from(
-		gallery.querySelectorAll(".portfolio-list__gallery-item"),
-	);
+	const items = Array.from(gallery.querySelectorAll(".gallery__item"));
 
 	if (!items.length) {
 		return;
@@ -96,7 +94,7 @@ const layoutGalleries = (galleries) => {
 
 const createRevealAnimation = (items) => {
 	const mediaItems = items
-		.map((item) => item.querySelector(".portfolio-list__gallery-item-wrapper"))
+		.map((item) => item.querySelector(".gallery__item-wrapper"))
 		.filter((media) => media);
 
 	gsap.set(mediaItems, {
@@ -164,9 +162,7 @@ const createImageParallax = (items) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-	const galleries = Array.from(
-		document.querySelectorAll(".portfolio-list .portfolio-list__gallery"),
-	);
+	const galleries = Array.from(document.querySelectorAll(".gallery"));
 
 	if (!galleries.length) {
 		return;
@@ -174,9 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	const items = Array.from(
-		document.querySelectorAll(".portfolio-list .portfolio-list__gallery-item"),
-	);
+	const items = Array.from(document.querySelectorAll(".gallery__item"));
 
 	layoutGalleries(galleries);
 	createRevealAnimation(items);

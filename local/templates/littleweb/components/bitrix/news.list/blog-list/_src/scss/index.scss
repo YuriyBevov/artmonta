@@ -1,9 +1,90 @@
 @use "@scss/base/container-queries" as *;
+@use "@scss/mixins/text-truncate" as *;
 
 .blog-list {
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 24px;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: clamp(24px, 4vw, 60px);
+	margin-bottom: clamp(24px, 8vw, 120px);
+
+	@include container-up("section", 640px) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include container-up("section", 1024px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.blog-preview-card {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		width: 100%;
+		height: 100%;
+		color: var(--white);
+
+		* {
+			margin: 0;
+		}
+
+		&__header {
+			position: relative;
+			border-radius: 20px;
+			overflow: hidden;
+			background-color: rgba(0, 0, 0, 0.3);
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				aspect-ratio: 4/2.6;
+
+				&.no-image {
+					padding: 60px;
+				}
+			}
+
+			.label {
+				position: absolute;
+				top: 20px;
+				left: 20px;
+			}
+		}
+
+		.text {
+			@include text-truncate(4);
+		}
+
+		&__arrow {
+			display: flex;
+			align-items: baseline;
+			gap: 10px;
+			font-size: 16px;
+			font-weight: 500;
+			padding: 4px 0;
+			color: var(--white);
+			margin-top: auto;
+
+			svg {
+				width: 14px;
+				height: 14px;
+				fill: var(--white);
+				transition: transform var(--main-transition);
+			}
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				svg {
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		&:focus {
+			svg {
+				transform: rotate(45deg);
+			}
+		}
 	}
 }

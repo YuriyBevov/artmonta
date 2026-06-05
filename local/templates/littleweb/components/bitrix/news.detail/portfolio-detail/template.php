@@ -96,8 +96,6 @@ $this->setFrameMode(true);
 								data-fancybox="<?= $arResult["ID"] ?>">
 								<img src="<?= $galleryImage["SRC"] ?>" width="<?= intval($galleryImage["WIDTH"]) ?>" height="<?= intval($galleryImage["HEIGHT"]) ?>" alt="<?= htmlspecialcharsbx($arResult["NAME"]) ?>" loading="lazy">
 							</div>
-
-
 						</div>
 					<? endforeach; ?>
 				</div>
@@ -112,8 +110,6 @@ $this->setFrameMode(true);
 				),
 				array('MODE' => 'html', 'NAME' => 'кнопку', 'SHOW_BORDER' => false)
 			); ?>
-
-
 		</div>
 	</div>
 </section>

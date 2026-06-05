@@ -40,18 +40,8 @@ $this->setFrameMode(true);
 								["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]
 							);
 						?>
-							<?/*
-							<div class="swiper-slide"
-								href="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>"
-								data-fancybox="portfolio"
-								data-caption="<?= $arItem["DETAIL_TEXT"] !== '' ? $arItem["DETAIL_TEXT"] : $arItem["NAME"] ?>"
-								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
-								<span><?= $arItem["NAME"] ?></span>
-							</div>*/ ?>
 							<a class="swiper-slide"
 								href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
-
 								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
 							</a>

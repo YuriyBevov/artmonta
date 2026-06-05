@@ -60,6 +60,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 
+/*
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"production",
@@ -327,3 +328,4 @@ $APPLICATION->IncludeComponent(
 	),
 	false
 );
+*/

@@ -1,12 +1,18 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
+
+$reviewTextLimit = 200;
 ?>
 
 <? if ($arResult["ITEMS"]): ?>
 
 
 	<section class="section reviews-preview">
+		<div class="reviews-preview__bg" aria-hidden="true">
+			<img src="<?= SITE_TEMPLATE_PATH ?>/_dist/images/reviews-bg.png" alt="" loading="lazy">
+		</div>
+
 		<div class="container">
 			<?
 			$APPLICATION->IncludeFile(
@@ -26,6 +32,10 @@ $this->setFrameMode(true);
 				<div class="swiper">
 					<div class="swiper-wrapper">
 						<? foreach ($arResult["ITEMS"] as $arItem):
+							$reviewText = trim(html_entity_decode(strip_tags($arItem["PREVIEW_TEXT"]), ENT_QUOTES, SITE_CHARSET));
+							$isLongReview = mb_strlen($reviewText) > $reviewTextLimit;
+							$cardReviewText = $isLongReview ? mb_substr($reviewText, 0, $reviewTextLimit) . '...' : $reviewText;
+
 							$this->AddEditAction(
 								$arItem['ID'],
 								$arItem['EDIT_LINK'],
@@ -60,12 +70,19 @@ $this->setFrameMode(true);
 									</div>
 									<div class="review-card__content">
 										<small><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></small>
-										<span><?= $arItem["PREVIEW_TEXT"] ?></span>
+										<span><?= htmlspecialcharsbx($cardReviewText) ?></span>
 									</div>
 
-									<button class="review-card__expander">
-										<span>Развернуть</span>
-									</button>
+									<? if ($isLongReview): ?>
+										<button
+											class="review-card__expander"
+											type="button"
+											data-review-popup
+											data-review-text="<?= htmlspecialcharsbx($reviewText) ?>"
+										>
+											<span>Читать</span>
+										</button>
+									<? endif; ?>
 								</div>
 							</div>
 						<? endforeach; ?>

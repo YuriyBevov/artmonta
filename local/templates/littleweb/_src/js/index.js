@@ -9,6 +9,7 @@ import "./gsap/aboutFrontSectionImage";
 import "./gsap/blogDetailPicture";
 import "./gsap/portfolioDetailPicture";
 import "./gsap/portfolioListBatch";
+import "./gsap/reviewsPreviewBackground";
 // import "./gsap/heroContentSplitText";
 import "./modules/swiper-instance";
 import "./modules/fancybox-instance";

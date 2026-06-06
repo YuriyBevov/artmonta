@@ -14,7 +14,20 @@
 		}
 
 		&-navigation {
-			margin-top: clamp(30px, 3.2vw, 50px);
+			margin-top: clamp(30px, 6.4vw, 120px);
+
+			.swiper-button {
+				gap: 32px;
+
+				span {
+					display: none;
+					@include container-up("section", 768px) {
+						display: block;
+						font-size: 24px;
+						color: var(--white);
+					}
+				}
+			}
 		}
 	}
 
@@ -34,7 +47,6 @@
 			position: relative;
 			border-radius: 20px;
 			overflow: hidden;
-			// background-color: transparent;
 			background-color: rgba(0, 0, 0, 0.3);
 
 			img {

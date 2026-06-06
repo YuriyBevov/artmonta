@@ -10,7 +10,7 @@ $this->setFrameMode(true);
 			$APPLICATION->IncludeFile(
 				SITE_TEMPLATE_PATH . '/include/section-header.php',
 				array(
-					'TITLE' => $arResult["NAME"],
+					'TITLE' => $arParams["CUSTOM_TITLE"] ?: $arResult["NAME"],
 					'DESCRIPTION' => $arResult["DESCRIPTION"],
 				),
 				array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
@@ -30,7 +30,7 @@ $this->setFrameMode(true);
 									<span class="label"><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span>
 								</div>
 
-								<h3 class="subtitle"><?= $arItem["NAME"] ?></h3>
+								<span class="subtitle"><?= $arItem["NAME"] ?></span>
 								<p class="text"><?= $arItem["PREVIEW_TEXT"] ?></p>
 
 								<span class="blog-preview-card__arrow">
@@ -49,8 +49,14 @@ $this->setFrameMode(true);
 						<svg width='72' height='24' role='img' aria-hidden='true' focusable='false'>
 							<use xlink:href='<?= SITE_TEMPLATE_PATH ?>/_dist/sprite.svg#long-arrow'></use>
 						</svg>
+						<? if ($arParams["SHOW_NAV_DESC"] === "Y"): ?>
+							<span>Предыдущая статья</span>
+						<? endif; ?>
 					</button>
 					<button class="swiper-button swiper-button--next" aria-label="Вперед">
+						<? if ($arParams["SHOW_NAV_DESC"] === "Y"): ?>
+							<span>Следующая статья</span>
+						<? endif; ?>
 						<svg width='72' height='24' role='img' aria-hidden='true' focusable='false'>
 							<use xlink:href='<?= SITE_TEMPLATE_PATH ?>/_dist/sprite.svg#long-arrow'></use>
 						</svg>

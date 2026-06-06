@@ -17,7 +17,6 @@ $this->setFrameMode(true);
 				'CLASS' => $arParams["SECTION_HEADER_CLS"],
 				'TITLE' => $arResult["NAME"],
 				'DESCRIPTION' => $arResult["DESCRIPTION"],
-				// 'PICTURE' => $arResult["DETAIL_PICTURE"]["SRC"]
 			),
 			array('MODE' => 'html', 'NAME' => 'шапку страницы', 'SHOW_BORDER' => false)
 		);
@@ -25,12 +24,7 @@ $this->setFrameMode(true);
 	</div>
 
 	<div class="container">
-		<div class="content">
-			<?= $arResult["DETAIL_TEXT"] ?>
-			<!-- <img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="" width="600" height="450"> -->
-		</div>
-
-
+		<?= $arResult["DETAIL_TEXT"] ?>
 	</div>
 </section>
 <!-- Портфолио -->

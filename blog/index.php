@@ -21,8 +21,9 @@ $APPLICATION->SetTitle("Портфолио");
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_FIELD_CODE" => [
-			0 => "",
-			1 => "",
+			0 => "DETAIL_TEXT",
+			1 => "DETAIL_PICTURE",
+			2 => "",
 		],
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",

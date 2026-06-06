@@ -45,6 +45,10 @@
 			&-wrapper {
 				display: block;
 				overflow: hidden;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(40px);
+				clip-path: inset(12% 0% 0% 0%);
 				will-change: transform, opacity, clip-path;
 
 				img {
@@ -52,8 +56,17 @@
 					width: 100%;
 					max-width: 100%;
 					height: auto;
+					transform: translateY(-24px) scale(1.08);
 					will-change: transform;
 				}
+			}
+
+			&:nth-child(3n + 2) > .gallery__item-wrapper img {
+				transform: translateY(-32px) scale(1.08);
+			}
+
+			&:nth-child(3n) > .gallery__item-wrapper img {
+				transform: translateY(-40px) scale(1.08);
 			}
 		}
 	}

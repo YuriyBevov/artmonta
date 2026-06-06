@@ -1,0 +1,52 @@
+.table-wrapper {
+	overflow: hidden;
+	width: 100%;
+	overflow-x: auto;
+	margin: 20px 0;
+}
+
+table:not(:where([class^="adm"], [class*=" adm"], [class^="bx"], [class*=" bx"])) {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: clamp(16px, 2.4vw, 18px);
+	width: fit-content;
+
+	min-width: 320px;
+	margin: 1px;
+	outline: 1px solid var(--light);
+	border-radius: 6px;
+	margin-bottom: 12px;
+
+	td {
+		padding: clamp(10px, 2.4vw, 20px) clamp(12px, 3vw, 40px);
+
+		&:not(:first-child) {
+			text-align: center;
+		}
+	}
+
+	thead {
+		color: var(--white);
+		background-color: var(--dark);
+		border-bottom: 1px solid var(--light);
+
+		td {
+			font-weight: 600;
+		}
+	}
+
+	tbody {
+		tr {
+			&:nth-child(odd) {
+				background-color: rgba(83, 44, 249, 0.2);
+			}
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--light);
+			}
+		}
+	}
+
+	td:not(:last-child) {
+		border-right: 1px solid var(--light);
+	}
+}

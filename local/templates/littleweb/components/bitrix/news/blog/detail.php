@@ -17,10 +17,9 @@ $this->setFrameMode(true);
 
 $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:news.detail",
-	"",
+	"blog-detail",
 	[
 		"IS_INNER" => true,
-		// "SECTION_HEADER_CLS" => '--align-center',
 		"DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
 		"DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
 		"DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],

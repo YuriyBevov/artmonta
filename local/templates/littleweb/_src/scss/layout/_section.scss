@@ -64,6 +64,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			object-position: bottom;
 		}
 
 		&__wrapper {
@@ -71,7 +72,7 @@
 			flex-direction: column;
 			justify-content: center;
 			gap: 30px;
-			min-height: clamp(60px, 12vw, 240px);
+			min-height: 330px;
 
 			&:has(.circle-badge) {
 				.circle-badge {
@@ -107,7 +108,7 @@
 			align-items: center;
 
 			.section-inner-header__title,
-			.section-inner-header__description {
+			* {
 				text-align: center;
 			}
 		}

@@ -52,7 +52,7 @@ $this->setFrameMode(true);
 							<? if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
 								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="Иконка" width="50" height="50">
 							<? endif; ?>
-							<h3 class="subtitle"><?= $arItem["NAME"] ?></h3>
+							<span class="subtitle"><?= $arItem["NAME"] ?></span>
 							<p><?= $arItem["PREVIEW_TEXT"] ?></p>
 
 							<div class="services-list-card__icon">

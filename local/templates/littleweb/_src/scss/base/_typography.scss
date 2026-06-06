@@ -5,16 +5,15 @@
 	color: var(--white);
 }
 
-.subtitle {
+.subtitle,
+h2 {
 	font-size: clamp(20px, 2.4vw, 24px);
 	font-weight: 600;
 	color: var(--white);
 }
 
-.content {
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-	}
+ul {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }

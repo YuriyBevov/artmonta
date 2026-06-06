@@ -39,7 +39,7 @@ if ($arResult["ITEMS"]): ?>
 							<span class="label"><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span>
 						</div>
 
-						<h3 class="subtitle"><?= $arItem["NAME"] ?></h3>
+						<span class="subtitle"><?= $arItem["NAME"] ?></span>
 						<p class="text"><?= $arItem["PREVIEW_TEXT"] ?></p>
 
 						<span class="blog-preview-card__arrow">

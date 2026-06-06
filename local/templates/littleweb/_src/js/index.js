@@ -15,4 +15,5 @@ import "./modules/accordeon";
 import "./modules/crawl-line-slider";
 import "./modules/bx-ajax-popup";
 import "./modules/custom-select";
+import "./modules/table-wrapper";
 // import "./modules/masonry";

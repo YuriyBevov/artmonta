@@ -45,6 +45,25 @@
 		* {
 			margin: 0;
 		}
+
+		&:has(.swiper-navigation) {
+			.swiper-navigation {
+				display: none;
+			}
+			@include container-up("section", 534px) {
+				position: relative;
+				padding-right: 300px;
+
+				.swiper-navigation {
+					display: flex;
+					gap: 40px;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 0;
+				}
+			}
+		}
 	}
 
 	&-inner-header {

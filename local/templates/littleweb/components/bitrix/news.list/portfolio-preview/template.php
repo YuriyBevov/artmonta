@@ -6,7 +6,7 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
 
 	<? if (!$arParams["CONTENT_VIEW"] || $arParams["CONTENT_VIEW"] != 1): ?>
-		<section class="section portfolio-preview 2">
+		<section class="section portfolio-preview">
 			<div class="container">
 				<?
 				$APPLICATION->IncludeFile(
@@ -26,7 +26,6 @@ $this->setFrameMode(true);
 				<div class="swiper">
 					<div class="swiper-wrapper">
 						<? foreach ($arResult["ITEMS"] as $arItem):
-							// $previewPicResized = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"] ?? $arItem["DETAIL_PICTURE"]["ID"], array('width' => 420, 'height' => 260), BX_RESIZE_IMAGE_EXACT, true);
 
 							$this->AddEditAction(
 								$arItem['ID'],
@@ -43,7 +42,7 @@ $this->setFrameMode(true);
 							<a class="swiper-slide"
 								href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
 								id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?? $previewPicResized['src'] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
+								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arItem["NAME"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"] ?? 0) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"] ?? 0) ?>">
 							</a>
 						<? endforeach; ?>
 					</div>

@@ -4,7 +4,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 
-$cookieName = 'MOSKOVER_COOKIE_CONSENT_' . (int)$arParams['ID'];
+$cookieName = 'ARTMONTA_COOKIE_CONSENT_' . (int)$arParams['ID'];
 
 if (isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName] === 'Y') {
 	return;
@@ -67,45 +67,6 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 			font-weight: 600;
 		}
 	}
-
-	/* .main-user-consent-cookie-button {
-		flex: 0 0 auto;
-		min-width: 120px;
-		height: 40px;
-		padding: 0 24px;
-		border: 0;
-		background: #a1b85c;
-		color: #fff;
-		font-size: 14px;
-		font-weight: 700;
-		line-height: 40px;
-		text-align: center;
-		cursor: pointer;
-	} */
-
-	/* .main-user-consent-cookie-button:hover {
-		background: #8fa44d;
-	} */
-
-	/* .main-user-consent-cookie-button:disabled {
-		opacity: 0.7;
-		cursor: default;
-	} */
-
-	/* @media (max-width: 767px) {
-		.main-user-consent-cookie {
-			right: 12px;
-			bottom: 12px;
-			left: 12px;
-			display: block;
-			padding: 16px;
-		}
-
-		.main-user-consent-cookie-button {
-			width: 100%;
-			margin-top: 14px;
-		}
-	} */
 </style>
 
 <div class="main-user-consent-cookie" data-cookie-consent-banner data-cookie-consent-name="<?= htmlspecialcharsbx($cookieName) ?>">

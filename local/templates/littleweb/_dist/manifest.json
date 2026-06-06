@@ -50,21 +50,12 @@
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.CgTjJifL.css",
+    "file": "template_styles.B7XRYmix.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",
     "names": [
       "template.css"
-    ]
-  },
-  "local/templates/littleweb/components/bitrix/breadcrumb/lw-breadcrumb/_src/scss/index.scss": {
-    "file": "components/bitrix/breadcrumb/lw-breadcrumb/style.CD9ONU29.css",
-    "src": "local/templates/littleweb/components/bitrix/breadcrumb/lw-breadcrumb/_src/scss/index.scss",
-    "isEntry": true,
-    "name": "bitrix_breadcrumb_lw-breadcrumb_scss",
-    "names": [
-      "bitrix_breadcrumb_lw-breadcrumb_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss": {

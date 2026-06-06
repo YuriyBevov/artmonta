@@ -32,13 +32,8 @@
 
 <footer class="footer">
   <div class="footer__section footer__section--main">
-
-
-
     <div class="container">
       <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/logo.php");  ?>
-
-
       <? $APPLICATION->IncludeComponent(
         "bitrix:menu",
         "bottom-menu",
@@ -59,10 +54,28 @@
       ); ?>
 
       <div class="contact-block">
-        <address>г. Москва, пр. Ленина, 30 лит.А, офис 7452</address>
+        <?
+        $APPLICATION->IncludeFile(
+          SITE_DIR . 'include/address.php',
+          array(),
+          array('MODE' => 'html', 'NAME' => 'адрес', 'SHOW_BORDER' => true)
+        );
+        ?>
 
-        <a href="#">info@artmonta.ru</a>
-        <a href="#">+7 499 900 09 90</a>
+        <?
+        $APPLICATION->IncludeFile(
+          SITE_DIR . 'include/mail.php',
+          array(),
+          array('MODE' => 'html', 'NAME' => 'адрес электронной почты', 'SHOW_BORDER' => true)
+        );
+        ?>
+        <?
+        $APPLICATION->IncludeFile(
+          SITE_DIR . 'include/phone.php',
+          array(),
+          array('MODE' => 'html', 'NAME' => 'телефон', 'SHOW_BORDER' => true)
+        );
+        ?>
       </div>
 
       <? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/social.php");  ?>
@@ -71,14 +84,28 @@
   <div class="footer__section footer__section--info">
     <div class="container">
       <span>Copyright © <?= date('Y') ?> All Rights Reserved.</span>
-      <a href="#">Политика конфиденциальности</a>
+      <a href="/privacy/">Политика конфиденциальности</a>
     </div>
   </div>
 </footer>
+
 <!-- <div id="smooth-wrapper"> -->
 </div>
 <!-- <div id="smooth-content"> -->
 </div>
+
+<? $APPLICATION->IncludeComponent(
+  'bitrix:main.userconsent.request',
+  'cookie',
+  array(
+    'ID' => 1,
+    'IS_CHECKED' => 'N',
+    'IS_LOADED' => 'Y',
+    'AUTO_SAVE' => 'Y',
+    'INPUT_NAME' => 'COOKIE_CONSENT',
+    'REPLACE' => array()
+  )
+); ?>
 </body>
 
 </html>

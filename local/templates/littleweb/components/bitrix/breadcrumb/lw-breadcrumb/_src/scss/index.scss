@@ -1,0 +1,30 @@
+.breadcrumbs {
+	position: absolute;
+	top: var(--header-height);
+	width: 100%;
+	padding: 20px 0;
+	z-index: 32;
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__list-item {
+		font-size: 14px;
+		text-transform: uppercase;
+
+		a,
+		a span {
+			color: var(--primary);
+		}
+
+		span {
+			color: var(--info);
+		}
+	}
+}

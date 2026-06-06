@@ -17,5 +17,6 @@
 @use "@scss/layout/pricelist-download";
 
 @use "@scss/components/index" as *;
+@use "../../components/bitrix/breadcrumb/lw-breadcrumb/_src/scss/index" as *;
 
 @use "@scss/layout/footer";

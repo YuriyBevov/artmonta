@@ -6,6 +6,7 @@ import "./gsap/menu";
 import "./gsap/previewTextSectionSplitText";
 import "./gsap/pricelistDownloadImage";
 import "./gsap/aboutFrontSectionImage";
+import "./gsap/blogDetailPicture";
 import "./gsap/portfolioDetailPicture";
 import "./gsap/portfolioListBatch";
 // import "./gsap/heroContentSplitText";

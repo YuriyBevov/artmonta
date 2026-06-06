@@ -1,0 +1,1 @@
+		<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa2e1eeae06f766c1b7e82ac781c0b939176fd3b158a450d501dea0daafb1915&amp;source=constructor&amp;scroll=false" width="100%" height="400" frameborder="0" title="Карта проезда"></iframe>

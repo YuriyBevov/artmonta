@@ -28,7 +28,11 @@ $this->setFrameMode(true);
 
 	<div class="container">
 		<div class="glass-wrapper">
-			<img class="blog-detail__picture" src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="960" height="480">
+			<div class="blog-detail__picture-wrapper">
+				<div class="blog-detail__picture-mask">
+					<img class="blog-detail__picture" src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="960" height="480">
+				</div>
+			</div>
 			<span class="label"><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></span>
 			<div class="blog-detail__content">
 				<?= $arResult["DETAIL_TEXT"] ?>

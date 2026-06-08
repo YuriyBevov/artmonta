@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion, registerScrollTrigger } from "./utils";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const section = document.querySelector(".reviews-preview");
@@ -9,7 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	gsap.registerPlugin(ScrollTrigger);
+	if (prefersReducedMotion()) {
+		return;
+	}
+
+	registerScrollTrigger();
 
 	gsap.fromTo(
 		image,

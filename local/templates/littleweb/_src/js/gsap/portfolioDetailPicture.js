@@ -1,20 +1,9 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-const animateOnImageReady = (image, callback) => {
-	if (!image) {
-		callback();
-		return;
-	}
-
-	if (image.complete) {
-		callback();
-		return;
-	}
-
-	image.addEventListener("load", callback, { once: true });
-	image.addEventListener("error", callback, { once: true });
-};
+import {
+	onImageReady,
+	prefersReducedMotion,
+	registerScrollTrigger,
+} from "./utils";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const picture = document.querySelector(".portfolio-detail .detail-picture");
@@ -24,41 +13,46 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	gsap.registerPlugin(ScrollTrigger);
+	registerScrollTrigger();
 
-	animateOnImageReady(image, () => {
+	onImageReady(image, () => {
+		if (prefersReducedMotion()) {
+			gsap.set(picture, { autoAlpha: 1 });
+			return;
+		}
+
 		gsap.fromTo(
 			picture,
-			{
-				autoAlpha: 0,
-				y: 72,
-			},
+			{ autoAlpha: 0, y: 72 },
 			{
 				autoAlpha: 1,
 				y: 0,
 				duration: 1.1,
 				ease: "power3.out",
+				clearProps: "will-change",
 			},
 		);
 	});
 
-	gsap.fromTo(
-		image,
-		{
-			yPercent: 14,
-			scale: 1.12,
-		},
-		{
-			yPercent: -28,
-			scale: 1.12,
-			ease: "none",
-			scrollTrigger: {
-				trigger: picture,
-				start: "top bottom",
-				end: "bottom top",
-				scrub: 0.8,
-				invalidateOnRefresh: true,
+	if (!prefersReducedMotion()) {
+		gsap.fromTo(
+			image,
+			{
+				yPercent: 14,
+				scale: 1.12,
 			},
-		},
-	);
+			{
+				yPercent: -28,
+				scale: 1.12,
+				ease: "none",
+				scrollTrigger: {
+					trigger: picture,
+					start: "top bottom",
+					end: "bottom top",
+					scrub: 0.8,
+					invalidateOnRefresh: true,
+				},
+			},
+		);
+	}
 });

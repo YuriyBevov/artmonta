@@ -44,13 +44,13 @@
     "src": "local/templates/littleweb/_src/images/inner-section-bg.png"
   },
   "local/templates/littleweb/_src/js/index.js": {
-    "file": "template_scripts.qHiK-DCL.js",
+    "file": "template_scripts.Bn0KDMPa.js",
     "name": "script",
     "src": "local/templates/littleweb/_src/js/index.js",
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.BZ5-j5gk.css",
+    "file": "template_styles.B7ziNgBl.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",
@@ -215,7 +215,7 @@
     ]
   },
   "local/templates/littleweb/components/bitrix/news.list/portfolio-list/_src/scss/index.scss": {
-    "file": "components/bitrix/news.list/portfolio-list/style.Cz26VpxM.css",
+    "file": "components/bitrix/news.list/portfolio-list/style.DM2orCEq.css",
     "src": "local/templates/littleweb/components/bitrix/news.list/portfolio-list/_src/scss/index.scss",
     "isEntry": true,
     "name": "bitrix_news_list_portfolio-list_scss",

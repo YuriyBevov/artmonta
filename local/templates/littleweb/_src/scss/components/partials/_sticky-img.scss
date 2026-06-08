@@ -4,6 +4,8 @@
 }
 
 .sticky-img {
+	--sticky-img-y: 0px;
+
 	object-fit: contain;
 	width: 100%;
 	height: auto;
@@ -18,13 +20,14 @@
 		width: 100%;
 		height: auto;
 		max-width: 840px;
+		transform: translate3d(0, calc(-50% + var(--sticky-img-y)), 0);
 	}
 
 	&--right {
 		position: absolute;
 		top: 0;
-		transform: translateY(-50%);
 		right: -180px;
 		max-width: 840px;
+		transform: translate3d(0, calc(-50% + var(--sticky-img-y)), 0);
 	}
 }

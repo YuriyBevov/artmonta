@@ -1,5 +1,10 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+	prefersReducedMotion,
+	registerScrollTrigger,
+	scheduleScrollRefresh,
+	ScrollTrigger,
+} from "./utils";
 
 const DESKTOP_MEDIA = "(min-width: 768px)";
 const MIN_COLUMN_WIDTH = 260;
@@ -58,7 +63,6 @@ const layoutGallery = (gallery) => {
 
 	if (!window.matchMedia(DESKTOP_MEDIA).matches) {
 		resetGallery(gallery, items);
-		ScrollTrigger.refresh();
 		return;
 	}
 
@@ -85,7 +89,6 @@ const layoutGallery = (gallery) => {
 	});
 
 	gallery.style.height = `${Math.max(...columnHeights) - GAP}px`;
-	ScrollTrigger.refresh();
 };
 
 const layoutGalleries = (galleries) => {
@@ -101,6 +104,7 @@ const createRevealAnimation = (items) => {
 		autoAlpha: 0,
 		y: 40,
 		clipPath: "inset(12% 0% 0% 0%)",
+		willChange: "transform, opacity, clip-path",
 	});
 
 	ScrollTrigger.batch(mediaItems, {
@@ -114,6 +118,7 @@ const createRevealAnimation = (items) => {
 				ease: "power3.out",
 				stagger: 0.08,
 				overwrite: true,
+				clearProps: "will-change",
 			});
 		},
 		onLeaveBack: (batch) => {
@@ -124,12 +129,17 @@ const createRevealAnimation = (items) => {
 				duration: 0.45,
 				ease: "power2.out",
 				overwrite: true,
+				clearProps: "will-change",
 			});
 		},
 	});
 };
 
 const createImageParallax = (items) => {
+	if (prefersReducedMotion()) {
+		return;
+	}
+
 	items.forEach((item, index) => {
 		const image = item.querySelector("img");
 
@@ -168,13 +178,38 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	gsap.registerPlugin(ScrollTrigger);
+	registerScrollTrigger();
 
 	const items = Array.from(document.querySelectorAll(".gallery__item"));
 
 	layoutGalleries(galleries);
-	createRevealAnimation(items);
+
+	if (prefersReducedMotion()) {
+		gsap.set(
+			items
+				.map((item) => item.querySelector(".gallery__item-wrapper"))
+				.filter((media) => media),
+			{ autoAlpha: 1, y: 0, clipPath: "none" },
+		);
+	} else {
+		createRevealAnimation(items);
+	}
+
 	createImageParallax(items);
+	scheduleScrollRefresh();
+
+	let layoutTimer;
+	const pendingGalleries = new Set();
+
+	const scheduleLayout = (gallery) => {
+		pendingGalleries.add(gallery);
+		window.clearTimeout(layoutTimer);
+		layoutTimer = window.setTimeout(() => {
+			pendingGalleries.forEach(layoutGallery);
+			pendingGalleries.clear();
+			scheduleScrollRefresh();
+		}, 80);
+	};
 
 	galleries.forEach((gallery) => {
 		gallery.querySelectorAll("img").forEach((image) => {
@@ -182,14 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				image.addEventListener(
 					"load",
 					() => {
-						layoutGallery(gallery);
+						scheduleLayout(gallery);
 					},
 					{ once: true },
 				);
 				image.addEventListener(
 					"error",
 					() => {
-						layoutGallery(gallery);
+						scheduleLayout(gallery);
 					},
 					{ once: true },
 				);
@@ -203,6 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		window.clearTimeout(resizeTimeout);
 		resizeTimeout = window.setTimeout(() => {
 			layoutGalleries(galleries);
+			scheduleScrollRefresh();
 		}, 150);
 	});
 });

@@ -5,7 +5,7 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
   <section class="section workflow">
     <noindex>
-      <img class="sticky-img sticky-img--left" data-speed="1.4" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/left-sticky-img.png' ?>" alt="" width="500" height="500">
+      <img class="sticky-img sticky-img--left" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/left-sticky-img.png' ?>" alt="" width="500" height="500">
     </noindex>
     <div class="container">
       <?

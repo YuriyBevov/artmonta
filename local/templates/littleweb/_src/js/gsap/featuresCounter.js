@@ -1,12 +1,16 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+	prefersReducedMotion,
+	registerScrollTrigger,
+	scheduleScrollRefresh,
+} from "./utils";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const counters = document.querySelectorAll("[data-counter-to]");
 
 	if (!counters.length) return;
 
-	gsap.registerPlugin(ScrollTrigger);
+	registerScrollTrigger();
 
 	const items = [];
 
@@ -38,6 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		const state = { value: startValue };
 
+		if (prefersReducedMotion()) {
+			counter.textContent = finalText;
+			return;
+		}
+
 		gsap.to(state, {
 			value: endValue,
 			duration: 1.2,
@@ -66,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			card.style.height = `${Math.ceil(rect.height)}px`;
 			counter.textContent = currentText;
 		});
-		ScrollTrigger.refresh();
+		scheduleScrollRefresh();
 	};
 
 	let resizeTimer;

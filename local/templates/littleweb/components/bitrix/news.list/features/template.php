@@ -5,13 +5,13 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
   <section class="section features">
     <noindex>
-      <img class="sticky-img sticky-img--right" data-speed="1.4" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
+      <img class="sticky-img sticky-img--right" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
     </noindex>
     <div class="container">
       <h2 class="visually-hidden"><?= $arResult["NAME"] ?></h2>
 
 
-      <div class="features__grid" data-speed="1.2">
+      <div class="features__grid">
         <? foreach ($arResult["ITEMS"] as $index => $arItem):
           $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
           $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
@@ -26,7 +26,7 @@ $this->setFrameMode(true);
       </div>
     </div>
     <!-- <noindex>
-      <img class="sticky-img sticky-img--left" data-speed="1.2" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
+      <img class="sticky-img sticky-img--left" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?>" alt="" width="500" height="500">
     </noindex> -->
   </section>
 <? endif; ?>

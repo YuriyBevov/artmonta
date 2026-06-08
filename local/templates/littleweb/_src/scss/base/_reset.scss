@@ -13,7 +13,6 @@ body {
 	min-height: 100vh;
 	min-height: 100dvh;
 	text-size-adjust: none;
-	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
@@ -133,21 +132,12 @@ main {
 
 #smooth-wrapper {
 	z-index: 2;
-	pointer-events: none;
-}
-
-#smooth-content {
-	pointer-events: none;
 }
 
 #smooth-content {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-
-	> *:not(.hero-spacer) {
-		pointer-events: auto;
-	}
 }
 
 .hero-spacer {

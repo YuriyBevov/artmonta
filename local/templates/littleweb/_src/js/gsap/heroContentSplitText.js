@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { prefersReducedMotion, registerScrollTrigger } from "./utils";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const content = document.querySelector(".hero-section__content");
@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	gsap.registerPlugin(ScrollTrigger, SplitText);
+	if (prefersReducedMotion()) {
+		return;
+	}
+
+	registerScrollTrigger(SplitText);
 
 	const animatedLines = [];
 

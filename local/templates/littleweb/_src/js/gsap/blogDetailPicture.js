@@ -1,20 +1,10 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-const animateOnImageReady = (image, callback) => {
-	if (!image) {
-		callback();
-		return;
-	}
-
-	if (image.complete) {
-		callback();
-		return;
-	}
-
-	image.addEventListener("load", callback, { once: true });
-	image.addEventListener("error", callback, { once: true });
-};
+import {
+	onImageReady,
+	prefersReducedMotion,
+	registerScrollTrigger,
+	scheduleScrollRefresh,
+} from "./utils";
 
 const setPictureMetrics = (picture, image) => {
 	const pictureWidth = picture.clientWidth || image.naturalWidth;
@@ -22,20 +12,27 @@ const setPictureMetrics = (picture, image) => {
 		image.naturalWidth || Number(image.getAttribute("width")) || 0;
 	const imageHeight =
 		image.naturalHeight || Number(image.getAttribute("height")) || 0;
+	let changed = false;
 
 	if (pictureWidth) {
-		picture.style.setProperty(
-			"--blog-detail-picture-width",
-			`${pictureWidth}px`,
-		);
+		const value = `${pictureWidth}px`;
+
+		if (picture.style.getPropertyValue("--blog-detail-picture-width") !== value) {
+			picture.style.setProperty("--blog-detail-picture-width", value);
+			changed = true;
+		}
 	}
 
 	if (imageWidth && imageHeight) {
-		picture.style.setProperty(
-			"--blog-detail-picture-ratio",
-			`${imageWidth} / ${imageHeight}`,
-		);
+		const value = `${imageWidth} / ${imageHeight}`;
+
+		if (picture.style.getPropertyValue("--blog-detail-picture-ratio") !== value) {
+			picture.style.setProperty("--blog-detail-picture-ratio", value);
+			changed = true;
+		}
 	}
+
+	return changed;
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -47,11 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	gsap.registerPlugin(ScrollTrigger);
+	registerScrollTrigger();
 
-	animateOnImageReady(image, () => {
-		setPictureMetrics(picture, image);
+	onImageReady(image, () => {
+		const metricsChanged = setPictureMetrics(picture, image);
 		gsap.set(picture, { autoAlpha: 1 });
+		if (metricsChanged) {
+			scheduleScrollRefresh();
+		}
+
+		if (prefersReducedMotion()) {
+			gsap.set(mask, { width: "100%" });
+			return;
+		}
+
 		gsap.fromTo(
 			mask,
 			{
@@ -61,36 +67,40 @@ document.addEventListener("DOMContentLoaded", () => {
 				width: "100%",
 				duration: 1.3,
 				ease: "power3.out",
+				clearProps: "will-change",
 			},
 		);
 	});
 
-	gsap.fromTo(
-		image,
-		{
-			xPercent: -50,
-			yPercent: -8,
-			scale: 1.2,
-		},
-		{
-			xPercent: -50,
-			yPercent: 8,
-			scale: 1.2,
-			ease: "none",
-			scrollTrigger: {
-				trigger: picture,
-				start: "top bottom",
-				end: "bottom top",
-				scrub: 0.8,
-				invalidateOnRefresh: true,
+	if (!prefersReducedMotion()) {
+		gsap.fromTo(
+			image,
+			{
+				xPercent: -50,
+				yPercent: -8,
+				scale: 1.2,
 			},
-		},
-	);
+			{
+				xPercent: -50,
+				yPercent: 8,
+				scale: 1.2,
+				ease: "none",
+				scrollTrigger: {
+					trigger: picture,
+					start: "top bottom",
+					end: "bottom top",
+					scrub: 0.8,
+					invalidateOnRefresh: true,
+				},
+			},
+		);
+	}
 
 	if (window.ResizeObserver) {
 		new ResizeObserver(() => {
-			setPictureMetrics(picture, image);
-			ScrollTrigger.refresh();
+			if (setPictureMetrics(picture, image)) {
+				scheduleScrollRefresh();
+			}
 		}).observe(picture);
 	}
 });

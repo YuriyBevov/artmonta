@@ -501,8 +501,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Отзывы -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"reviews-preview", 
+	"bitrix:news.list",
+	"reviews-preview",
 	[
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -571,8 +571,13 @@ $APPLICATION->SetTitle("Мебельная компания");
 <!-- Вопросы и ответы -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"faq-preview",
+	"accordeon-list",
 	array(
+		"FORM_BTN" => [
+			"ACTIVE" => "Y",
+			"FORM_ID" => '3',
+			"TEXT" => "Задать вопрос"
+		],
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -630,7 +635,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "faq-preview"
+		"COMPONENT_TEMPLATE" => "accordeon-list"
 	),
 	false
 ); ?>

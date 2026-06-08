@@ -3,8 +3,7 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult["ITEMS"]): ?>
-	<section class="section faq-preview" itemscope itemtype="https://schema.org/FAQPage">
-
+	<section class="section accordeon-list" itemscope itemtype="https://schema.org/FAQPage">
 
 		<div class="container-wide">
 			<div class="container">
@@ -40,6 +39,18 @@ $this->setFrameMode(true);
 							</div>
 						</div>
 					<? endforeach; ?>
+
+					<? if ($arParams["FORM_BTN"]["ACTIVE"] === "Y"): ?>
+						<? $APPLICATION->IncludeFile(
+							SITE_TEMPLATE_PATH . '/include/arrow-btn.php',
+							array(
+								'TEXT' => $arParams["FORM_BTN"]["TEXT"] ?? 'Оставить заявку',
+								'CLASS' => 'accordeon-list-btn',
+								'FORM_ID' => $arParams["FORM_BTN"]["FORM_ID"] ?? '1'
+							),
+							array('MODE' => 'html', 'NAME' => 'кнопку', 'SHOW_BORDER' => false)
+						); ?>
+					<? endif; ?>
 				</div>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 
-$reviewTextLimit = 200;
+$reviewTextLimit = 100;
 ?>
 
 <? if ($arResult["ITEMS"]): ?>
@@ -78,8 +78,7 @@ $reviewTextLimit = 200;
 											class="review-card__expander"
 											type="button"
 											data-review-popup
-											data-review-text="<?= htmlspecialcharsbx($reviewText) ?>"
-										>
+											data-review-text="<?= htmlspecialcharsbx($reviewText) ?>">
 											<span>Читать</span>
 										</button>
 									<? endif; ?>

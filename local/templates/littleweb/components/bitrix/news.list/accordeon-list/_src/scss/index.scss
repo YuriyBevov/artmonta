@@ -1,6 +1,6 @@
 @use "@scss/base/container-queries" as *;
 
-.faq-preview {
+.accordeon-list {
 	.container {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -39,5 +39,9 @@
 	.section-header {
 		position: relative;
 		margin-bottom: 0;
+	}
+
+	.accordeon-list-btn {
+		margin-top: clamp(32px, 3.2vw, 60px);
 	}
 }

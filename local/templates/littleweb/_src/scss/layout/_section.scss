@@ -50,7 +50,7 @@
 			.swiper-navigation {
 				display: none;
 			}
-			@include container-up("section", 534px) {
+			@include container-up("section", 640px) {
 				position: relative;
 				padding-right: 300px;
 
@@ -62,6 +62,10 @@
 					transform: translateY(-50%);
 					right: 0;
 				}
+			}
+
+			&:has(.swiper-button-lock) .swiper-navigation {
+				display: none;
 			}
 		}
 	}

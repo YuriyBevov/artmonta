@@ -2,7 +2,7 @@
   <div class="text-split-section__img">
     <?
     $APPLICATION->IncludeFile(
-      SITE_TEMPLATE_PATH . '/include/preview-text-section/image.php',
+      SITE_TEMPLATE_PATH . '/include/about-text-section/image.php',
       array(),
       array('MODE' => 'html', 'NAME' => 'контентное изображение блока', 'SHOW_BORDER' => true)
     );
@@ -12,7 +12,7 @@
     <div class="text-split-section__content">
       <?
       $APPLICATION->IncludeFile(
-        SITE_TEMPLATE_PATH . '/include/preview-text-section/description.php',
+        SITE_TEMPLATE_PATH . '/include/about-text-section/description.php',
         array(),
         array('MODE' => 'html', 'NAME' => 'текст блока', 'SHOW_BORDER' => true)
       );

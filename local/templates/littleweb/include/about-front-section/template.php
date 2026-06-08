@@ -18,7 +18,7 @@
           'TITLE' =>  'ArtMonta — компания застройки стендов',
           'FILE_PATH' => '/include/about-section/image.php'
         ),
-        array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
+        array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => true)
       );
       ?>
     </div>

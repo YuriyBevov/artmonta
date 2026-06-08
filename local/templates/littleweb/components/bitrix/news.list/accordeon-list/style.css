@@ -1,0 +1,21 @@
+.accordeon-list {
+	position: relative;
+	z-index: 2;
+	container: accordeon-list/inline-size;
+}
+@container accordeon-list (min-width: 534px ) {
+	.accordeon-list > .container {
+		position: relative;
+	}
+}
+@container accordeon-list (min-width: 960px ) {
+	.section.accordeon-list > .container {
+		display: grid;
+		grid-template-columns: 4fr 5fr;
+		gap: 30px clamp(40px, 3vw, 80px);
+	}
+
+	.accordeon-list .section__header {
+		gap: clamp(24px, 3.2vw, 32px);
+	}
+}

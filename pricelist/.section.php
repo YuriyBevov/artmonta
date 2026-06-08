@@ -1,0 +1,3 @@
+<?
+$sSectionName = "Стоимость";
+$arDirProperties = array();

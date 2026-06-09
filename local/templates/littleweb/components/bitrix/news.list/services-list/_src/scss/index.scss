@@ -73,6 +73,7 @@
 		&--linked {
 			flex-direction: row;
 			align-items: center;
+			min-height: 102px;
 		}
 
 		@media (hover: hover) {

@@ -5,7 +5,7 @@ $this->setFrameMode(true);
 
 
 <? if ($arResult["ITEMS"]): ?>
-	<section class="section services-list test">
+	<section class="section services-list">
 		<div class="container<?= ($arParams["IS_INNER"] ? '-fluid' : '') ?>">
 
 			<? if (!$arParams["IS_INNER"]) {
@@ -22,7 +22,7 @@ $this->setFrameMode(true);
 					$APPLICATION->IncludeFile(
 						SITE_TEMPLATE_PATH . '/include/section-header.php',
 						array(
-							'TITLE' =>  'Другие услуги'
+							'TITLE' =>  $arParams["LINKED_TITLE"] ?: 'Другие услуги'
 						),
 						array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
 					);
@@ -65,7 +65,7 @@ $this->setFrameMode(true);
 								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="Иконка" width="50" height="50">
 							<? endif; ?>
 							<span class="subtitle"><?= $arItem["NAME"] ?></span>
-							<? if ($arParams["LINKED_SERVICES"] !== "Y"): ?>
+							<? if ($arParams["LINKED_SERVICES"] !== "Y" && $arItem["PREVIEW_TEXT"]): ?>
 								<p><?= $arItem["PREVIEW_TEXT"] ?></p>
 							<? endif; ?>
 							<div class="services-list-card__icon">

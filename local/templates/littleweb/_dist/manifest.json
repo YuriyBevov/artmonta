@@ -50,7 +50,7 @@
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.D0NmPQpT.css",
+    "file": "template_styles.BoJfsLuG.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",
@@ -62,14 +62,15 @@
     "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
     "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
+    "name": "bitrix_news_detail_service-detail_scss",
     "names": [
       "bitrix_catalog_artmonta_scss.css",
       "bitrix_news_blog_scss.css",
       "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
       "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/form.result.new/callback-form/_src/scss/index.scss": {
@@ -117,32 +118,34 @@
       "bitrix_news_detail_portfolio-detail_scss.css"
     ]
   },
+  "local/templates/littleweb/components/bitrix/news.detail/projects-detail/_src/scss/index.scss": {
+    "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
+    "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
+    "isEntry": true,
+    "name": "bitrix_news_detail_service-detail_scss",
+    "names": [
+      "bitrix_catalog_artmonta_scss.css",
+      "bitrix_news_blog_scss.css",
+      "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
+      "bitrix_news_services_scss.css",
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
+    ]
+  },
   "local/templates/littleweb/components/bitrix/news.detail/service-detail/_src/scss/index.scss": {
     "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
     "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
+    "name": "bitrix_news_detail_service-detail_scss",
     "names": [
       "bitrix_catalog_artmonta_scss.css",
       "bitrix_news_blog_scss.css",
       "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
       "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
-    ]
-  },
-  "local/templates/littleweb/components/bitrix/news.list/_image-slider/_src/scss/index.scss": {
-    "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
-    "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
-    "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
-    "names": [
-      "bitrix_catalog_artmonta_scss.css",
-      "bitrix_news_blog_scss.css",
-      "bitrix_news_portfolio_scss.css",
-      "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/news.list/accordeon-list/_src/scss/index.scss": {
@@ -238,13 +241,13 @@
       "bitrix_news_list_portfolio-preview_scss.css"
     ]
   },
-  "local/templates/littleweb/components/bitrix/news.list/production/_src/scss/index.scss": {
-    "file": "components/bitrix/news.list/production/style.vAWmlAEc.css",
-    "src": "local/templates/littleweb/components/bitrix/news.list/production/_src/scss/index.scss",
+  "local/templates/littleweb/components/bitrix/news.list/project-list/_src/scss/index.scss": {
+    "file": "components/bitrix/news.list/project-list/style.BEM3WGnH.css",
+    "src": "local/templates/littleweb/components/bitrix/news.list/project-list/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list_production_scss",
+    "name": "bitrix_news_list_project-list_scss",
     "names": [
-      "bitrix_news_list_production_scss.css"
+      "bitrix_news_list_project-list_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/news.list/reviews-preview/_src/js/index.js": {
@@ -263,7 +266,7 @@
     ]
   },
   "local/templates/littleweb/components/bitrix/news.list/services-list/_src/scss/index.scss": {
-    "file": "components/bitrix/news.list/services-list/style.DTSg53kl.css",
+    "file": "components/bitrix/news.list/services-list/style.Ke_IOLl4.css",
     "src": "local/templates/littleweb/components/bitrix/news.list/services-list/_src/scss/index.scss",
     "isEntry": true,
     "name": "bitrix_news_list_services-list_scss",
@@ -293,42 +296,60 @@
     "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
     "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
+    "name": "bitrix_news_detail_service-detail_scss",
     "names": [
       "bitrix_catalog_artmonta_scss.css",
       "bitrix_news_blog_scss.css",
       "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
       "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/news/portfolio/_src/scss/index.scss": {
     "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
     "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
+    "name": "bitrix_news_detail_service-detail_scss",
     "names": [
       "bitrix_catalog_artmonta_scss.css",
       "bitrix_news_blog_scss.css",
       "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
       "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
+    ]
+  },
+  "local/templates/littleweb/components/bitrix/news/projects/_src/scss/index.scss": {
+    "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
+    "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
+    "isEntry": true,
+    "name": "bitrix_news_detail_service-detail_scss",
+    "names": [
+      "bitrix_catalog_artmonta_scss.css",
+      "bitrix_news_blog_scss.css",
+      "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
+      "bitrix_news_services_scss.css",
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/news/services/_src/scss/index.scss": {
     "file": "components/bitrix/catalog/artmonta/style.tn0RQdqM.css",
     "src": "local/templates/littleweb/components/bitrix/catalog/artmonta/_src/scss/index.scss",
     "isEntry": true,
-    "name": "bitrix_news_list__image-slider_scss",
+    "name": "bitrix_news_detail_service-detail_scss",
     "names": [
       "bitrix_catalog_artmonta_scss.css",
       "bitrix_news_blog_scss.css",
       "bitrix_news_portfolio_scss.css",
+      "bitrix_news_projects_scss.css",
       "bitrix_news_services_scss.css",
-      "bitrix_news_detail_service-detail_scss.css",
-      "bitrix_news_list__image-slider_scss.css"
+      "bitrix_news_detail_projects-detail_scss.css",
+      "bitrix_news_detail_service-detail_scss.css"
     ]
   },
   "local/templates/littleweb/components/bitrix/system.pagenavigation/lw-page-navigation/_src/scss/index.scss": {

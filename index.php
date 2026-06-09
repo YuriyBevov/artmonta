@@ -149,9 +149,9 @@ $APPLICATION->SetTitle("Мебельная компания");
 
 <!-- Какие стенды мы производим -->
 <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"production",
-	array(
+	"bitrix:news.list", 
+	"project-list", 
+	[
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -164,17 +164,17 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "",
+		"DETAIL_URL" => "/projects/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "N",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
+		"FIELD_CODE" => [
 			0 => "DETAIL_PICTURE",
 			1 => "",
-		),
+		],
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "10",
@@ -193,10 +193,10 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
+		"PROPERTY_CODE" => [
 			0 => "",
 			1 => "",
-		),
+		],
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -209,8 +209,8 @@ $APPLICATION->SetTitle("Мебельная компания");
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "production"
-	),
+		"COMPONENT_TEMPLATE" => "project-list"
+	],
 	false
 ); ?>
 <!-- Какие стенды мы производим -->

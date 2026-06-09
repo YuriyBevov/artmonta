@@ -3,18 +3,30 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 ?>
 
+
 <? if ($arResult["ITEMS"]): ?>
-	<section class="section services-list">
+	<section class="section services-list test">
 		<div class="container<?= ($arParams["IS_INNER"] ? '-fluid' : '') ?>">
+
 			<? if (!$arParams["IS_INNER"]) {
-				$APPLICATION->IncludeFile(
-					SITE_TEMPLATE_PATH . '/include/section-header.php',
-					array(
-						'TITLE' =>  $arResult["NAME"],
-						'DESCRIPTION' => $arResult["DESCRIPTION"],
-					),
-					array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
-				);
+				if ($arParams["LINKED_SERVICES"] !== "Y") {
+					$APPLICATION->IncludeFile(
+						SITE_TEMPLATE_PATH . '/include/section-header.php',
+						array(
+							'TITLE' =>  $arResult["NAME"],
+							'DESCRIPTION' => $arResult["DESCRIPTION"],
+						),
+						array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
+					);
+				} else {
+					$APPLICATION->IncludeFile(
+						SITE_TEMPLATE_PATH . '/include/section-header.php',
+						array(
+							'TITLE' =>  'Другие услуги'
+						),
+						array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
+					);
+				}
 			} else {
 				$APPLICATION->IncludeFile(
 					SITE_TEMPLATE_PATH . '/include/section-inner-header.php',
@@ -48,13 +60,14 @@ $this->setFrameMode(true);
 					);
 				?>
 					<div class="services-list-card-container">
-						<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="services-list-card" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+						<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="services-list-card<?= ($arParams["LINKED_SERVICES"] === "Y") ? ' services-list-card--linked' : '' ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 							<? if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
 								<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="Иконка" width="50" height="50">
 							<? endif; ?>
 							<span class="subtitle"><?= $arItem["NAME"] ?></span>
-							<p><?= $arItem["PREVIEW_TEXT"] ?></p>
-
+							<? if ($arParams["LINKED_SERVICES"] !== "Y"): ?>
+								<p><?= $arItem["PREVIEW_TEXT"] ?></p>
+							<? endif; ?>
 							<div class="services-list-card__icon">
 								<svg width='24' height='24' role='img' aria-hidden='true' focusable='false'>
 									<use xlink:href='<?= SITE_TEMPLATE_PATH ?>/_dist/sprite.svg#arrow'></use>

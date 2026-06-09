@@ -49,8 +49,10 @@ $APPLICATION->SetTitle("Услуги");
 			1 => "",
 		],
 		"LIST_PROPERTY_CODE" => [
-			0 => "",
-			1 => "",
+			0 => "LINKED_FAQ",
+			1 => "DETAIL_DESCRIPTION",
+			2 => "LINKED_PORTFOLIO",
+			3 => "",
 		],
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",

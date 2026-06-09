@@ -17,6 +17,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+		width: 100%;
 
 		padding: 24px;
 		border: 2px solid var(--light);
@@ -67,6 +68,11 @@
 					transform var(--main-transition),
 					fill var(--main-transition);
 			}
+		}
+
+		&--linked {
+			flex-direction: row;
+			align-items: center;
 		}
 
 		@media (hover: hover) {

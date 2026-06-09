@@ -9,7 +9,7 @@
     <div class="hero-section-fh-wrapper">
       <div class="hero-section__title">
         <h1>Выставочная <span>компания</span> <small>с собственным производством</small></h1>
-        <a href="#">
+        <a href="/portfolio/">
           <svg width='24' height='24' role='img' aria-hidden='true' focusable='false'>
             <use xlink:href='<?= SITE_TEMPLATE_PATH ?>/_dist/sprite.svg#arrow'></use>
           </svg>

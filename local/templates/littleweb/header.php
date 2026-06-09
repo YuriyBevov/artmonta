@@ -20,7 +20,13 @@
 </head>
 
 <body class="site-loading">
-	<div class="site-loader" data-site-loader aria-hidden="true"></div>
+	<div class="site-loader" data-site-loader aria-hidden="true">
+		<div class="site-loader__content">
+			<a href="/" class="logo" tabindex="-1">
+				<img src="<?= SITE_TEMPLATE_PATH ?>/_dist/images/logo.svg" alt="_artmonta" width="180" height="60">
+			</a>
+		</div>
+	</div>
 	<div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
 
 	<header class="header">

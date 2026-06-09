@@ -1,7 +1,9 @@
 .site-loader {
 	position: fixed;
 	inset: 0;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: var(--dark);
 	opacity: 1;
 	visibility: visible;
@@ -10,6 +12,28 @@
 	transition:
 		opacity 0.6s ease,
 		visibility 0s linear 0s;
+
+	&__content {
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		transform: translateZ(0);
+		pointer-events: none;
+		animation: site-loader-content-show 2s ease 3s forwards;
+	}
+
+	.logo {
+		opacity: 1;
+
+		&::after {
+			width: 36px;
+			height: 4px;
+		}
+
+		img {
+			width: clamp(150px, 18vw, 220px);
+		}
+	}
 }
 
 .site-loader.is-hidden {
@@ -23,4 +47,10 @@
 
 body.site-loading {
 	overflow: hidden;
+}
+
+@keyframes site-loader-content-show {
+	to {
+		opacity: 1;
+	}
 }

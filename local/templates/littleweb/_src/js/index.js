@@ -70,7 +70,11 @@ const hideLoader = ({ onStart } = {}) => {
 			resolve();
 		};
 
-		loader.addEventListener("transitionend", finish, { once: true });
+		loader.addEventListener("transitionend", (event) => {
+			if (event.target === loader) {
+				finish();
+			}
+		});
 		window.setTimeout(finish, LOADER_HIDE_TIMEOUT);
 
 		window.requestAnimationFrame(() => {

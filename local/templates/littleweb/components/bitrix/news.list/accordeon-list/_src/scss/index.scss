@@ -12,7 +12,7 @@
 	}
 
 	@include container-up("section", 768px) {
-		.container-wide {
+		&-wrapper {
 			position: relative;
 
 			&::before {

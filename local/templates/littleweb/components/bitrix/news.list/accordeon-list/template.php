@@ -5,7 +5,7 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
 	<section class="section accordeon-list" itemscope itemtype="https://schema.org/FAQPage">
 
-		<div class="container-wide">
+		<div class="accordeon-list-wrapper">
 			<div class="container">
 				<?
 				$APPLICATION->IncludeFile(

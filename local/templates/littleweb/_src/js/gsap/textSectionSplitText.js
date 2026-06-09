@@ -44,7 +44,7 @@ const onFontsReady = (callback) => {
 	window.setTimeout(run, 200);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initTextSectionSplitText = () => {
 	const wrappers = document.querySelectorAll(".text-split-section__content");
 
 	if (!wrappers.length) {
@@ -111,4 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	onFontsReady(splitText);
-});
+};

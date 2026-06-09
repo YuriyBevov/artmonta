@@ -1,7 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initBlogPreview = () => {
 	const slider = document.querySelector(".blog-preview .swiper");
 
-	console.log(slider);
 	if (slider) {
 		new Swiper(slider, {
 			slidesPerView: 1,
@@ -31,4 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			// },
 		});
 	}
-});
+};

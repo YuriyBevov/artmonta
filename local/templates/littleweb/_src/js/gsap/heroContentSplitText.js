@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { prefersReducedMotion, registerScrollTrigger } from "./utils";
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initHeroContentSplitText = () => {
 	const content = document.querySelector(".hero-section__content");
 	const textItem = document.querySelector(".hero-section__content-item--text");
 
@@ -72,4 +72,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			stagger: 0.005,
 			clearProps: "will-change",
 		});
-});
+};

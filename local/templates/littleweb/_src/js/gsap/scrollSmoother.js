@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { prefersReducedMotion, registerScrollTrigger } from "./utils";
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initScrollSmoother = () => {
 	registerScrollTrigger(ScrollSmoother);
 
 	if (!prefersReducedMotion()) {
@@ -33,4 +33,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			scrub: 0.3,
 		},
 	});
-});
+};

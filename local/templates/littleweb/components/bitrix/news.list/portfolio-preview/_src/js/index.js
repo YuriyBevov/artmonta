@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initPortfolioPreview = () => {
 	const slider = document.querySelector(".portfolio-preview .swiper");
 
 	if (slider) {
@@ -12,4 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			},
 		});
 	}
-});
+};

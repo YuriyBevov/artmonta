@@ -5,7 +5,7 @@ import {
 	scheduleScrollRefresh,
 } from "./utils";
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initFeaturesCounter = () => {
 	const counters = document.querySelectorAll("[data-counter-to]");
 
 	if (!counters.length) return;
@@ -83,4 +83,4 @@ document.addEventListener("DOMContentLoaded", () => {
 		clearTimeout(resizeTimer);
 		resizeTimer = setTimeout(refreshCardSizes, 150);
 	});
-});
+};

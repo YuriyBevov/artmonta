@@ -1,3 +1,5 @@
 import { setHeaderHeight } from "../functions/setHeaderHeight";
 
-setHeaderHeight();
+export const initSetHeaderHeight = () => {
+	return setHeaderHeight();
+};

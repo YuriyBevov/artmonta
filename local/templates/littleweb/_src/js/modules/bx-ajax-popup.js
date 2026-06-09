@@ -1,6 +1,11 @@
 import { bodyLocker } from "../functions/bodyLocker";
 
-BX.ready(function () {
+export const initBxAjaxPopup = () => {
+	if (!window.BX) {
+		return;
+	}
+
+	BX.ready(function () {
 	var openers = document.querySelectorAll(
 		"[data-form-id], [data-1clickbuy-id], [data-quickview-id]",
 	);
@@ -129,4 +134,5 @@ BX.ready(function () {
 			});
 		});
 	});
-});
+	});
+};

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initTableWrapper = () => {
 	let tables = document.getElementsByTagName("table");
 
 	if (tables.length) {
@@ -13,4 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			wrapper.appendChild(tables[i]);
 		}
 	}
-});
+};

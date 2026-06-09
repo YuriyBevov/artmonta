@@ -1,11 +1,12 @@
 import { gsap } from "gsap";
 import { bodyLocker } from "../functions/bodyLocker";
 
-const opener = document.querySelector(".burger-btn--opener");
-const closer = document.querySelector(".burger-btn--closer");
-const menu = document.querySelector(".menu");
+export const initMenu = () => {
+	const opener = document.querySelector(".burger-btn--opener");
+	const closer = document.querySelector(".burger-btn--closer");
+	const menu = document.querySelector(".menu");
 
-if (opener && closer && menu) {
+	if (opener && closer && menu) {
 	const mm = gsap.matchMedia();
 
 	mm.add("(max-width: 1239px)", () => {
@@ -67,4 +68,5 @@ if (opener && closer && menu) {
 			window.removeEventListener("keydown", onEscClickHandler);
 		};
 	});
-}
+	}
+};

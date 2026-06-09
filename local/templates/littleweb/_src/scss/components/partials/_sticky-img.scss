@@ -9,12 +9,12 @@
 	object-fit: contain;
 	width: 100%;
 	height: auto;
+	pointer-events: none;
 	will-change: auto;
 
 	&--left {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
 		left: -280px;
 		object-fit: contain;
 		width: 100%;

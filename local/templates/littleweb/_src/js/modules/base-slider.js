@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initBaseSlider = () => {
 	const sliders = document.querySelectorAll(".base-slider");
 
 	if (sliders) {
@@ -21,4 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 	}
-});
+};

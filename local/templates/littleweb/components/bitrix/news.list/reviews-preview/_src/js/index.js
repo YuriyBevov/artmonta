@@ -120,7 +120,7 @@ const initReviewPopups = () => {
 	});
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initReviewsPreview = () => {
 	const slider = document.querySelector(".reviews-preview .swiper");
 
 	if (slider) {
@@ -140,4 +140,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	} else {
 		initReviewPopups();
 	}
-});
+};

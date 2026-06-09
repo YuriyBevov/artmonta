@@ -16,7 +16,7 @@ const reveals = [
 	},
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initSectionImageReveal = () => {
 	if (prefersReducedMotion()) {
 		return;
 	}
@@ -43,4 +43,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			},
 		});
 	});
-});
+};

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export const initAccordeon = () => {
 	const accordeons = document.querySelectorAll(".accordeon");
 
 	if (accordeons) {
@@ -28,4 +28,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 	}
-});
+};

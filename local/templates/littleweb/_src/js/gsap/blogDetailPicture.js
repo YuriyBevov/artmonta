@@ -35,7 +35,7 @@ const setPictureMetrics = (picture, image) => {
 	return changed;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initBlogDetailPicture = () => {
 	const picture = document.querySelector(".blog-detail__picture-wrapper");
 	const mask = picture?.querySelector(".blog-detail__picture-mask");
 	const image = mask?.querySelector(".blog-detail__picture");
@@ -103,4 +103,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}).observe(picture);
 	}
-});
+};

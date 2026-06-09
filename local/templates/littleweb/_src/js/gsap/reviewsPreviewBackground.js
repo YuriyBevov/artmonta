@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { prefersReducedMotion, registerScrollTrigger } from "./utils";
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initReviewsPreviewBackground = () => {
 	const section = document.querySelector(".reviews-preview");
 	const image = section?.querySelector(".reviews-preview__bg img");
 
@@ -32,4 +32,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			},
 		},
 	);
-});
+};

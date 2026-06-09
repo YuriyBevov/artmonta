@@ -132,16 +132,23 @@ main {
 
 #smooth-wrapper {
 	z-index: 2;
+	pointer-events: none;
 }
 
 #smooth-content {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	pointer-events: none;
+
+	> :not(.hero-spacer) {
+		pointer-events: auto;
+	}
 }
 
 .hero-spacer {
 	height: 100dvh;
+	pointer-events: none;
 }
 
 .hero-overlay {

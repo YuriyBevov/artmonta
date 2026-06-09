@@ -29,14 +29,8 @@ if (!function_exists('includeComponentAssets')) {
       }
 
       $cssPath = $vite->getComponentCss($componentName);
-      $jsPath = $vite->getComponentJs($componentName);
-
       if ($cssPath) {
         $asset->addCss($cssPath);
-      }
-
-      if ($jsPath) {
-        $asset->addJs($jsPath);
       }
     }
 

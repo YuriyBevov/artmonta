@@ -5,7 +5,7 @@ import {
 	registerScrollTrigger,
 } from "./utils";
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initPortfolioDetailPicture = () => {
 	const picture = document.querySelector(".portfolio-detail .detail-picture");
 	const image = picture?.querySelector("img");
 
@@ -55,4 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			},
 		);
 	}
-});
+};

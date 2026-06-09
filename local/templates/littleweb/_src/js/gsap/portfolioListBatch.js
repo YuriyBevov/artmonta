@@ -171,7 +171,7 @@ const createImageParallax = (items) => {
 	});
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+export const initPortfolioListBatch = () => {
 	const galleries = Array.from(document.querySelectorAll(".gallery"));
 
 	if (!galleries.length) {
@@ -241,4 +241,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			scheduleScrollRefresh();
 		}, 150);
 	});
-});
+};

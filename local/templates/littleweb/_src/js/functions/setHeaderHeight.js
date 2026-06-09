@@ -1,13 +1,25 @@
 export const setHeaderHeight = () => {
 	const header = document.querySelector(".header");
-	if (!header) return;
+	if (!header) return Promise.resolve(false);
 
-	const observer = new ResizeObserver(([entry]) => {
+	const setHeight = (height) => {
 		document.documentElement.style.setProperty(
 			"--header-height",
-			`${entry.contentRect.height + 24}px`,
+			`${height + 24}px`,
 		);
+	};
+
+	const initialHeight = header.getBoundingClientRect().height;
+
+	if (initialHeight) {
+		setHeight(initialHeight);
+	}
+
+	const observer = new ResizeObserver(([entry]) => {
+		setHeight(entry.contentRect.height);
 	});
 
 	observer.observe(header);
+
+	return Promise.resolve(true);
 };

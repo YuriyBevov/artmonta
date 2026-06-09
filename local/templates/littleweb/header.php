@@ -19,7 +19,8 @@
 	?>
 </head>
 
-<body>
+<body class="site-loading">
+	<div class="site-loader" data-site-loader aria-hidden="true"></div>
 	<div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
 
 	<header class="header">

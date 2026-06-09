@@ -46,6 +46,11 @@
 			width: 16px;
 			height: auto;
 			fill: var(--dark);
+			transform: translateZ(0);
+			transform-box: fill-box;
+			transform-origin: center;
+			backface-visibility: hidden;
+			will-change: transform;
 
 			transition: transform var(--main-transition);
 		}
@@ -64,7 +69,7 @@
 		&:focus {
 			.arrow-btn__icon {
 				svg {
-					transform: rotate(45deg);
+					transform: translateZ(0) rotate(45deg);
 				}
 			}
 		}

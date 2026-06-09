@@ -110,6 +110,11 @@
 				width: 24px;
 				height: auto;
 				fill: var(--white);
+				transform: translateZ(0);
+				transform-box: fill-box;
+				transform-origin: center;
+				backface-visibility: hidden;
+				will-change: transform;
 				transition: transform var(--main-transition);
 			}
 
@@ -117,7 +122,7 @@
 				&:hover,
 				&:focus {
 					svg {
-						transform: rotate(45deg);
+						transform: translateZ(0) rotate(45deg);
 					}
 				}
 			}

@@ -58,9 +58,11 @@
 	}
 }
 .pagination__btn--prev {
-	-webkit-transform: rotate(-180deg);
-	-ms-transform: rotate(-180deg);
-	transform: rotate(-180deg);
+	-webkit-transform: translateZ(0) rotate(-180deg);
+	-ms-transform: translateZ(0) rotate(-180deg);
+	transform: translateZ(0) rotate(-180deg);
+	backface-visibility: hidden;
+	will-change: transform;
 }
 .pagination__btn--selected {
 	pointer-events: none;

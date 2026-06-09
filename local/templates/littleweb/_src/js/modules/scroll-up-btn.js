@@ -14,7 +14,6 @@ window.addEventListener("load", () => {
 		right: "40px",
 		width: "50px",
 		height: "50px",
-		// borderRadius: "50%",
 		backgroundColor: "rgb(83 44 249 / 10%)",
 		zIndex: 89,
 		padding: "5px",

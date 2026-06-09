@@ -27,11 +27,16 @@
 			width: 72px;
 			height: auto;
 			fill: var(--white);
+			transform: translateZ(0);
+			transform-box: fill-box;
+			transform-origin: center;
+			backface-visibility: hidden;
+			will-change: transform;
 		}
 
 		&--prev {
 			svg {
-				transform: rotate(180deg);
+				transform: translateZ(0) rotate(180deg);
 			}
 		}
 

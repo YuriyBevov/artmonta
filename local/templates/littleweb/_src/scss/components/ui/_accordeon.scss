@@ -50,7 +50,7 @@
 			}
 
 			.accordeon-opener {
-				transform: translateY(-50%) rotate(135deg);
+				transform: translateY(-50%) translateZ(0) rotate(135deg);
 
 				background-color: var(--white);
 
@@ -78,7 +78,7 @@
 	&-opener {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%) translateZ(0);
 		right: 24px;
 
 		width: 40px;
@@ -89,7 +89,9 @@
 		justify-content: center;
 		border-radius: 50%;
 		background-color: var(--accordeon-icon-bg);
-		will-change: auto;
+		transform-origin: center;
+		backface-visibility: hidden;
+		will-change: transform;
 		transition: transform var(--main-transition);
 
 		svg {

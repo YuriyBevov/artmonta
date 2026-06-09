@@ -85,6 +85,11 @@
 				width: 14px;
 				height: 14px;
 				fill: var(--white);
+				transform: translateZ(0);
+				transform-box: fill-box;
+				transform-origin: center;
+				backface-visibility: hidden;
+				will-change: transform;
 
 				transition: transform var(--main-transition);
 			}
@@ -93,14 +98,14 @@
 		@media (hover: hover) {
 			&:hover {
 				svg {
-					transform: rotate(45deg);
+					transform: translateZ(0) rotate(45deg);
 				}
 			}
 		}
 
 		&:focus {
 			svg {
-				transform: rotate(45deg);
+				transform: translateZ(0) rotate(45deg);
 			}
 		}
 	}

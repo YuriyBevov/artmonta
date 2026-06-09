@@ -44,13 +44,13 @@
     "src": "local/templates/littleweb/_src/images/inner-section-bg.png"
   },
   "local/templates/littleweb/_src/js/index.js": {
-    "file": "template_scripts.BxAuFO8c.js",
+    "file": "template_scripts.Db7wvpOJ.js",
     "name": "script",
     "src": "local/templates/littleweb/_src/js/index.js",
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.D2zdcN1d.css",
+    "file": "template_styles.3F-LAxVK.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",

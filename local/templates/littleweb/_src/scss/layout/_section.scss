@@ -7,6 +7,7 @@
 	overflow-x: clip;
 	padding: clamp(20px, 6vw, 60px) 0;
 	z-index: 11;
+	// background-color: var(--dark);
 
 	&-header {
 		display: flex;
@@ -74,6 +75,7 @@
 
 	&-inner-header {
 		position: relative;
+		overflow: hidden;
 		padding-top: var(--header-height);
 		margin-bottom: clamp(24px, 3.6vw, 60px);
 
@@ -90,14 +92,17 @@
 			height: 100%;
 			object-fit: cover;
 			object-position: bottom;
+			z-index: 0;
 		}
 
 		&__wrapper {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			gap: 30px;
 			min-height: 330px;
+			z-index: 1;
 
 			&:has(.circle-badge) {
 				.circle-badge {

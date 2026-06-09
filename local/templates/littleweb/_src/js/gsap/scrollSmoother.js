@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import {
-	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 } from "./utils";
@@ -30,10 +29,34 @@ export const initScrollSmoother = () => {
 	}
 
 	const heroOverlay = document.querySelector(".hero-overlay");
+	const heroVideo = document.querySelector(".hero-section video");
+	let isHeroVideoPaused = false;
 
-	if (!heroOverlay || prefersReducedMotion() || isMobileScrollDevice()) {
+	if (!heroOverlay || prefersReducedMotion()) {
 		return;
 	}
+
+	const updateHeroVideoState = (progress) => {
+		if (!heroVideo) {
+			return;
+		}
+
+		if (progress >= 0.98 && !isHeroVideoPaused) {
+			heroVideo.pause();
+			isHeroVideoPaused = true;
+			return;
+		}
+
+		if (progress < 0.98 && isHeroVideoPaused) {
+			const playPromise = heroVideo.play();
+
+			if (playPromise?.catch) {
+				playPromise.catch(() => {});
+			}
+
+			isHeroVideoPaused = false;
+		}
+	};
 
 	gsap.to(heroOverlay, {
 		opacity: 1,
@@ -43,6 +66,15 @@ export const initScrollSmoother = () => {
 			start: "top top",
 			end: "bottom top",
 			scrub: 0.3,
+			onUpdate: ({ progress }) => {
+				updateHeroVideoState(progress);
+			},
+			onLeave: () => {
+				updateHeroVideoState(1);
+			},
+			onEnterBack: ({ progress }) => {
+				updateHeroVideoState(progress);
+			},
 		},
 	});
 };

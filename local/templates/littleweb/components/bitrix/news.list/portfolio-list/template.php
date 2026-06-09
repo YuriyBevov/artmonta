@@ -78,6 +78,41 @@ $this->setFrameMode(true);
 				<? if ($arResult["ITEMS"]): ?>
 					<div class="gallery">
 						<? foreach ($arResult["ITEMS"] as $arItem):
+							$previewPicture = $arItem["PREVIEW_PICTURE"];
+							$previewPictureSmall = false;
+							$previewPictureMedium = false;
+							$previewPictureLarge = false;
+
+							if (!empty($previewPicture["ID"])) {
+								$previewPictureSmall = CFile::ResizeImageGet(
+									$previewPicture["ID"],
+									["width" => 320, "height" => 320],
+									BX_RESIZE_IMAGE_PROPORTIONAL,
+									true
+								);
+								$previewPictureMedium = CFile::ResizeImageGet(
+									$previewPicture["ID"],
+									["width" => 560, "height" => 560],
+									BX_RESIZE_IMAGE_PROPORTIONAL,
+									true
+								);
+								$previewPictureLarge = CFile::ResizeImageGet(
+									$previewPicture["ID"],
+									["width" => 800, "height" => 800],
+									BX_RESIZE_IMAGE_PROPORTIONAL,
+									true
+								);
+							}
+
+							$previewPictureSrc = $previewPictureMedium["src"] ?? $previewPicture["SRC"];
+							$previewPictureWidth = intval($previewPictureMedium["width"] ?? $previewPicture["WIDTH"] ?? 0);
+							$previewPictureHeight = intval($previewPictureMedium["height"] ?? $previewPicture["HEIGHT"] ?? 0);
+							$previewPictureSrcset = array_filter([
+								$previewPictureSmall ? $previewPictureSmall["src"] . " 320w" : null,
+								$previewPictureMedium ? $previewPictureMedium["src"] . " 560w" : null,
+								$previewPictureLarge ? $previewPictureLarge["src"] . " 800w" : null,
+							]);
+
 							$this->AddEditAction(
 								$arItem['ID'],
 								$arItem['EDIT_LINK'],
@@ -92,7 +127,7 @@ $this->setFrameMode(true);
 						?>
 							<a class="gallery__item" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 								<div class="gallery__item-wrapper">
-									<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" width="<?= intval($arItem["PREVIEW_PICTURE"]["WIDTH"]) ?>" height="<?= intval($arItem["PREVIEW_PICTURE"]["HEIGHT"]) ?>" alt="<?= htmlspecialcharsbx($arItem["NAME"]) ?>" loading="lazy">
+									<img src="<?= $previewPictureSrc ?>" <? if ($previewPictureSrcset): ?>srcset="<?= htmlspecialcharsbx(implode(", ", $previewPictureSrcset)) ?>" sizes="(max-width: 767px) 100vw, 33vw" <? endif; ?> width="<?= $previewPictureWidth ?>" height="<?= $previewPictureHeight ?>" alt="<?= htmlspecialcharsbx($arItem["NAME"]) ?>" loading="lazy">
 								</div>
 							</a>
 						<? endforeach; ?>

@@ -61,7 +61,7 @@ if (!function_exists('includeGlobalAssets')) {
 
     $jsFile = $vite->getTemplateJs();
     if ($jsFile) {
-      $asset->addJs($jsFile);
+      $asset->addString('<script defer src="' . htmlspecialchars($jsFile, ENT_QUOTES, 'UTF-8') . '"></script>', true);
     }
 
     return true;

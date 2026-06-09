@@ -48,6 +48,37 @@ const waitForWindowLoad = () => {
 	});
 };
 
+const waitForHeroReady = () => {
+	const heroVideo = document.querySelector(".hero-section video");
+
+	if (!heroVideo) {
+		return Promise.resolve();
+	}
+
+	if (heroVideo.readyState >= 2) {
+		return Promise.resolve();
+	}
+
+	return new Promise((resolve) => {
+		let isResolved = false;
+
+		const finish = () => {
+			if (isResolved) {
+				return;
+			}
+
+			isResolved = true;
+			heroVideo.removeEventListener("loadeddata", finish);
+			heroVideo.removeEventListener("canplay", finish);
+			resolve();
+		};
+
+		heroVideo.addEventListener("loadeddata", finish, { once: true });
+		heroVideo.addEventListener("canplay", finish, { once: true });
+		window.setTimeout(finish, 1200);
+	});
+};
+
 const hideLoader = ({ onStart } = {}) => {
 	const loader = document.querySelector("[data-site-loader]");
 
@@ -123,11 +154,12 @@ const bootSite = async () => {
 		headerHeightReady = initSetHeaderHeight();
 		runUiInitializers();
 
-		await waitForWindowLoad();
 		await headerHeightReady;
+		await waitForHeroReady();
 		await hideLoader({
 			onStart: runAnimationInitializers,
 		});
+		waitForWindowLoad();
 	} catch (error) {
 		await headerHeightReady;
 		await hideLoader();

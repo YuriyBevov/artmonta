@@ -1,8 +1,4 @@
 {
-  "local/templates/littleweb/_src/fonts/Roboto-Bold.woff2": {
-    "file": "fonts/Roboto-Bold.Dt7zMN7z.woff2",
-    "src": "local/templates/littleweb/_src/fonts/Roboto-Bold.woff2"
-  },
   "local/templates/littleweb/_src/fonts/Roboto-Light.woff2": {
     "file": "fonts/Roboto-Light.1x3amVl9.woff2",
     "src": "local/templates/littleweb/_src/fonts/Roboto-Light.woff2"
@@ -44,13 +40,13 @@
     "src": "local/templates/littleweb/_src/images/inner-section-bg.png"
   },
   "local/templates/littleweb/_src/js/index.js": {
-    "file": "template_scripts.Db7wvpOJ.js",
+    "file": "template_scripts.BfG61uuT.js",
     "name": "script",
     "src": "local/templates/littleweb/_src/js/index.js",
     "isEntry": true
   },
   "local/templates/littleweb/_src/scss/template.scss": {
-    "file": "template_styles.3F-LAxVK.css",
+    "file": "template_styles.CVR9ffgD.css",
     "src": "local/templates/littleweb/_src/scss/template.scss",
     "isEntry": true,
     "name": "template",

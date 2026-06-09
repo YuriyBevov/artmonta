@@ -2,9 +2,15 @@
 <html lang="ru">
 
 <head>
+	<?
+	$curPage = $APPLICATION->GetCurPage();
+	?>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<? if ($curPage === '/'): ?>
+		<link rel="preload" href="<?= SITE_TEMPLATE_PATH ?>/_dist/images/poster-desktop-2.jpg" as="image" fetchpriority="high">
+	<? endif; ?>
 
 	
 
@@ -14,8 +20,6 @@
 	<?
 	includeGlobalAssets();
 	initBitrixCore('popup');
-
-	$curPage = $APPLICATION->GetCurPage();
 	?>
 </head>
 

@@ -90,7 +90,6 @@
 							{
 								container.parentNode.insertBefore(BX.create('div', {props:{className:"reviews-navigation-box reviews-navigation-top"}}), container);
 								var tmpDiv = container;
-								// bottom
 								do {
 									tmpDiv = tmpDiv.nextSibling;
 								} while (tmpDiv && tmpDiv.nodeType != 1);
@@ -199,7 +198,6 @@
 
 				selection = selection.replace(/[\n|\r]*<br(\s)*(\/)*>/gi, "\n");
 
-				// Video
 				var videoWMV = function(str, p1)
 				{
 					var result = ' ';
@@ -222,7 +220,6 @@
 				selection = selection.replace(/<noscript[^>]*>/gi, '\003').replace(/<\/noscript[^>]*>/gi, '\004');
 				selection = selection.replace(/\003([^\004]*)\004/gi, " ");
 
-				// Quote & Code & Table
 				selection = selection.replace(/<table class\=[\"]*forum-quote[\"]*>[^<]*<thead>[^<]*<tr>[^<]*<th>([^<]+)<\/th><\/tr><\/thead>[^<]*<tbody>[^<]*<tr>[^<]*<td>/gi, "\001");
 				selection = selection.replace(/<table class\=[\"]*forum-code[\"]*>[^<]*<thead>[^<]*<tr>[^<]*<th>([^<]+)<\/th><\/tr><\/thead>[^<]*<tbody>[^<]*<tr>[^<]*<td>/gi, "\002");
 				selection = selection.replace(/<table class\=[\"]*data-table[\"]*>[^<]*<tbody>/gi, "\004");
@@ -255,13 +252,11 @@
 					selection = selection.replace(/\004([^\004\003]*)\003/gi, "[TABLE]$1[/TD][/TR][/TABLE]");
 				}
 
-				// Smiles
 				if (BX.browser.IsIE())
 					selection = selection.replace(/<img(?:(?:\s+alt\s*=\s*\"?smile([^\"\s]+)\"?)|(?:\s+\w+\s*=\s*[^\s>]*))*>/gi, "$1");
 				else
 					selection = selection.replace(/<img.*?alt=[\"]*smile([^\"\s]+)[\"]*[^>]*>/gi, "$1");
 
-				// Hrefs
 				selection = selection.replace(/<a[^>]+href=[\"]([^\"]+)\"[^>]+>([^<]+)<\/a>/gi, "[URL=$1]$2[/URL]");
 				selection = selection.replace(/<a[^>]+href=[\']([^\']+)\'[^>]+>([^<]+)<\/a>/gi, "[URL=$1]$2[/URL]");
 				selection = selection.replace(/<[^>]+>/gi, " ").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">").replace(/&quot;/gi, "\"");
@@ -798,9 +793,7 @@
 			oObj.style.display = 'none';
 	};
 
-	/**
-	 * @return {string}
-	 */
+	
 	window.GetSelection = function()
 	{
 		var range, text = '';

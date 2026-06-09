@@ -35,7 +35,7 @@ $linkedPortfolioIds = array_values(array_unique(array_filter(array_map(
 ?>
 
 <? if (!empty($linkedPortfolioIds)): ?>
-	<!-- Портфолио -->
+	
 	<?
 	$portfolioPreviewFilterName = "portfolioPreviewLinked";
 	$GLOBALS[$portfolioPreviewFilterName] = [
@@ -110,9 +110,9 @@ $linkedPortfolioIds = array_values(array_unique(array_filter(array_map(
 		),
 		$component
 	); ?>
-	<!-- Портфолио -->
+	
 <? endif; ?>
-<!-- Этапы работы -->
+
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"workflow",
@@ -178,7 +178,7 @@ $linkedPortfolioIds = array_values(array_unique(array_filter(array_map(
 	),
 	$component
 ); ?>
-<!-- Этапы работы -->
+
 
 
 
@@ -190,7 +190,7 @@ $linkedFaqIds = array_values(array_unique(array_filter(array_map(
 ?>
 
 <? if (!empty($linkedFaqIds)): ?>
-	<!-- Вопросы и ответы -->
+	
 	<?
 	$faqListFilterName = "faqListLinked";
 	$GLOBALS[$faqListFilterName] = [
@@ -263,10 +263,10 @@ $linkedFaqIds = array_values(array_unique(array_filter(array_map(
 		),
 		$component
 	); ?>
-	<!-- Вопросы и ответы -->
+	
 <? endif; ?>
 
-<!-- Услуги -->
+
 <?
 $servicesListFilterName = "servicesListExcludeCurrent";
 $GLOBALS[$servicesListFilterName] = [
@@ -340,4 +340,3 @@ $GLOBALS[$servicesListFilterName] = [
 	],
 	$component
 ); ?>
-<!-- Услуги -->

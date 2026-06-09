@@ -1,18 +1,18 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/** @var array $arParams */
-/** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
+
+
+
+
+
+
+
+
+
+
+
 
 CJSCore::Init(array("ajax"));
-//Let's determine what value to display: rating or average ?
+
 if($arParams["DISPLAY_AS_RATING"] == "vote_avg")
 {
 	if($arResult["PROPERTIES"]["vote_count"]["VALUE"])
@@ -60,9 +60,9 @@ if(!window.voteScript) window.voteScript =
 		}
 	},
 	<?
-	//16*
-	//Интерфейсный JavaScript
-	//хороший кандидат на "генерализацию"
+	
+	
+	
 	?>
 	do_vote: function(div, parent_id, arParams)
 	{
@@ -76,8 +76,7 @@ if(!window.voteScript) window.voteScript =
 			var obContainer = document.getElementById(parent_id);
 			if (obContainer)
 			{
-				//16a Мы предполагаем, что шаблон содержит только один элемент (например div или table)
-				var obResult = document.createElement("DIV");
+					var obResult = document.createElement("DIV");
 				obResult.innerHTML = data;
 				obContainer.parentNode.replaceChild(obResult.firstChild, obContainer);
 			}
@@ -85,17 +84,17 @@ if(!window.voteScript) window.voteScript =
 
 		BX('wait_' + parent_id).innerHTML = BX.message('JS_CORE_LOADING');
 		<?
-		//17*
-		//Запрос будет отослан напрямую компоненту.
-		//18*
-		//Добиваем параметры поста выбором пользователя
+		
+		
+		
+		
 		?>
 		arParams['vote'] = 'Y';
 		arParams['vote_id'] = vote_id;
 		arParams['rating'] = vote_value;
 		<?
-		//19*
-		//Отправляем запрос
+		
+		
 		?>
 		BX.ajax.post(
 			'/bitrix/components/bitrix/iblock.vote/component.php',
@@ -103,17 +102,17 @@ if(!window.voteScript) window.voteScript =
 			__handler
 		);
 		<?
-		//20*
-		//Продолжение экскурсии в файле component.php (начало)
+		
+		
 		?>
 	}
 }
 </script>
 <?
-//10*
-//Обратите внимание на id этого div'а
-//Именого его (div'а) содержимое и будет заменяться
-//результатом запроса
+
+
+
+
 ?>
 <table border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -138,11 +137,11 @@ if(!window.voteScript) window.voteScript =
 			<?foreach($arResult["VOTE_NAMES"] as $i=>$name):?>
 				<?if(round($DISPLAY_VALUE) > $i):?>
 					<td><div id="vote_<?echo $arResult["ID"]?>_<?echo $i?>" class="star-active star-voted" title="<?echo $name?>" onmouseover="voteScript.trace_vote(this, true);" onmouseout="voteScript.trace_vote(this, false)" onclick="<?echo htmlspecialcharsbx($onclick);
-//11*
-//Вызов функции, которая сформирует, отошлет и обработает запрос
-//Первый параметр - понадобится для определения величины голоса
-//Второй - это id контейнера для "замены" ответом
-//Третий - содержит ключ к параметрам
+
+
+
+
+
 ?>"></div></td>
 				<?else:?>
 					<td><div id="vote_<?echo $arResult["ID"]?>_<?echo $i?>" class="star-active star-empty" title="<?echo $name?>" onmouseover="voteScript.trace_vote(this, true);" onmouseout="voteScript.trace_vote(this, false)" onclick="<?echo htmlspecialcharsbx($onclick)?>"></div></td>
@@ -162,6 +161,6 @@ if(!window.voteScript) window.voteScript =
 	</tr>
 </table>
 </div><?
-//12*
-//Продолжение экскурсии в файле component.php (конец)
+
+
 ?>

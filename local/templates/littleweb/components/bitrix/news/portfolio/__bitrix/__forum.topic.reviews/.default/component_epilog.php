@@ -1,12 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/**
- * @var array $arParams
- * @var array $arResult
- * @var string $strErrorMessage
- * @param CBitrixComponent $component
- * @param CBitrixComponentTemplate $this
- * @global CMain $APPLICATION
- */
+
 $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 if ($arParams['AJAX_POST']=='Y' && ($_REQUEST["save_product_review"] == "Y"))
 {
@@ -17,7 +10,7 @@ if ($arParams['AJAX_POST']=='Y' && ($_REQUEST["save_product_review"] == "Y"))
 	$statusMessage = $FHParser->getTagHTML('div[class=reviews-note-box]');
 	$JSResult['statusMessage'] = $statusMessage;
 
-	if ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == "N")) // message added
+	if ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == "N")) 
 	{
 		$result = intval($arResult['RESULT']);
 
@@ -69,7 +62,7 @@ if ($arParams['AJAX_POST']=='Y' && ($_REQUEST["save_product_review"] == "Y"))
 				if (mb_strpos($JSResult['message'], "onForumImageLoad") !== false)
 				{
 					$SHParser = new CForumSimpleHTMLParser($APPLICATION->GetHeadStrings());
-					$scripts = $SHParser->getInnerHTML('<!--LOAD_SCRIPT-->', '<!--END_LOAD_SCRIPT-->');
+					$scripts = $SHParser->getInnerHTML('', '');
 
 					if ($scripts !== "")
 						$JSResult['message'] = $scripts."\n".$JSResult['message'];
@@ -77,7 +70,7 @@ if ($arParams['AJAX_POST']=='Y' && ($_REQUEST["save_product_review"] == "Y"))
 			}
 		}
 	}
-	else // preview
+	else 
 	{
 		if (empty($arError))
 		{
@@ -89,7 +82,7 @@ if ($arParams['AJAX_POST']=='Y' && ($_REQUEST["save_product_review"] == "Y"))
 			if (mb_strpos($JSResult['previewMessage'], "onForumImageLoad") !== false)
 			{
 				$SHParser = new CForumSimpleHTMLParser($APPLICATION->GetHeadStrings());
-				$scripts = $SHParser->getInnerHTML('<!--LOAD_SCRIPT-->', '<!--END_LOAD_SCRIPT-->');
+				$scripts = $SHParser->getInnerHTML('', '');
 
 				if ($scripts !== "")
 					$JSResult['previewMessage'] = $scripts."\n".$JSResult['previewMessage'];

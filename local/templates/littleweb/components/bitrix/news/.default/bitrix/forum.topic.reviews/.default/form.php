@@ -1,12 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/**
- * Bitrix vars
- *
- * @var array $arParams, $arResult
- * @var CBitrixComponentTemplate $this
- * @var CMain $APPLICATION
- * @var CUser $USER
- */
+
 $tabIndex = 1;
 ?><? if ($arParams['SHOW_MINIMIZED'] == "Y")
 {
@@ -80,7 +73,7 @@ endif;
 	?>
 	<div style="position:relative; display: block; width:100%;">
 		<?
-		/* GUEST PANEL */
+		
 		if (!$arResult["IS_AUTHORIZED"]):
 			?>
 			<div class="reviews-reply-fields">
@@ -142,7 +135,7 @@ endif;
 		</div>
 		<?
 
-		/* CAPTHCA */
+		
 		if ($arResult["CAPTCHA_CODE"] <> ''):
 			?>
 			<div class="reviews-reply-field reviews-reply-field-captcha">
@@ -157,7 +150,7 @@ endif;
 			</div>
 		<?
 		endif;
-		/* ATTACH FILES */
+		
 		if ($arResult["SHOW_PANEL_ATTACH_IMG"] == "Y"):
 			?>
 			<div class="reviews-reply-field reviews-reply-field-upload">
@@ -214,7 +207,7 @@ endif;
 		?>
 		<div class="reviews-reply-field reviews-reply-field-settings">
 			<?
-			/* SMILES */
+			
 			if ($arResult["FORUM"]["ALLOW_SMILES"] == "Y"):
 				?>
 				<div class="reviews-reply-field-setting">
@@ -224,7 +217,7 @@ endif;
 					?>&nbsp;<label for="REVIEW_USE_SMILES<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_ALLOW_SMILES")?></label></div>
 			<?
 			endif;
-			/* SUBSCRIBE */
+			
 			if ($arResult["SHOW_SUBSCRIBE"] == "Y"):
 				?>
 				<div class="reviews-reply-field-setting">

@@ -24,6 +24,8 @@ import { initPortfolioPreview } from "../../components/bitrix/news.list/portfoli
 import { initBlogPreview } from "../../components/bitrix/news.list/blog-preview/_src/js/index";
 import { initReviewsPreview } from "../../components/bitrix/news.list/reviews-preview/_src/js/index";
 
+import "./modules/scroll-up-btn";
+
 const LOADER_HIDE_TIMEOUT = 700;
 
 const waitForDomReady = () => {

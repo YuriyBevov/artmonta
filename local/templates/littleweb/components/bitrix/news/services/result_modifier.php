@@ -3,7 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
 }
-/** @var array $arParams */
+
 $arParams['USE_SHARE'] = (string)($arParams['USE_SHARE'] ?? 'N');
 $arParams['USE_SHARE'] = $arParams['USE_SHARE'] === 'Y' ? 'Y' : 'N';
 $arParams['SHARE_HIDE'] = (string)($arParams['SHARE_HIDE'] ?? 'N');

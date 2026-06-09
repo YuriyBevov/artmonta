@@ -2,17 +2,17 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 }
-/** @var array $arParams */
-/** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
+
+
+
+
+
+
+
+
+
+
+
 $this->setFrameMode(true);
 
 $ElementID = $APPLICATION->IncludeComponent(
@@ -20,7 +20,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 	"portfolio-detail",
 	[
 		"IS_INNER" => true,
-		// "SECTION_HEADER_CLS" => '--align-center',
+		
 		"DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
 		"DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
 		"DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],

@@ -11,5 +11,4 @@ export function initCustomSelect() {
 	});
 }
 
-// Экспортируем для внешнего использования
 window.initCustomSelect = initCustomSelect;

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<!-- <link rel="shortcut icon" type="image/x-icon" href="<?= SITE_TEMPLATE_PATH ?>/favicon.ico" /> -->
+	
 
 	<? $APPLICATION->ShowHead(); ?>
 	<title><? $APPLICATION->ShowTitle() ?></title>
@@ -77,9 +77,9 @@
 						);
 						?>
 					</div>
-					<!-- social -->
+					
 					<? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/social.php");  ?>
-					<!-- social -->
+					
 
 				</div>
 			</div>
@@ -110,9 +110,9 @@
 		</div>
 	</header>
 	<? if ($curPage === '/'): ?>
-		<!-- Главный блок -->
+		
 		<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
-		<!-- Главный блок -->
+		
 
 		<div class="hero-overlay"></div>
 	<? endif; ?>

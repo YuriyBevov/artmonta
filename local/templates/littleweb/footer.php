@@ -89,9 +89,9 @@
   </div>
 </footer>
 
-<!-- <div id="smooth-wrapper"> -->
+
 </div>
-<!-- <div id="smooth-content"> -->
+
 </div>
 
 <? $APPLICATION->IncludeComponent(

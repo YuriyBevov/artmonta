@@ -1,15 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/**
- * Bitrix vars
- *
- * @var array $arParams
- * @var array $arResult
- * @var CBitrixComponentTemplate $this
- * @var CMain $APPLICATION
- * @var CUser $USER
- */
+
 CUtil::InitJSCore(array('ajax', 'fx', 'viewer'));
-// ************************* Input params***************************************************************
+
 $arParams["SHOW_LINK_TO_FORUM"] = ($arParams["SHOW_LINK_TO_FORUM"] == "N" ? "N" : "Y");
 $arParams["FILES_COUNT"] = intval(intval($arParams["FILES_COUNT"]) > 0 ? $arParams["FILES_COUNT"] : 1);
 $arParams["IMAGE_SIZE"] = (intval($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 100);
@@ -17,7 +9,7 @@ if (LANGUAGE_ID == 'ru'):
 	$path = str_replace(array("\\", "//"), "/", __DIR__."/ru/script.php");
 	include($path);
 endif;
-// *************************/Input params***************************************************************
+
 if (!empty($arResult["MESSAGES"])):
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 1):
 ?>

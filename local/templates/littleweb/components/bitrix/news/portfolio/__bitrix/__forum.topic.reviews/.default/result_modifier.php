@@ -1,5 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/** @var CBitrixComponentTemplate $this */
+
 $arParams["form_index"] = $this->randString(4);
 
 $arParams["FORM_ID"] = "REPLIER".$arParams["form_index"];

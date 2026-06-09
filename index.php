@@ -3,12 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
 ?>
 
-<!-- Главный блок -->
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/preview-text-section/template.php");  ?>
-<!-- Главный блок -->
-
-
-<!-- Преимущества -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"features",
@@ -76,9 +71,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	),
 	false
 ); ?>
-<!-- Преимущества -->
-
-<!-- Портфолио -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"portfolio-preview",
@@ -145,9 +137,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	],
 	false
 ); ?>
-<!-- Портфолио -->
-
-<!-- Услуги -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"services-list",
@@ -213,15 +202,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 	],
 	false
 ); ?>
-<!-- Услуги -->
-
-
-
-<!-- Скачать прайс-лист -->
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/pricelist-download/template.php");  ?>
-<!-- Скачать прайс-лист -->
-
-<!-- Какие стенды мы производим -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"project-list",
@@ -287,13 +268,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	],
 	false
 ); ?>
-<!-- Какие стенды мы производим -->
-
-
-
-
-
-<!-- Этапы работы -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"workflow",
@@ -359,13 +333,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 	),
 	false
 ); ?>
-<!-- Этапы работы -->
-
-<!-- О компании -->
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/about-front-section/template.php");  ?>
-<!-- О компании -->
-
-<!-- Блог -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"blog-preview",
@@ -433,10 +401,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	],
 	false
 ); ?>
-<!-- Блог -->
-
-
-<!-- Наши клиенты -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"image-creeper-line",
@@ -503,9 +467,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	),
 	false
 ); ?>
-<!-- Наши клиенты -->
-
-<!-- Отзывы -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"reviews-preview",
@@ -572,9 +533,6 @@ $APPLICATION->SetTitle("Мебельная компания");
 	],
 	false
 ); ?>
-<!-- Отзывы -->
-
-<!-- Вопросы и ответы -->
 <? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"accordeon-list",
@@ -645,7 +603,4 @@ $APPLICATION->SetTitle("Мебельная компания");
 	),
 	false
 ); ?>
-<!-- Вопросы и ответы -->
-
-
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

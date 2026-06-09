@@ -10,7 +10,7 @@ $APPLICATION->IncludeComponent(
 	"portfolio-list",
 	[
 		"IS_INNER" => true,
-		// "SECTION_HEADER_CLS" => '--align-center',
+		
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"NEWS_COUNT" => $arParams["NEWS_COUNT"],

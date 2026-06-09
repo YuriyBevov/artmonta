@@ -1,4 +1,3 @@
-// @use "@scss/base/container-queries" as *;
 
 .captcha-block {
 	display: grid;
@@ -6,9 +5,6 @@
 	align-items: center;
 	gap: 12px;
 
-	// &-container {
-	// 	container: captcha / inline-size;
-	// }
 
 	img {
 		display: flex;

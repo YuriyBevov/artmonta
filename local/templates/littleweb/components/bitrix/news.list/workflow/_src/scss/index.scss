@@ -63,10 +63,10 @@
 					height: 29px;
 					border-radius: 50%;
 
-					/* Красный бордер */
+					
 					border: 2px solid var(--primary);
 
-					/* Синий фон с красным кругом в центре через радиальный градиент */
+					
 					background: radial-gradient(
 						circle at center,
 						var(--primary) 1px,

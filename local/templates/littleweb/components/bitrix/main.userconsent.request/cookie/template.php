@@ -1,8 +1,8 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-/** @var array $arParams */
-/** @var array $arResult */
+
+
 
 $cookieName = 'ARTMONTA_COOKIE_CONSENT_' . (int)$arParams['ID'];
 

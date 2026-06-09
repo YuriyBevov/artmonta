@@ -357,7 +357,6 @@
 			}
 		},
 		setTextToPopup: function (text) {
-			// set title from a first line from text.
 			var titleBar = "";
 			var textTitlePos = text.indexOf("\n");
 			var textTitleDotPos = text.indexOf(".");

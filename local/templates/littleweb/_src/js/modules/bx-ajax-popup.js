@@ -15,13 +15,11 @@ export const initBxAjaxPopup = () => {
 			opener.style.pointerEvents = "none";
 			evt.preventDefault();
 
-			// просто форма
 			var formId = opener.getAttribute("data-form-id");
 			if (formId) {
 				var url = "/local/ajax/popup_form.php?form_id=" + formId;
 			}
 
-			// купить в 1 клик
 			var oneClickBuyProductId = opener.getAttribute("data-1clickbuy-id");
 			if (oneClickBuyProductId) {
 				url =
@@ -29,7 +27,6 @@ export const initBxAjaxPopup = () => {
 					encodeURIComponent(oneClickBuyProductId);
 			}
 
-			// быстрый просмотр
 			var quickviewProductId = opener.getAttribute("data-quickview-id");
 			if (quickviewProductId) {
 				url =
@@ -61,7 +58,6 @@ export const initBxAjaxPopup = () => {
 						},
 					});
 
-					// === АНИМАЦИЯ ПОЯВЛЕНИЯ ===
 					const originalShow = popup.show.bind(popup);
 
 					popup.show = function () {
@@ -70,7 +66,6 @@ export const initBxAjaxPopup = () => {
 
 						if (!popupEl) return;
 						bodyLocker(true);
-						// Начальное состояние
 						if (overlayEl) {
 							overlayEl.style.opacity = "0";
 							overlayEl.style.transition =
@@ -79,17 +74,11 @@ export const initBxAjaxPopup = () => {
 						popupEl.style.opacity = "0";
 						popupEl.style.transform = "translateY(20px)";
 						popupEl.style.transition = "none";
-						// Начальное состояние
-						// Trigger reflow
 						if (overlayEl) overlayEl.offsetHeight;
 						popupEl.offsetHeight;
-						// Trigger reflow
 
-						// Показ модального окна
 						originalShow();
-						// Показ модального окна
 
-						// Анимации
 						if (overlayEl) {
 							overlayEl.style.opacity = "1";
 						}
@@ -97,7 +86,6 @@ export const initBxAjaxPopup = () => {
 						popupEl.style.transition = "opacity 0.4s ease, transform 0.4s ease";
 						popupEl.style.opacity = "1";
 						popupEl.style.transform = "translateY(0)";
-						// Анимации
 					};
 
 					const originalClose = popup.close.bind(popup);
@@ -110,7 +98,6 @@ export const initBxAjaxPopup = () => {
 							return originalClose();
 						}
 
-						// Анимация исчезновения
 						if (overlayEl) {
 							overlayEl.style.transition = "opacity .4s ease";
 							overlayEl.style.opacity = "0";
@@ -118,15 +105,12 @@ export const initBxAjaxPopup = () => {
 						popupEl.style.transition = "opacity 0.3s ease, transform 0.3s ease";
 						popupEl.style.opacity = "0";
 						popupEl.style.transform = "translateY(20px)";
-						// Анимация исчезновения
 
-						// Скрытие модального окна
 						setTimeout(() => {
 							bodyLocker(false);
 							originalClose();
 							opener.style.pointerEvents = "";
 						}, 450);
-						// Скрытие модального окна
 					};
 
 					popup.show();

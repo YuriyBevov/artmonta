@@ -90,8 +90,7 @@
 <? if ($_REQUEST['AJAX_CALL'] == 'Y'): ?>
 	<script src="https://unpkg.com/imask"></script>
 	<script>
-		// BX.UserConsent.loadFromForms();
-		var fields = document.querySelectorAll('[data-type="tel"]');
+			var fields = document.querySelectorAll('[data-type="tel"]');
 		var options = {
 			mask: '+{7}(000) 000-00-00'
 		};

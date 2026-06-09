@@ -52,7 +52,6 @@
 	max-height: 0;
 
 	background: rgba(83, 44, 249, 0.7);
-	// border: 1px solid transparent;
 	border-radius: 6px;
 
 	z-index: 101;
@@ -72,7 +71,6 @@
 	.custom-select-panel {
 		max-height: 320px;
 		overflow-y: auto;
-		// border-color: #532cf9;
 		border: 1px solid #532cf9;
 	}
 
@@ -99,5 +97,4 @@
 }
 
 .custom-select-option.has-focus {
-	// background-color: var(--secondary);
 }

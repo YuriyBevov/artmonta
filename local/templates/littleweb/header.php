@@ -9,10 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<? if ($curPage === '/'): ?>
-		<link rel="preload" href="<?= SITE_TEMPLATE_PATH ?>/_dist/images/poster-desktop-2.jpg" as="image" fetchpriority="high">
+		<link rel="preload" href="<?= SITE_TEMPLATE_PATH ?>/_dist/images/poster.png" as="image" fetchpriority="high">
 	<? endif; ?>
 
-	
+
 
 	<? $APPLICATION->ShowHead(); ?>
 	<title><? $APPLICATION->ShowTitle() ?></title>
@@ -87,9 +87,9 @@
 						);
 						?>
 					</div>
-					
+
 					<? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/social.php");  ?>
-					
+
 
 				</div>
 			</div>
@@ -120,9 +120,9 @@
 		</div>
 	</header>
 	<? if ($curPage === '/'): ?>
-		
+
 		<? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/hero-section/template.php");  ?>
-		
+
 
 		<div class="hero-overlay"></div>
 	<? endif; ?>
@@ -137,14 +137,14 @@
 			<main class="workarea">
 				<? if ($curPage != '/' && !defined("ERROR_404")):
 					$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"lw-breadcrumb", 
-	[
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0",
-		"COMPONENT_TEMPLATE" => "lw-breadcrumb"
-	],
-	false
-);
+						"bitrix:breadcrumb",
+						"lw-breadcrumb",
+						[
+							"PATH" => "",
+							"SITE_ID" => "s1",
+							"START_FROM" => "0",
+							"COMPONENT_TEMPLATE" => "lw-breadcrumb"
+						],
+						false
+					);
 				endif; ?>

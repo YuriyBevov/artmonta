@@ -1,7 +1,7 @@
 <section class="hero-section">
   <div class="container">
 
-    <video loop autoplay muted playsinline preload="auto" fetchpriority="high" poster="<?= SITE_TEMPLATE_PATH . '/_dist/images/poster-desktop-2.jpg' ?>">
+    <video fetchpriority="high" loop autoplay muted playsinline preload="auto" fetchpriority="high" poster="<?= SITE_TEMPLATE_PATH . '/_dist/images/poster.png' ?>">
       <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/hero-video.webm' ?>" type="video/webm">
       <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/hero-video.mp4' ?>" type="video/mp4">
     </video>

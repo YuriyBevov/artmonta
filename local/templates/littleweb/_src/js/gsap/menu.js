@@ -13,12 +13,18 @@ if (opener && closer && menu) {
 
 		tl.fromTo(
 			".menu",
-			{ opacity: 0, zIndex: -1, visibility: "hidden" },
+			{
+				opacity: 0,
+				zIndex: -1,
+				visibility: "hidden",
+				pointerEvents: "none",
+			},
 			{
 				display: "block",
 				opacity: 1,
 				zIndex: 999,
 				visibility: "visible",
+				pointerEvents: "auto",
 				duration: 0.4,
 			},
 		);

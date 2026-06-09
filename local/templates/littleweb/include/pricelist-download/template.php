@@ -1,5 +1,5 @@
-<section class="section pricelist-download">
-  <div class="container">
+<section class=" section pricelist-download">
+  <div class="container ">
     <?
     $APPLICATION->IncludeFile(
       SITE_TEMPLATE_PATH . '/include/section-header.php',

@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Мебельная компания");
+$APPLICATION->SetTitle("Артмонта");
 ?>
 
 <? include_once($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/preview-text-section/template.php");  ?>

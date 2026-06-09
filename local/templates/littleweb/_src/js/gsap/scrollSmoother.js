@@ -6,14 +6,22 @@ export const initScrollSmoother = () => {
 	registerScrollTrigger(ScrollSmoother);
 
 	if (!prefersReducedMotion()) {
-		ScrollSmoother.create({
-			wrapper: "#smooth-wrapper",
-			content: "#smooth-content",
-			smooth: 1.2,
-			smoothTouch: false,
-			effects: false,
-			ignoreMobileResize: true,
-			normalizeScroll: false,
+		const smootherMedia = gsap.matchMedia();
+
+		smootherMedia.add("(min-width: 1024px) and (hover: hover) and (pointer: fine)", () => {
+			const smoother = ScrollSmoother.create({
+				wrapper: "#smooth-wrapper",
+				content: "#smooth-content",
+				smooth: 1.2,
+				smoothTouch: false,
+				effects: false,
+				ignoreMobileResize: true,
+				normalizeScroll: false,
+			});
+
+			return () => {
+				smoother.kill();
+			};
 		});
 	}
 

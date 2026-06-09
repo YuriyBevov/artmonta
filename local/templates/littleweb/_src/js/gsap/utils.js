@@ -5,10 +5,17 @@ export { ScrollTrigger };
 
 export const registerScrollTrigger = (...plugins) => {
 	gsap.registerPlugin(ScrollTrigger, ...plugins);
+	ScrollTrigger.config({
+		ignoreMobileResize: true,
+	});
 };
 
 export const prefersReducedMotion = () =>
 	window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+export const isMobileScrollDevice = () =>
+	window.matchMedia?.("(hover: none), (pointer: coarse), (max-width: 1023px)")
+		.matches;
 
 let refreshTimer;
 

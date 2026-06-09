@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import {
+	isMobileScrollDevice,
 	onImageReady,
 	prefersReducedMotion,
 	registerScrollTrigger,
@@ -72,7 +73,7 @@ export const initBlogDetailPicture = () => {
 		);
 	});
 
-	if (!prefersReducedMotion()) {
+	if (!prefersReducedMotion() && !isMobileScrollDevice()) {
 		gsap.fromTo(
 			image,
 			{

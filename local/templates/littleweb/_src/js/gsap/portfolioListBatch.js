@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import {
+	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 	scheduleScrollRefresh,
@@ -136,7 +137,7 @@ const createRevealAnimation = (items) => {
 };
 
 const createImageParallax = (items) => {
-	if (prefersReducedMotion()) {
+	if (prefersReducedMotion() || isMobileScrollDevice()) {
 		return;
 	}
 
@@ -233,8 +234,15 @@ export const initPortfolioListBatch = () => {
 	});
 
 	let resizeTimeout;
+	let previousViewportWidth = window.innerWidth;
 
 	window.addEventListener("resize", () => {
+		if (isMobileScrollDevice() && window.innerWidth === previousViewportWidth) {
+			return;
+		}
+
+		previousViewportWidth = window.innerWidth;
+
 		window.clearTimeout(resizeTimeout);
 		resizeTimeout = window.setTimeout(() => {
 			layoutGalleries(galleries);

@@ -1,6 +1,10 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { prefersReducedMotion, registerScrollTrigger } from "./utils";
+import {
+	isMobileScrollDevice,
+	prefersReducedMotion,
+	registerScrollTrigger,
+} from "./utils";
 
 export const initScrollSmoother = () => {
 	registerScrollTrigger(ScrollSmoother);
@@ -27,7 +31,7 @@ export const initScrollSmoother = () => {
 
 	const heroOverlay = document.querySelector(".hero-overlay");
 
-	if (!heroOverlay || prefersReducedMotion()) {
+	if (!heroOverlay || prefersReducedMotion() || isMobileScrollDevice()) {
 		return;
 	}
 

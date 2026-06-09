@@ -15,6 +15,7 @@ lerna-debug.log*
 .access.php
 create-project.js
 *.config.mjs
+.htaccess
 
 /workup.php
 

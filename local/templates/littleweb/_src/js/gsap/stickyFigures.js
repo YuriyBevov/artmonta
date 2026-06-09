@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import {
+	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 	ScrollTrigger,
@@ -8,7 +9,7 @@ import {
 export const initStickyFigures = () => {
 	const figures = Array.from(document.querySelectorAll(".sticky-img"));
 
-	if (!figures.length || prefersReducedMotion()) {
+	if (!figures.length || prefersReducedMotion() || isMobileScrollDevice()) {
 		return;
 	}
 

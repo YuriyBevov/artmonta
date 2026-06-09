@@ -1,5 +1,9 @@
 import { gsap } from "gsap";
-import { prefersReducedMotion, registerScrollTrigger } from "./utils";
+import {
+	isMobileScrollDevice,
+	prefersReducedMotion,
+	registerScrollTrigger,
+} from "./utils";
 
 export const initReviewsPreviewBackground = () => {
 	const section = document.querySelector(".reviews-preview");
@@ -9,7 +13,7 @@ export const initReviewsPreviewBackground = () => {
 		return;
 	}
 
-	if (prefersReducedMotion()) {
+	if (prefersReducedMotion() || isMobileScrollDevice()) {
 		return;
 	}
 

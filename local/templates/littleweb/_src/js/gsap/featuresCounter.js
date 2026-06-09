@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import {
+	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 	scheduleScrollRefresh,
@@ -79,7 +80,15 @@ export const initFeaturesCounter = () => {
 	};
 
 	let resizeTimer;
+	let previousViewportWidth = window.innerWidth;
+
 	window.addEventListener("resize", () => {
+		if (isMobileScrollDevice() && window.innerWidth === previousViewportWidth) {
+			return;
+		}
+
+		previousViewportWidth = window.innerWidth;
+
 		clearTimeout(resizeTimer);
 		resizeTimer = setTimeout(refreshCardSizes, 150);
 	});

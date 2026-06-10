@@ -1,5 +1,5 @@
 <div class="section-inner-header <?= $arParams["CLASS"] ?? '' ?>">
-  <video loop autoplay muted playsinline preload="auto">
+  <video loop autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
     <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/inner.webm' ?>" type="video/webm">
     <source src="<?= SITE_TEMPLATE_PATH . '/_dist/video/inner.mp4' ?>" type="video/mp4">
   </video>

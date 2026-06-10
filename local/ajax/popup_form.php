@@ -14,6 +14,7 @@ $APPLICATION->IncludeComponent(
   "bitrix:form.result.new",
   "callback-form",
   array(
+    "POPUP_VIEW" => "Y",
     "AJAX_MODE" => "Y", // включаем AJAX-режим
     "AJAX_OPTION_JUMP" => "N",
     "AJAX_OPTION_STYLE" => "Y",

@@ -12,6 +12,7 @@ const MIN_COLUMN_WIDTH = 260;
 const MAX_COLUMNS = 3;
 const GAP = 24;
 const MOBILE_PARALLAX_DISTANCE = 14;
+const RESIZE_REINIT_DELAY = 100;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 
@@ -102,39 +103,46 @@ const createRevealAnimation = (items) => {
 		.map((item) => item.querySelector(".gallery__item-wrapper"))
 		.filter((media) => media);
 
-	gsap.set(mediaItems, {
-		autoAlpha: 0,
-		y: 40,
-		clipPath: "inset(12% 0% 0% 0%)",
-		willChange: "transform, opacity, clip-path",
+	const context = gsap.context(() => {
+		gsap.set(mediaItems, {
+			autoAlpha: 0,
+			y: 40,
+			clipPath: "inset(12% 0% 0% 0%)",
+			willChange: "transform, opacity, clip-path",
+		});
+
+		ScrollTrigger.batch(mediaItems, {
+			start: "top 92%",
+			onEnter: (batch) => {
+				gsap.to(batch, {
+					autoAlpha: 1,
+					y: 0,
+					clipPath: "inset(0% 0% 0% 0%)",
+					duration: 0.8,
+					ease: "power3.out",
+					stagger: 0.08,
+					overwrite: true,
+					clearProps: "will-change",
+				});
+			},
+			onLeaveBack: (batch) => {
+				gsap.to(batch, {
+					autoAlpha: 0,
+					y: 40,
+					clipPath: "inset(12% 0% 0% 0%)",
+					duration: 0.45,
+					ease: "power2.out",
+					overwrite: true,
+					clearProps: "will-change",
+				});
+			},
+		});
 	});
 
-	ScrollTrigger.batch(mediaItems, {
-		start: "top 92%",
-		onEnter: (batch) => {
-			gsap.to(batch, {
-				autoAlpha: 1,
-				y: 0,
-				clipPath: "inset(0% 0% 0% 0%)",
-				duration: 0.8,
-				ease: "power3.out",
-				stagger: 0.08,
-				overwrite: true,
-				clearProps: "will-change",
-			});
-		},
-		onLeaveBack: (batch) => {
-			gsap.to(batch, {
-				autoAlpha: 0,
-				y: 40,
-				clipPath: "inset(12% 0% 0% 0%)",
-				duration: 0.45,
-				ease: "power2.out",
-				overwrite: true,
-				clearProps: "will-change",
-			});
-		},
-	});
+	return () => {
+		gsap.killTweensOf(mediaItems);
+		context.revert();
+	};
 };
 
 const animateWrapperIn = (wrapper) => {
@@ -171,7 +179,9 @@ const createMobileRevealAnimation = (wrappers) => {
 
 	if (!("IntersectionObserver" in window)) {
 		wrappers.forEach(animateWrapperIn);
-		return;
+		return () => {
+			gsap.killTweensOf(wrappers);
+		};
 	}
 
 	const observer = new IntersectionObserver(
@@ -194,45 +204,63 @@ const createMobileRevealAnimation = (wrappers) => {
 	);
 
 	wrappers.forEach((wrapper) => observer.observe(wrapper));
+
+	return () => {
+		observer.disconnect();
+		gsap.killTweensOf(wrappers);
+	};
 };
 
 const createImageParallax = (items) => {
 	if (prefersReducedMotion()) {
-		return;
+		return () => {};
 	}
 
-	items.forEach((item, index) => {
-		const image = item.querySelector("img");
+	const context = gsap.context(() => {
+		items.forEach((item, index) => {
+			const image = item.querySelector("img");
 
-		if (!image) {
-			return;
-		}
+			if (!image) {
+				return;
+			}
 
-		const distance = 24 + (index % 3) * 8;
+			const distance = 24 + (index % 3) * 8;
 
-		gsap.fromTo(
-			image,
-			{
-				y: -distance,
-			},
-			{
-				y: distance,
-				ease: "none",
-				scrollTrigger: {
-					trigger: item,
-					start: "top bottom",
-					end: "bottom top",
-					scrub: 1,
-					invalidateOnRefresh: true,
+			gsap.fromTo(
+				image,
+				{
+					y: -distance,
 				},
-			},
-		);
+				{
+					y: distance,
+					ease: "none",
+					scrollTrigger: {
+						trigger: item,
+						start: "top bottom",
+						end: "bottom top",
+						scrub: 1,
+						invalidateOnRefresh: true,
+					},
+				},
+			);
+		});
 	});
+
+	return () => {
+		items.forEach((item) => {
+			const image = item.querySelector("img");
+
+			if (image) {
+				gsap.killTweensOf(image);
+			}
+		});
+		context.revert();
+	};
 };
 
 const createMobileImageParallax = (items) => {
 	if (prefersReducedMotion()) {
-		return;
+		return () => {};
 	}
 
 	const parallaxItems = items
@@ -257,7 +285,7 @@ const createMobileImageParallax = (items) => {
 		.filter((item) => item);
 
 	if (!parallaxItems.length) {
-		return;
+		return () => {};
 	}
 
 	let ticking = false;
@@ -300,6 +328,41 @@ const createMobileImageParallax = (items) => {
 	update();
 	window.addEventListener("scroll", requestUpdate, { passive: true });
 	window.addEventListener("resize", requestUpdate, { passive: true });
+
+	return () => {
+		window.removeEventListener("scroll", requestUpdate);
+		window.removeEventListener("resize", requestUpdate);
+		parallaxItems.forEach(({ item }) => {
+			const image = item.querySelector("img");
+
+			if (image) {
+				gsap.killTweensOf(image);
+			}
+		});
+	};
+};
+
+const createPortfolioAnimations = (items, wrappers) => {
+	const shouldUseMobileAnimations = isMobileScrollDevice();
+	const cleanups = [];
+
+	if (prefersReducedMotion()) {
+		gsap.set(wrappers, { autoAlpha: 1, y: 0, clipPath: "none" });
+	} else if (shouldUseMobileAnimations) {
+		cleanups.push(createMobileRevealAnimation(wrappers));
+	} else {
+		cleanups.push(createRevealAnimation(items));
+	}
+
+	if (shouldUseMobileAnimations) {
+		cleanups.push(createMobileImageParallax(items));
+	} else {
+		cleanups.push(createImageParallax(items));
+	}
+
+	return () => {
+		cleanups.forEach((cleanup) => cleanup?.());
+	};
 };
 
 export const initPortfolioListBatch = () => {
@@ -315,23 +378,9 @@ export const initPortfolioListBatch = () => {
 	const wrappers = items
 		.map((item) => item.querySelector(".gallery__item-wrapper"))
 		.filter((media) => media);
-	const shouldUseMobileAnimations = isMobileScrollDevice();
 
 	layoutGalleries(galleries);
-
-	if (prefersReducedMotion()) {
-		gsap.set(wrappers, { autoAlpha: 1, y: 0, clipPath: "none" });
-	} else if (shouldUseMobileAnimations) {
-		createMobileRevealAnimation(wrappers);
-	} else {
-		createRevealAnimation(items);
-	}
-
-	if (shouldUseMobileAnimations) {
-		createMobileImageParallax(items);
-	} else {
-		createImageParallax(items);
-	}
+	let animationCleanup = createPortfolioAnimations(items, wrappers);
 	scheduleScrollRefresh();
 
 	let layoutTimer;
@@ -380,8 +429,10 @@ export const initPortfolioListBatch = () => {
 
 		window.clearTimeout(resizeTimeout);
 		resizeTimeout = window.setTimeout(() => {
+			animationCleanup();
 			layoutGalleries(galleries);
+			animationCleanup = createPortfolioAnimations(items, wrappers);
 			scheduleScrollRefresh();
-		}, 150);
+		}, RESIZE_REINIT_DELAY);
 	});
 };

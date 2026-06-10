@@ -1,4 +1,6 @@
 (function () {
+	var BANNER_SHOW_DELAY = 1000;
+
 	var getCookie = function (name) {
 		var matches = document.cookie.match(
 			new RegExp(
@@ -25,7 +27,13 @@
 	};
 
 	var hideBanner = function (banner) {
+		banner.classList.remove("is-visible");
 		banner.style.display = "none";
+	};
+
+	var showBanner = function (banner) {
+		banner.style.display = "";
+		banner.classList.add("is-visible");
 	};
 
 	var initBanner = function (banner) {
@@ -56,6 +64,8 @@
 			return;
 		}
 
+		showBanner(banner);
+
 		BX.bind(acceptButton, "click", function () {
 			var data = {
 				action: "saveConsent",
@@ -84,7 +94,7 @@
 					if (response.error) {
 						inputNode.checked = false;
 						acceptButton.disabled = false;
-						alert("Не удалось сохранить согласие. Попробуйте еще раз.");
+						console.error("Не удалось сохранить согласие. Попробуйте еще раз.");
 						return;
 					}
 
@@ -94,17 +104,27 @@
 				onfailure: function () {
 					inputNode.checked = false;
 					acceptButton.disabled = false;
-					alert("Не удалось сохранить согласие. Попробуйте еще раз.");
+					console.error("Не удалось сохранить согласие. Попробуйте еще раз.");
 				},
 			});
 		});
 	};
 
-	BX.ready(function () {
+	var initBanners = function () {
 		var banners = document.querySelectorAll("[data-cookie-consent-banner]");
 
 		for (var i = 0; i < banners.length; i++) {
 			initBanner(banners[i]);
 		}
-	});
+	};
+
+	var scheduleInit = function () {
+		window.setTimeout(initBanners, BANNER_SHOW_DELAY);
+	};
+
+	if (document.readyState === "complete") {
+		scheduleInit();
+	} else {
+		window.addEventListener("load", scheduleInit, { once: true });
+	}
 })();

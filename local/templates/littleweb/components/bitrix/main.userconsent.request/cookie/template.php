@@ -17,14 +17,15 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 <style>
 	.main-user-consent-cookie {
 		position: fixed;
-		right: 24px;
+
 		bottom: 24px;
 		left: var(--container-offset);
 		z-index: 10000;
-		display: flex;
+		display: none;
 		flex-direction: column;
 
 		gap: 24px;
+		width: calc(100% - var(--container-offset)* 2);
 		max-width: 640px;
 		padding: 24px 18px;
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
@@ -36,13 +37,17 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 		border-radius: 20px;
 	}
 
+	.main-user-consent-cookie.is-visible {
+		display: flex;
+	}
+
 	.main-user-consent-cookie-control {
 		display: none;
 	}
 
 	.main-user-consent-cookie-text {
 		color: var(--white);
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 1.45;
 	}
 
@@ -63,7 +68,7 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 		border-radius: 12px;
 
 		span {
-			font-size: 18px;
+			font-size: 16px;
 			font-weight: 600;
 		}
 	}
@@ -89,6 +94,8 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 		if (!window.BX) {
 			return;
 		}
+
+		var BANNER_SHOW_DELAY = 1000;
 
 		var getCookie = function(name) {
 			var matches = document.cookie.match(
@@ -116,7 +123,13 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 		};
 
 		var hideBanner = function(banner) {
+			banner.classList.remove("is-visible");
 			banner.style.display = "none";
+		};
+
+		var showBanner = function(banner) {
+			banner.style.display = "";
+			banner.classList.add("is-visible");
 		};
 
 		var initBanner = function(banner) {
@@ -140,6 +153,8 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 			} catch (e) {
 				return;
 			}
+
+			showBanner(banner);
 
 			BX.bind(acceptButton, "click", function() {
 				var data = {
@@ -169,7 +184,7 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 						if (response.error) {
 							inputNode.checked = false;
 							acceptButton.disabled = false;
-							alert("Не удалось сохранить согласие. Попробуйте еще раз.");
+							console.error("Не удалось сохранить согласие. Попробуйте еще раз.");
 							return;
 						}
 
@@ -179,18 +194,30 @@ $config = \Bitrix\Main\Web\Json::encode($arResult['CONFIG']);
 					onfailure: function() {
 						inputNode.checked = false;
 						acceptButton.disabled = false;
-						alert("Не удалось сохранить согласие. Попробуйте еще раз.");
+						console.error("Не удалось сохранить согласие. Попробуйте еще раз.");
 					}
 				});
 			});
 		};
 
-		BX.ready(function() {
+		var initBanners = function() {
 			var banners = document.querySelectorAll("[data-cookie-consent-banner]");
 
 			for (var i = 0; i < banners.length; i++) {
 				initBanner(banners[i]);
 			}
-		});
+		};
+
+		var scheduleInit = function() {
+			window.setTimeout(initBanners, BANNER_SHOW_DELAY);
+		};
+
+		if (document.readyState === "complete") {
+			scheduleInit();
+		} else {
+			window.addEventListener("load", scheduleInit, {
+				once: true
+			});
+		}
 	})();
 </script>

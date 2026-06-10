@@ -4,7 +4,7 @@
 	bottom: 24px;
 	left: 24px;
 	z-index: 10000;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: space-between;
 	gap: 24px;
@@ -16,6 +16,10 @@
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-user-consent-cookie.is-visible {
+	display: flex;
 }
 
 .main-user-consent-cookie-control {
@@ -62,8 +66,11 @@
 		right: 12px;
 		bottom: 12px;
 		left: 12px;
-		display: block;
 		padding: 16px;
+	}
+
+	.main-user-consent-cookie.is-visible {
+		display: block;
 	}
 
 	.main-user-consent-cookie-button {

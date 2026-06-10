@@ -30,6 +30,7 @@ export const initHeroContentSplitText = () => {
 		const split = new SplitText(element, {
 			type: "lines",
 			linesClass: "hero-split-line",
+			aria: "none",
 		});
 
 		split.lines.forEach((line) => {

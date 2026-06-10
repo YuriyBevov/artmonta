@@ -75,6 +75,7 @@ export const initTextSectionSplitText = () => {
 					type: "lines",
 					mask: "lines",
 					linesClass: "text-split-section__line",
+					aria: "none",
 				});
 
 				lines.push(...split.lines);

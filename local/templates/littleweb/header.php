@@ -112,7 +112,7 @@
 			</div>
 
 			<? include($_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/include/social.php");  ?>
-			<button type="button" class="burger-btn burger-btn--opener">
+			<button type="button" class="burger-btn burger-btn--opener" aria-label="Открыть меню">
 				<svg width='24' height='24' role='img' aria-hidden='true' focusable='false'>
 					<use xlink:href='<?= SITE_TEMPLATE_PATH ?>/_dist/sprite.svg#icon-burger'></use>
 				</svg>

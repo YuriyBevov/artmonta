@@ -58,16 +58,26 @@ const runAnimationInitializers = () => {
 	window.dispatchEvent(new CustomEvent("site:ready"));
 };
 
+let areAnimationsInitialized = false;
+
+const initAnimationsOnce = () => {
+	if (areAnimationsInitialized) {
+		return;
+	}
+
+	areAnimationsInitialized = true;
+	runAnimationInitializers();
+};
+
 const bootSite = async () => {
 	try {
 		const headerHeightReady = initSetHeaderHeight();
 		runUiInitializers();
 
 		await headerHeightReady;
+		initAnimationsOnce();
 		await waitForHeroVideoReady();
-		await hideSiteLoader({
-			onBeforeHide: runAnimationInitializers,
-		});
+		await hideSiteLoader();
 	} catch (error) {
 		await hideSiteLoader();
 		console.error("Site initialization failed", error);

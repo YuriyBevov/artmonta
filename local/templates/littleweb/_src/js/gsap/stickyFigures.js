@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import {
+	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 } from "./utils";
@@ -46,7 +47,9 @@ export const initStickyFigures = () => {
 
 	registerScrollTrigger();
 
+	const scrub = isMobileScrollDevice() ? true : 1;
+
 	figures.forEach((figure) => {
-		createStickyFigureAnimation(figure, 140, 1);
+		createStickyFigureAnimation(figure, 140, scrub);
 	});
 };

@@ -56,17 +56,17 @@
 					width: 100%;
 					max-width: 100%;
 					height: auto;
-					transform: translateY(-24px) scale(1.08);
+					transform: scale(1.08);
 					will-change: auto;
 				}
 			}
 
 			&:nth-child(3n + 2) > .gallery__item-wrapper img {
-				transform: translateY(-32px) scale(1.08);
+				transform: scale(1.08);
 			}
 
 			&:nth-child(3n) > .gallery__item-wrapper img {
-				transform: translateY(-40px) scale(1.08);
+				transform: scale(1.08);
 			}
 		}
 	}

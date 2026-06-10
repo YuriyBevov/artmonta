@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import {
+	isMobileScrollDevice,
 	prefersReducedMotion,
 	registerScrollTrigger,
 } from "./utils";
@@ -30,6 +31,7 @@ export const initScrollSmoother = () => {
 
 	const heroOverlay = document.querySelector(".hero-overlay");
 	const heroVideo = document.querySelector(".hero-section video");
+	const isMobileScroll = isMobileScrollDevice();
 	let isHeroVideoPaused = false;
 
 	if (!heroOverlay || prefersReducedMotion()) {
@@ -65,7 +67,7 @@ export const initScrollSmoother = () => {
 			trigger: ".hero-spacer",
 			start: "top top",
 			end: "bottom top",
-			scrub: 0.3,
+			scrub: isMobileScroll ? true : 0.3,
 			onUpdate: ({ progress }) => {
 				updateHeroVideoState(progress);
 			},

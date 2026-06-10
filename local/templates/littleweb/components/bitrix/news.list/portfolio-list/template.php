@@ -43,7 +43,7 @@ $this->setFrameMode(true);
 						<input type="hidden" name="<?= htmlspecialcharsbx($key) ?>" value="<?= htmlspecialcharsbx($value) ?>">
 					<? endforeach; ?>
 
-					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["TYPE"]) ?>" onchange="this.form.submit()">
+					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["TYPE"]) ?>">
 						<option value="">Все типы</option>
 						<? foreach ($portfolioFilterOptions["TYPE"] as $option): ?>
 							<option value="<?= htmlspecialcharsbx($option) ?>" <?= ($portfolioFilterSelected["TYPE"] === $option ? 'selected' : '') ?>>
@@ -52,7 +52,7 @@ $this->setFrameMode(true);
 						<? endforeach; ?>
 					</select>
 
-					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["CAT"]) ?>" onchange="this.form.submit()">
+					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["CAT"]) ?>">
 						<option value="">Все категории</option>
 						<? foreach ($portfolioFilterOptions["CAT"] as $option): ?>
 							<option value="<?= htmlspecialcharsbx($option) ?>" <?= ($portfolioFilterSelected["CAT"] === $option ? 'selected' : '') ?>>
@@ -61,7 +61,7 @@ $this->setFrameMode(true);
 						<? endforeach; ?>
 					</select>
 
-					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["YEAR"]) ?>" onchange="this.form.submit()">
+					<select class="custom-select portfolio-list__filter-select" name="<?= htmlspecialcharsbx($portfolioFilterParams["YEAR"]) ?>">
 						<option value="">Все&nbsp;года</option>
 						<? foreach ($portfolioFilterOptions["YEAR"] as $option): ?>
 							<option value="<?= htmlspecialcharsbx($option) ?>" <?= ($portfolioFilterSelected["YEAR"] === $option ? 'selected' : '') ?>>

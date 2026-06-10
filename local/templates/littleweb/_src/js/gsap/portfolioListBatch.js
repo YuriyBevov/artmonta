@@ -11,6 +11,7 @@ const DESKTOP_MEDIA = "(min-width: 768px)";
 const MIN_COLUMN_WIDTH = 260;
 const MAX_COLUMNS = 3;
 const GAP = 24;
+const MOBILE_PARALLAX_DISTANCE = 14;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 
@@ -136,8 +137,67 @@ const createRevealAnimation = (items) => {
 	});
 };
 
+const animateWrapperIn = (wrapper) => {
+	gsap.to(wrapper, {
+		autoAlpha: 1,
+		y: 0,
+		clipPath: "inset(0% 0% 0% 0%)",
+		duration: 0.8,
+		ease: "power3.out",
+		overwrite: true,
+		clearProps: "will-change",
+	});
+};
+
+const animateWrapperOut = (wrapper) => {
+	gsap.to(wrapper, {
+		autoAlpha: 0,
+		y: 40,
+		clipPath: "inset(12% 0% 0% 0%)",
+		duration: 0.45,
+		ease: "power2.out",
+		overwrite: true,
+		clearProps: "will-change",
+	});
+};
+
+const createMobileRevealAnimation = (wrappers) => {
+	gsap.set(wrappers, {
+		autoAlpha: 0,
+		y: 40,
+		clipPath: "inset(12% 0% 0% 0%)",
+		willChange: "transform, opacity, clip-path",
+	});
+
+	if (!("IntersectionObserver" in window)) {
+		wrappers.forEach(animateWrapperIn);
+		return;
+	}
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					animateWrapperIn(entry.target);
+					return;
+				}
+
+				if (entry.boundingClientRect.top > 0) {
+					animateWrapperOut(entry.target);
+				}
+			});
+		},
+		{
+			rootMargin: "0px 0px -8% 0px",
+			threshold: 0.01,
+		},
+	);
+
+	wrappers.forEach((wrapper) => observer.observe(wrapper));
+};
+
 const createImageParallax = (items) => {
-	if (prefersReducedMotion() || isMobileScrollDevice()) {
+	if (prefersReducedMotion()) {
 		return;
 	}
 
@@ -170,6 +230,78 @@ const createImageParallax = (items) => {
 	});
 };
 
+const createMobileImageParallax = (items) => {
+	if (prefersReducedMotion()) {
+		return;
+	}
+
+	const parallaxItems = items
+		.map((item) => {
+			const image = item.querySelector("img");
+
+			if (!image) {
+				return null;
+			}
+
+			gsap.set(image, {
+				y: -MOBILE_PARALLAX_DISTANCE,
+				force3D: true,
+				willChange: "transform",
+			});
+
+			return {
+				item,
+				setY: gsap.quickSetter(image, "y", "px"),
+			};
+		})
+		.filter((item) => item);
+
+	if (!parallaxItems.length) {
+		return;
+	}
+
+	let ticking = false;
+
+	const update = () => {
+		const viewportHeight =
+			window.innerHeight || document.documentElement.clientHeight;
+
+		parallaxItems.forEach(({ item, setY }) => {
+			const rect = item.getBoundingClientRect();
+
+			if (rect.bottom < 0 || rect.top > viewportHeight) {
+				return;
+			}
+
+			const progress = clamp(
+				(viewportHeight - rect.top) / (viewportHeight + rect.height),
+				0,
+				1,
+			);
+			const y =
+				-MOBILE_PARALLAX_DISTANCE +
+				progress * MOBILE_PARALLAX_DISTANCE * 2;
+
+			setY(y);
+		});
+
+		ticking = false;
+	};
+
+	const requestUpdate = () => {
+		if (ticking) {
+			return;
+		}
+
+		ticking = true;
+		window.requestAnimationFrame(update);
+	};
+
+	update();
+	window.addEventListener("scroll", requestUpdate, { passive: true });
+	window.addEventListener("resize", requestUpdate, { passive: true });
+};
+
 export const initPortfolioListBatch = () => {
 	const galleries = Array.from(document.querySelectorAll(".gallery"));
 
@@ -180,21 +312,26 @@ export const initPortfolioListBatch = () => {
 	registerScrollTrigger();
 
 	const items = Array.from(document.querySelectorAll(".gallery__item"));
+	const wrappers = items
+		.map((item) => item.querySelector(".gallery__item-wrapper"))
+		.filter((media) => media);
+	const shouldUseMobileAnimations = isMobileScrollDevice();
 
 	layoutGalleries(galleries);
 
 	if (prefersReducedMotion()) {
-		gsap.set(
-			items
-				.map((item) => item.querySelector(".gallery__item-wrapper"))
-				.filter((media) => media),
-			{ autoAlpha: 1, y: 0, clipPath: "none" },
-		);
+		gsap.set(wrappers, { autoAlpha: 1, y: 0, clipPath: "none" });
+	} else if (shouldUseMobileAnimations) {
+		createMobileRevealAnimation(wrappers);
 	} else {
 		createRevealAnimation(items);
 	}
 
-	createImageParallax(items);
+	if (shouldUseMobileAnimations) {
+		createMobileImageParallax(items);
+	} else {
+		createImageParallax(items);
+	}
 	scheduleScrollRefresh();
 
 	let layoutTimer;

@@ -19,102 +19,14 @@ import { initBxAjaxPopup } from "./modules/bx-ajax-popup";
 import { initCustomSelect } from "./modules/custom-select";
 import { initTableWrapper } from "./modules/table-wrapper";
 import { initBaseSlider } from "./modules/base-slider";
+import { runWhenDomReady } from "./modules/dom-ready";
+import { waitForHeroVideoReady } from "./modules/hero-video-ready";
+import { hideSiteLoader } from "./modules/site-loader";
+import { initScrollUpBtn } from "./modules/scroll-up-btn";
 
 import { initPortfolioPreview } from "../../components/bitrix/news.list/portfolio-preview/_src/js/index";
 import { initBlogPreview } from "../../components/bitrix/news.list/blog-preview/_src/js/index";
 import { initReviewsPreview } from "../../components/bitrix/news.list/reviews-preview/_src/js/index";
-
-import "./modules/scroll-up-btn";
-
-const LOADER_HIDE_TIMEOUT = 700;
-
-const waitForDomReady = () => {
-	if (document.readyState !== "loading") {
-		return Promise.resolve();
-	}
-
-	return new Promise((resolve) => {
-		document.addEventListener("DOMContentLoaded", resolve, { once: true });
-	});
-};
-
-const waitForWindowLoad = () => {
-	if (document.readyState === "complete") {
-		return Promise.resolve();
-	}
-
-	return new Promise((resolve) => {
-		window.addEventListener("load", resolve, { once: true });
-	});
-};
-
-const waitForHeroReady = () => {
-	const heroVideo = document.querySelector(".hero-section video");
-
-	if (!heroVideo) {
-		return Promise.resolve();
-	}
-
-	if (heroVideo.readyState >= 2) {
-		return Promise.resolve();
-	}
-
-	return new Promise((resolve) => {
-		let isResolved = false;
-
-		const finish = () => {
-			if (isResolved) {
-				return;
-			}
-
-			isResolved = true;
-			heroVideo.removeEventListener("loadeddata", finish);
-			heroVideo.removeEventListener("canplay", finish);
-			resolve();
-		};
-
-		heroVideo.addEventListener("loadeddata", finish, { once: true });
-		heroVideo.addEventListener("canplay", finish, { once: true });
-		window.setTimeout(finish, 1200);
-	});
-};
-
-const hideLoader = ({ onStart } = {}) => {
-	const loader = document.querySelector("[data-site-loader]");
-
-	if (!loader) {
-		document.body.classList.remove("site-loading");
-		onStart?.();
-		return Promise.resolve();
-	}
-
-	return new Promise((resolve) => {
-		let isResolved = false;
-
-		const finish = () => {
-			if (isResolved) {
-				return;
-			}
-
-			isResolved = true;
-			loader.remove();
-			resolve();
-		};
-
-		loader.addEventListener("transitionend", (event) => {
-			if (event.target === loader) {
-				finish();
-			}
-		});
-		window.setTimeout(finish, LOADER_HIDE_TIMEOUT);
-
-		window.requestAnimationFrame(() => {
-			document.body.classList.remove("site-loading");
-			onStart?.();
-			loader.classList.add("is-hidden");
-		});
-	});
-};
 
 const runUiInitializers = () => {
 	initSwiperInstance();
@@ -141,30 +53,25 @@ const runAnimationInitializers = () => {
 	initPortfolioDetailPicture();
 	initPortfolioListBatch();
 	initReviewsPreviewBackground();
+	initScrollUpBtn();
 
 	window.dispatchEvent(new CustomEvent("site:ready"));
 };
 
 const bootSite = async () => {
-	let headerHeightReady = Promise.resolve(false);
-
 	try {
-		await waitForDomReady();
-
-		headerHeightReady = initSetHeaderHeight();
+		const headerHeightReady = initSetHeaderHeight();
 		runUiInitializers();
 
 		await headerHeightReady;
-		await waitForHeroReady();
-		await hideLoader({
-			onStart: runAnimationInitializers,
+		await waitForHeroVideoReady();
+		await hideSiteLoader({
+			onBeforeHide: runAnimationInitializers,
 		});
-		waitForWindowLoad();
 	} catch (error) {
-		await headerHeightReady;
-		await hideLoader();
+		await hideSiteLoader();
 		console.error("Site initialization failed", error);
 	}
 };
 
-bootSite();
+runWhenDomReady(bootSite);

@@ -9,9 +9,6 @@
 	visibility: visible;
 	pointer-events: auto;
 	z-index: 2147483647;
-	transition:
-		opacity 0.6s ease,
-		visibility 0s linear 0s;
 
 	&__content {
 		display: flex;
@@ -34,15 +31,6 @@
 			width: clamp(150px, 18vw, 220px);
 		}
 	}
-}
-
-.site-loader.is-hidden {
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	transition:
-		opacity 0.6s ease,
-		visibility 0s linear 0.6s;
 }
 
 body.site-loading {

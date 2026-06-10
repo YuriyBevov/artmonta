@@ -10,7 +10,10 @@ $reviewTextLimit = 100;
 
 	<section class="section reviews-preview">
 		<div class="reviews-preview__bg" aria-hidden="true">
-			<img src="<?= SITE_TEMPLATE_PATH ?>/_dist/images/reviews-bg.png" alt="" loading="lazy">
+			<picture>
+				<source srcset="<?= SITE_TEMPLATE_PATH ?>/_dist/images/reviews-bg.webp" type="image/webp">
+				<img src="<?= SITE_TEMPLATE_PATH ?>/_dist/images/reviews-bg.png" alt="" loading="lazy">
+			</picture>
 		</div>
 
 		<div class="container">

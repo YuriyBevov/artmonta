@@ -8,17 +8,19 @@ const createStickyFigureAnimation = (figure, distance, scrub) => {
 	const direction = figure.classList.contains("sticky-img--right") ? 1 : -1;
 	const trigger = figure.closest(".section") || figure;
 
+	gsap.set(figure, {
+		force3D: true,
+	});
+
 	gsap.fromTo(
 		figure,
 		{
 			yPercent: -50,
 			y: distance * direction * -1,
-			force3D: true,
 		},
 		{
 			yPercent: -50,
 			y: distance * direction,
-			force3D: true,
 			ease: "none",
 			scrollTrigger: {
 				trigger,

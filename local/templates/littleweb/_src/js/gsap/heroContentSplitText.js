@@ -53,7 +53,6 @@ export const initHeroContentSplitText = () => {
 	gsap.set(animatedLines, {
 		autoAlpha: 0,
 		yPercent: 110,
-		willChange: "transform, opacity",
 	});
 
 	gsap
@@ -65,6 +64,11 @@ export const initHeroContentSplitText = () => {
 			},
 		})
 		.to(animatedLines, {
+			onStart: () => {
+				gsap.set(animatedLines, {
+					willChange: "transform, opacity",
+				});
+			},
 			autoAlpha: 1,
 			yPercent: 0,
 			duration: 0.8,

@@ -5,7 +5,10 @@ $this->setFrameMode(true);
 <? if ($arResult["ITEMS"]): ?>
   <section class="section features">
     <noindex>
-      <img class="sticky-img sticky-img--right" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img-424.png' ?>" srcset="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img-424.png' ?> 424w, <?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?> 597w" sizes="(max-width: 767px) 412px, 50vw" alt="" width="424" height="304">
+      <picture>
+        <source srcset="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img-424.webp' ?> 424w, <?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.webp' ?> 597w" sizes="(max-width: 767px) 412px, 50vw" type="image/webp">
+        <img class="sticky-img sticky-img--right" src="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img-424.png' ?>" srcset="<?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img-424.png' ?> 424w, <?= SITE_TEMPLATE_PATH . '/_dist/images/right-sticky-img.png' ?> 597w" sizes="(max-width: 767px) 412px, 50vw" alt="" width="424" height="304">
+      </picture>
     </noindex>
     <div class="container">
       <h2 class="visually-hidden"><?= $arResult["NAME"] ?></h2>

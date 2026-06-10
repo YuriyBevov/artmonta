@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<? if ($curPage === '/'): ?>
-		<link rel="preload" href="<?= SITE_TEMPLATE_PATH ?>/_dist/images/poster.png" as="image" fetchpriority="high">
+		<link rel="preload" href="<?= SITE_TEMPLATE_PATH ?>/_dist/images/poster.webp" as="image" type="image/webp" fetchpriority="high">
 	<? endif; ?>
 
 

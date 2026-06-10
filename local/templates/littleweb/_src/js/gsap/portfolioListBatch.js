@@ -154,11 +154,9 @@ const createImageParallax = (items) => {
 			image,
 			{
 				y: -distance,
-				scale: 1.08,
 			},
 			{
 				y: distance,
-				scale: 1.08,
 				ease: "none",
 				scrollTrigger: {
 					trigger: item,

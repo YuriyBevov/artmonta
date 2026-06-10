@@ -31,7 +31,7 @@
 	&__content {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 12px 24px;
+		gap: 16px;
 
 		@include container-up(callback-form-section, 440px) {
 			grid-template-columns: repeat(2, 1fr);
